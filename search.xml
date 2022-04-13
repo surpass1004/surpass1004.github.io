@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>01.为什么vue组件中的data要return</title>
-    <url>/blog/2022/04/13/01.%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</url>
-    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 防止多个组件实例对象之间共用一个data，产生数据污染 </p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>data属于引用数据类型 ,组件多次调用data都是内存的同一个地址，一个数据改变了，那么其他的数据也随之而改变 </p>
-<p>如果data是一个函数的话，那么我们每次创建一个新的实例之后，就会调用一个新的<code>data</code>函数。也就是给每一个<code>data</code>数据定义一个新的内存地址。这样的话，修改A而不会影响B. </p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>原理</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>02.Vue双向数据绑定</title>
-    <url>/blog/2022/04/13/02.Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
+    <url>/surpass/2022/04/13/02.Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
     <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> 数据劫持结合发布者-订阅者模式的方式 </p>
 <p> 通过 Object.defineProperty() 来劫持各个属性的 setter，getter </p>
@@ -62,8 +47,23 @@
       </tags>
   </entry>
   <entry>
+    <title>01.为什么vue组件中的data要return</title>
+    <url>/surpass/2022/04/13/01.%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</url>
+    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 防止多个组件实例对象之间共用一个data，产生数据污染 </p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>data属于引用数据类型 ,组件多次调用data都是内存的同一个地址，一个数据改变了，那么其他的数据也随之而改变 </p>
+<p>如果data是一个函数的话，那么我们每次创建一个新的实例之后，就会调用一个新的<code>data</code>函数。也就是给每一个<code>data</code>数据定义一个新的内存地址。这样的话，修改A而不会影响B. </p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>原理</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>03.路由模式</title>
-    <url>/blog/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
+    <url>/surpass/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
 <p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
@@ -95,7 +95,7 @@
   </entry>
   <entry>
     <title>04.浏览器内核及兼容前缀</title>
-    <url>/blog/2022/04/13/04.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%BC%E5%AE%B9%E5%89%8D%E7%BC%80/</url>
+    <url>/surpass/2022/04/13/04.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%BC%E5%AE%B9%E5%89%8D%E7%BC%80/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -140,7 +140,7 @@
   </entry>
   <entry>
     <title>05.行内与块的区别</title>
-    <url>/blog/2022/04/14/05-%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <url>/surpass/2022/04/14/05-%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
 <p>块级独据一行，可包含块级、行块、行内</p>
 <h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
@@ -155,13 +155,8 @@
       </tags>
   </entry>
   <entry>
-    <title>06.清除浮动</title>
-    <url>/blog/2022/04/14/06-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
-    <url>/blog/2022/04/11/hello-world/</url>
+    <url>/surpass/2022/04/11/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -178,50 +173,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>关于hexo的操作</title>
-    <url>/blog/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<h2 id="hexo的基本操作"><a href="#hexo的基本操作" class="headerlink" title="hexo的基本操作"></a>hexo的基本操作</h2><span id="more"></span>
-
-<h3 id="创建一个页面"><a href="#创建一个页面" class="headerlink" title="创建一个页面"></a>创建一个页面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//新建一个标题为 name 的页面，默认链接地址为主页地址/name / </span><br><span class="line">hexo new/n page name 	</span><br><span class="line"></span><br><span class="line">//在生成的.md文件配置</span><br><span class="line">title: 与_config.yml文件中 meun 配置一致</span><br><span class="line">date: </span><br><span class="line">type: 与_config.yml文件中 meun 配置的值一致</span><br><span class="line">layout: 打开的页面，尽量与type一致</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="创建博客文章"><a href="#创建博客文章" class="headerlink" title="创建博客文章"></a>创建博客文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//清除所有记录 </span><br><span class="line">hexo clean	</span><br><span class="line"></span><br><span class="line">//新建一个标题为 name 的文章 在你的blog/source/_posts下 name .md</span><br><span class="line">hexo new/n &quot;name &quot; </span><br><span class="line"></span><br><span class="line">//生成静态网页  到默认设置的 public 文件夹 </span><br><span class="line">hexo generate/g		</span><br><span class="line"></span><br><span class="line">//生成静态网页   并部署到设定的仓库 </span><br><span class="line">hexo deploy/d 	</span><br><span class="line"></span><br><span class="line">//启动服务 </span><br><span class="line">hexo server/s 	</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="配置分类或标签"><a href="#配置分类或标签" class="headerlink" title="配置分类或标签"></a>配置分类或标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//标题</span><br><span class="line">tags: name</span><br><span class="line"></span><br><span class="line">//分类</span><br><span class="line">categories: namae</span><br><span class="line"></span><br><span class="line">//多级分类</span><br><span class="line">categories:</span><br><span class="line">  - 主分类</span><br><span class="line">  - 次分类</span><br><span class="line">//或者</span><br><span class="line">categories: [主分类,次分类]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p> <a href="https://hexo.io/themes/">Themes | Hexo</a> </p>
-<p>cd 博客目录</p>
-<p>git clone 主题url</p>
-<p> 将博客根目录下的 <code>_config.yml</code> 里的 <code>theme</code> 值修改成下载的主题</p>
-<p>例：本博客采用Ayer</p>
-<p>详情见	 <a href="https://shen-yu.gitee.io/2019/ayer/#%E5%AE%89%E8%A3%85">Ayer中文说明 | 岛 (gitee.io)</a> </p>
-<h3 id="配置到远程仓库（码云）"><a href="#配置到远程仓库（码云）" class="headerlink" title="配置到远程仓库（码云）"></a>配置到远程仓库（码云）</h3><p>参考 <a href="https://blog.csdn.net/cungudafa/article/details/104260494?ops_request_misc=%7B%22request_id%22:%22164969418816782089398873%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=164969418816782089398873&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104260494.142%5Ev7%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B0gitee&spm=1018.2226.3001.4187">基于Gitee+Hexo搭建个人博客_cungudafa的博客-CSDN博客_gitee个人博客模板</a> </p>
-<p>项目目录下 _config.yml 文件 修改 </p>
-<p> ：后都有一个空格 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的项目地址（https）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>部署</p>
-<p>需要下载插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save	</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g --d  #一键部署</span><br></pre></td></tr></table></figure>
-
-<p>每次添加文件都要手动在gitee更新</p>
-]]></content>
-      <categories>
-        <category>操作</category>
-      </categories>
+    <title>06.清除浮动</title>
+    <url>/surpass/2022/04/14/06-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>04.浏览器内核及兼容前缀</title>
-    <url>/blog/2022/04/13/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%BC%E5%AE%B9%E5%89%8D%E7%BC%80/</url>
+    <url>/surpass/2022/04/13/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E5%8F%8A%E5%85%BC%E5%AE%B9%E5%89%8D%E7%BC%80/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -263,5 +221,47 @@
       <tags>
         <tag>HTML</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>关于hexo的操作</title>
+    <url>/surpass/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="hexo的基本操作"><a href="#hexo的基本操作" class="headerlink" title="hexo的基本操作"></a>hexo的基本操作</h2><span id="more"></span>
+
+<h3 id="创建一个页面"><a href="#创建一个页面" class="headerlink" title="创建一个页面"></a>创建一个页面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//新建一个标题为 name 的页面，默认链接地址为主页地址/name / </span><br><span class="line">hexo new/n page name 	</span><br><span class="line"></span><br><span class="line">//在生成的.md文件配置</span><br><span class="line">title: 与_config.yml文件中 meun 配置一致</span><br><span class="line">date: </span><br><span class="line">type: 与_config.yml文件中 meun 配置的值一致</span><br><span class="line">layout: 打开的页面，尽量与type一致</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建博客文章"><a href="#创建博客文章" class="headerlink" title="创建博客文章"></a>创建博客文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//清除所有记录 </span><br><span class="line">hexo clean	</span><br><span class="line"></span><br><span class="line">//新建一个标题为 name 的文章 在你的blog/source/_posts下 name .md</span><br><span class="line">hexo new/n &quot;name &quot; </span><br><span class="line"></span><br><span class="line">//生成静态网页  到默认设置的 public 文件夹 </span><br><span class="line">hexo generate/g		</span><br><span class="line"></span><br><span class="line">//生成静态网页   并部署到设定的仓库 </span><br><span class="line">hexo deploy/d 	</span><br><span class="line"></span><br><span class="line">//启动服务 </span><br><span class="line">hexo server/s 	</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置分类或标签"><a href="#配置分类或标签" class="headerlink" title="配置分类或标签"></a>配置分类或标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//标题</span><br><span class="line">tags: name</span><br><span class="line"></span><br><span class="line">//分类</span><br><span class="line">categories: namae</span><br><span class="line"></span><br><span class="line">//多级分类</span><br><span class="line">categories:</span><br><span class="line">  - 主分类</span><br><span class="line">  - 次分类</span><br><span class="line">//或者</span><br><span class="line">categories: [主分类,次分类]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p> <a href="https://hexo.io/themes/">Themes | Hexo</a> </p>
+<p>cd 博客目录</p>
+<p>git clone 主题url</p>
+<p> 将博客根目录下的 <code>_config.yml</code> 里的 <code>theme</code> 值修改成下载的主题</p>
+<p>例：本博客采用Ayer</p>
+<p>详情见	 <a href="https://shen-yu.gitee.io/2019/ayer/#%E5%AE%89%E8%A3%85">Ayer中文说明 | 岛 (gitee.io)</a> </p>
+<h3 id="配置到远程仓库（码云）"><a href="#配置到远程仓库（码云）" class="headerlink" title="配置到远程仓库（码云）"></a>配置到远程仓库（码云）</h3><p>参考 <a href="https://blog.csdn.net/cungudafa/article/details/104260494?ops_request_misc=%7B%22request_id%22:%22164969418816782089398873%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=164969418816782089398873&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104260494.142%5Ev7%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B0gitee&spm=1018.2226.3001.4187">基于Gitee+Hexo搭建个人博客_cungudafa的博客-CSDN博客_gitee个人博客模板</a> </p>
+<p>项目目录下 _config.yml 文件 修改 </p>
+<p> ：后都有一个空格 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的项目地址（https）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>部署</p>
+<p>需要下载插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g --d  #一键部署</span><br></pre></td></tr></table></figure>
+
+<p>每次添加文件都要手动在gitee更新</p>
+]]></content>
+      <categories>
+        <category>操作</category>
+      </categories>
   </entry>
 </search>
