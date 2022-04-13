@@ -16,38 +16,6 @@
       </tags>
   </entry>
   <entry>
-    <title>03.路由模式</title>
-    <url>/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
-<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
-
-<p> 如果使用history，路径与传统网址一样 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
-
-<p> 如果我们没有这个文件，而是用vue这种router </p>
-<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
-<p> 在nginx中配置每一个route，漏下一个就会404 </p>
-<p> <strong>history模式下的路由分发是服务端（nginx）来做的</strong> </p>
-<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>hash模式的url中“#“符号后面的路径并不是真实路径，而是以类似参数的形式传给默认文件 </p>
-<p>默认文件就是index，在这里通过“#“符号后面的路径去匹配路由处理，所以只要有index这一个文件是真实路径就可以 </p>
-<p> <strong>hash模式下的路由分发就不需要服务端来做了，直接在前端</strong>就处理 </p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>路由</category>
-        <category>路由模式</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>02.Vue双向数据绑定</title>
     <url>/2022/04/13/02.Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
     <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
@@ -139,6 +107,54 @@
       </tags>
   </entry>
   <entry>
+    <title>03.路由模式</title>
+    <url>/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
+<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
+
+<p> 如果使用history，路径与传统网址一样 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
+
+<p> 如果我们没有这个文件，而是用vue这种router </p>
+<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
+<p> 在nginx中配置每一个route，漏下一个就会404 </p>
+<p> <strong>history模式下的路由分发是服务端（nginx）来做的</strong> </p>
+<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>hash模式的url中“#“符号后面的路径并不是真实路径，而是以类似参数的形式传给默认文件 </p>
+<p>默认文件就是index，在这里通过“#“符号后面的路径去匹配路由处理，所以只要有index这一个文件是真实路径就可以 </p>
+<p> <strong>hash模式下的路由分发就不需要服务端来做了，直接在前端</strong>就处理 </p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>路由</category>
+        <category>路由模式</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>05.行内与块的区别</title>
+    <url>/2022/04/14/05-%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
+<p>块级独据一行，可包含块级、行块、行内</p>
+<h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
+<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display: block			//块</span><br><span class="line">display: inline-block	//行块</span><br><span class="line">display: inline			//行内</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>05.行内与块的区别</title>
     <url>/2022/04/14/05.%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
@@ -153,6 +169,11 @@
       <tags>
         <tag>HTML</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>06.清除浮动</title>
+    <url>/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -171,22 +192,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/2022/04/14/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<h1 id="dsadfa"><a href="#dsadfa" class="headerlink" title="dsadfa"></a>dsadfa</h1>]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>06.清除浮动</title>
-    <url>/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>关于hexo的操作</title>
@@ -231,8 +236,26 @@
       </categories>
   </entry>
   <entry>
+    <title>测试</title>
+    <url>/2022/04/14/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="dsadfa"><a href="#dsadfa" class="headerlink" title="dsadfa"></a>dsadfa</h1>]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>测试二</title>
     <url>/2022/04/14/%E6%B5%8B%E8%AF%95%E4%BA%8C/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>ds</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
   </entry>
 </search>
