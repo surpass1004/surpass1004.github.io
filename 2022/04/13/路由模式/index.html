@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>路由模式 |  Welcome</title>
+      <title>03.路由模式 |  Welcome</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/无限.svg" />
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  路由模式
+  03.路由模式
 </h1>
  
 
@@ -78,13 +78,17 @@
     <div class="article-meta">
       <a href="/2022/04/13/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/" class="article-date">
   <time datetime="2022-04-13T07:21:06.000Z" itemprop="datePublished">2022-04-13</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a> / <a class="article-category-link" href="/categories/Vue/%E8%B7%AF%E7%94%B1/">路由</a> / <a class="article-category-link" href="/categories/Vue/%E8%B7%AF%E7%94%B1/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/">路由模式</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">192</span>
         </span>
     </span>
 
@@ -100,13 +104,31 @@
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
+<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
+
+<p> 如果使用history，路径与传统网址一样 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h1><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
+
+<p> 如果我们没有这个文件，而是用vue这种router </p>
+<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
+<p> 在nginx中配置每一个route，漏下一个就会404 </p>
+<p> history模式下的路由分发是服务端（nginx）来做的 </p>
+ 
       <!-- reward -->
       
     </div>
@@ -163,6 +185,8 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
     </footer>
   </div>
 
