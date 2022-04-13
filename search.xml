@@ -139,27 +139,6 @@
       </tags>
   </entry>
   <entry>
-    <title>05.行内与块的区别</title>
-    <url>/knocking_Code/2022/04/14/05-%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
-<p>块级独据一行，可包含块级、行块、行内</p>
-<h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
-<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display: block			//块</span><br><span class="line">display: inline-block	//行块</span><br><span class="line">display: inline			//行内</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>06.清除浮动</title>
-    <url>/knocking_Code/2022/04/14/06-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>关于hexo的操作</title>
     <url>/knocking_Code/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<h2 id="hexo的基本操作"><a href="#hexo的基本操作" class="headerlink" title="hexo的基本操作"></a>hexo的基本操作</h2><span id="more"></span>
@@ -220,18 +199,29 @@
 ]]></content>
   </entry>
   <entry>
-    <title>01.为什么vue组件中的data要return</title>
-    <url>/knocking_Code/2022/04/13/%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</url>
-    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 防止多个组件实例对象之间共用一个data，产生数据污染 </p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>data属于引用数据类型 ,组件多次调用data都是内存的同一个地址，一个数据改变了，那么其他的数据也随之而改变 </p>
-<p>如果data是一个函数的话，那么我们每次创建一个新的实例之后，就会调用一个新的<code>data</code>函数。也就是给每一个<code>data</code>数据定义一个新的内存地址。这样的话，修改A而不会影响B. </p>
+    <title>05.行内与块的区别</title>
+    <url>/knocking_Code/2022/04/14/05.%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
+<p>块级独据一行，可包含块级、行块、行内</p>
+<h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
+<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display: block			//块</span><br><span class="line">display: inline-block	//行块</span><br><span class="line">display: inline			//行内</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>Vue</category>
-        <category>原理</category>
+        <category>HTML</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>HTML</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>测试</title>
+    <url>/knocking_Code/2022/04/14/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>06.清除浮动</title>
+    <url>/knocking_Code/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
