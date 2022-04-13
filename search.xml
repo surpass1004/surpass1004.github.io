@@ -19,34 +19,111 @@
 ]]></content>
   </entry>
   <entry>
-    <title>关于hexo搭建博客的一些操作</title>
+    <title>关于hexo的操作</title>
     <url>/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%B4%E6%98%8E/</url>
-    <content><![CDATA[<h2 id="关于hexo搭建博客的一些操作"><a href="#关于hexo搭建博客的一些操作" class="headerlink" title="关于hexo搭建博客的一些操作"></a>关于hexo搭建博客的一些操作</h2><span id="more"></span>
+    <content><![CDATA[<h2 id="hexo的基本操作"><a href="#hexo的基本操作" class="headerlink" title="hexo的基本操作"></a>hexo的基本操作</h2><span id="more"></span>
 
-<h3 id="创建第一条博客内容"><a href="#创建第一条博客内容" class="headerlink" title="创建第一条博客内容"></a>创建第一条博客内容</h3><p>hexo clean			# 清除所有记录 </p>
-<p>hexo generate&#x2F;g		# 生成静态网页  到默认设置的 public 文件夹 </p>
-<p>hexo deploy&#x2F;d 	# 生成静态网页   并部署到设定的仓库 </p>
-<p>hexo server&#x2F;s 	# 启动服务 </p>
-<p>hexo new&#x2F;n “name “   新建一个标题为 name 的文章 在你的blog&#x2F;source&#x2F;_posts下 name .md</p>
-<p>hexo new page name 	# 新建一个标题为 name 的页面，默认链接地址为 主页地址&#x2F;name &#x2F; </p>
+<h3 id="创建一个页面"><a href="#创建一个页面" class="headerlink" title="创建一个页面"></a>创建一个页面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//新建一个标题为 name 的页面，默认链接地址为主页地址/name / </span><br><span class="line">hexo new/n page name 	</span><br><span class="line"></span><br><span class="line">//在生成的.md文件配置</span><br><span class="line">title: 与_config.yml文件中 meun 配置一致</span><br><span class="line">date: </span><br><span class="line">type: 与_config.yml文件中 meun 配置的值一致</span><br><span class="line">layout: 打开的页面，尽量与type一致</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建博客文章"><a href="#创建博客文章" class="headerlink" title="创建博客文章"></a>创建博客文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//清除所有记录 </span><br><span class="line">hexo clean	</span><br><span class="line"></span><br><span class="line">//新建一个标题为 name 的文章 在你的blog/source/_posts下 name .md</span><br><span class="line">hexo new/n &quot;name &quot; </span><br><span class="line"></span><br><span class="line">//生成静态网页  到默认设置的 public 文件夹 </span><br><span class="line">hexo generate/g		</span><br><span class="line"></span><br><span class="line">//生成静态网页   并部署到设定的仓库 </span><br><span class="line">hexo deploy/d 	</span><br><span class="line"></span><br><span class="line">//启动服务 </span><br><span class="line">hexo server/s 	</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置分类或标签"><a href="#配置分类或标签" class="headerlink" title="配置分类或标签"></a>配置分类或标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//标题</span><br><span class="line">tags: name</span><br><span class="line"></span><br><span class="line">//分类</span><br><span class="line">categories: namae</span><br><span class="line"></span><br><span class="line">//多级分类</span><br><span class="line">categories:</span><br><span class="line">  - 主分类</span><br><span class="line">  - 次分类</span><br><span class="line">//或者</span><br><span class="line">categories: [主分类,次分类]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p> <a href="https://hexo.io/themes/">Themes | Hexo</a> </p>
 <p>cd 博客目录</p>
 <p>git clone 主题url</p>
 <p> 将博客根目录下的 <code>_config.yml</code> 里的 <code>theme</code> 值修改成下载的主题</p>
 <p>例：本博客采用Ayer</p>
 <p>详情见	 <a href="https://shen-yu.gitee.io/2019/ayer/#%E5%AE%89%E8%A3%85">Ayer中文说明 | 岛 (gitee.io)</a> </p>
-<h3 id="配置到远程仓库（码云）"><a href="#配置到远程仓库（码云）" class="headerlink" title="配置到远程仓库（码云）"></a>配置到远程仓库（码云）</h3><p>参考 <a href="https://blog.csdn.net/cungudafa/article/details/104260494?ops_request_misc=%7B%22request_id%22:%22164969418816782089398873%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=164969418816782089398873&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104260494.142%5Ev7%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B0gitee&spm=1018.2226.3001.4187">(12条消息) 基于Gitee+Hexo搭建个人博客_cungudafa的博客-CSDN博客_gitee个人博客模板</a> </p>
+<h3 id="配置到远程仓库（码云）"><a href="#配置到远程仓库（码云）" class="headerlink" title="配置到远程仓库（码云）"></a>配置到远程仓库（码云）</h3><p>参考 <a href="https://blog.csdn.net/cungudafa/article/details/104260494?ops_request_misc=%7B%22request_id%22:%22164969418816782089398873%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=164969418816782089398873&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104260494.142%5Ev7%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B0gitee&spm=1018.2226.3001.4187">基于Gitee+Hexo搭建个人博客_cungudafa的博客-CSDN博客_gitee个人博客模板</a> </p>
 <p>项目目录下 _config.yml 文件 修改 </p>
 <p> ：后都有一个空格 </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的项目地址（https）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
 <p>部署</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo g --d  #一键部署</span><br></pre></td></tr></table></figure>
+<p>需要下载插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g --d  #一键部署</span><br></pre></td></tr></table></figure>
 
 <p>每次添加文件都要手动在gitee更新</p>
 ]]></content>
       <categories>
-        <category>使用</category>
+        <category>操作</category>
       </categories>
+  </entry>
+  <entry>
+    <title>01.为什么vue组件中的data要return</title>
+    <url>/2022/04/13/%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</url>
+    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 防止多个组件实例对象之间共用一个data，产生数据污染 </p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>data属于引用数据类型 ,组件多次调用data都是内存的同一个地址，一个数据改变了，那么其他的数据也随之而改变 </p>
+<p>如果data是一个函数的话，那么我们每次创建一个新的实例之后，就会调用一个新的<code>data</code>函数。也就是给每一个<code>data</code>数据定义一个新的内存地址。这样的话，修改A而不会影响B. </p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>原理</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>02.Vue双向数据绑定</title>
+    <url>/2022/04/13/Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
+    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> 数据劫持结合发布者-订阅者模式的方式 </p>
+<p> 通过 Object.defineProperty() 来劫持各个属性的 setter，getter </p>
+<p> 数据变动时发布消息给订阅者，触发相应的监听回调 </p>
+<h3 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h3><p>defineProperty就是定义属性的意思</p>
+<p>Object.defineProperty()  会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回这个对象 </p>
+<ol>
+<li><p><strong>需要<code>observer</code>对数据对象进行递归遍历</strong>  给对象的属性(包括子属性对象)，都加上 <code>setter</code>和<code>getter</code><br>这样的话，给这个对象的某个值赋值，就会触发<code>setter</code>，那么就能监听到了数据变化 </p>
+</li>
+<li><p><strong><code>compile</code>解析模板指令  将模板中的变量替换成数据，然后初始化渲染页面视图</strong>  并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图 </p>
+</li>
+<li><p><strong><code>Watcher</code>订阅者作为<code>Observer</code>和<code>Compile</code>之间通信的桥梁</strong> 主要做的事情是 </p>
+<p>1、在自身实例化时往属性订阅器(dep)里面添加自己</p>
+</li>
+</ol>
+<p>   2、自身必须有一个<code>update()</code>方法<br>   3、待属性变动<code>dep.notice()</code>通知时，能调用自身的<code>update()</code>方法，并触发<code>Compile</code>中绑定的回调，则功成身退 </p>
+<ol start="4">
+<li><p><strong>MVVM作为数据绑定的入口，整合<code>Observer</code>、<code>Compile</code>和<code>Watcher</code>三者</strong> </p>
+<p>通过<code>Observer</code>来监听自己的<code>model</code>数据变化，通过<code>Compile</code>来解析编译模板指令，最终利用<code>Watcher</code>搭起<code>Observer</code>和<code>Compile</code>之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据model变更的双向绑定效果</p>
+</li>
+</ol>
+<h4 id="setter、getter"><a href="#setter、getter" class="headerlink" title="setter、getter"></a><strong>setter、getter</strong></h4><p> 对象有两种属性 </p>
+<p> 1 . <strong>数据属性</strong>：就是我们经常使用的属性<br> 2 . <strong>访问器属性</strong>：也称存取属性（存取器属性就是一组获取和设置值的<strong>函数</strong>） </p>
+<p>定义一个对象在<code>__proto__</code>可找到</p>
+<p><code>get __proto__</code></p>
+<p><code>set __proto__</code></p>
+<p>他们各对应一个函数就是存取器属性</p>
+<p>get对应getter 负责获取值，它不带任何参数 </p>
+<p>set对应的方法 是setter，负责设置值，在它的函数体中，一切的return都是无效的 </p>
+<h4 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h4><p> 可以使用Object.defineProperty定义对象的新属性或修改原有的属性 </p>
+<p> 语法：<code>Object.defineProperty(obj, prop, descriptor)</code> </p>
+<p><code>obj:</code>必需，目标对象；<br><code> prop :</code>必需，需定义或修改的属性的名字；<br><code> descriptor:</code>必需，目标属性所拥有的特性； </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Object.defineproperty(obj,name,&#123;</span><br><span class="line">	get:function()&#123;</span><br><span class="line">		console.log(&quot;触发获取&quot;)</span><br><span class="line">		return val</span><br><span class="line">	&#125;</span><br><span class="line">	set:function()&#123;</span><br><span class="line">		console.log(&quot;触发设置&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">obj.name = &#x27;张三&#x27; //触发set</span><br><span class="line">//打印	触发设置</span><br><span class="line"></span><br><span class="line">let val = obj.name //触发get</span><br><span class="line">//打印	触发获取</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>原理</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>路由模式</title>
+    <url>/2022/04/13/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

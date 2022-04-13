@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Welcome</title>
   
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-04-12T06:54:23.223Z</updated>
+  <updated>2022-04-13T07:21:06.257Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,87 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于hexo搭建博客的一些操作</title>
+    <title>路由模式</title>
+    <link href="http://example.com/2022/04/13/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://example.com/2022/04/13/%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</id>
+    <published>2022-04-13T07:21:06.000Z</published>
+    <updated>2022-04-13T07:21:06.257Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>02.Vue双向数据绑定</title>
+    <link href="http://example.com/2022/04/13/Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/"/>
+    <id>http://example.com/2022/04/13/Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</id>
+    <published>2022-04-13T06:45:28.000Z</published>
+    <updated>2022-04-13T07:19:02.995Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;目的&quot;&gt;&lt;a href=&quot;#目的&quot; class=&quot;headerlink&quot; title=&quot;目的&quot;&gt;&lt;/a&gt;目的&lt;/h3&gt;&lt;p&gt;实现数据变化更新视图，视图变化更新数据&lt;/p&gt;
+&lt;h3 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="http://example.com/categories/Vue/"/>
+    
+    <category term="原理" scheme="http://example.com/categories/Vue/%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="Vue" scheme="http://example.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>01.为什么vue组件中的data要return</title>
+    <link href="http://example.com/2022/04/13/%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/"/>
+    <id>http://example.com/2022/04/13/%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</id>
+    <published>2022-04-13T06:02:32.000Z</published>
+    <updated>2022-04-13T06:22:20.271Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;目的&quot;&gt;&lt;a href=&quot;#目的&quot; class=&quot;headerlink&quot; title=&quot;目的&quot;&gt;&lt;/a&gt;目的&lt;/h3&gt;&lt;p&gt; 防止多个组件实例对象之间共用一个data，产生数据污染 &lt;/p&gt;
+&lt;h3 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Vue" scheme="http://example.com/categories/Vue/"/>
+    
+    <category term="原理" scheme="http://example.com/categories/Vue/%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="Vue" scheme="http://example.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于hexo的操作</title>
     <link href="http://example.com/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%B4%E6%98%8E/"/>
     <id>http://example.com/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AF%B4%E6%98%8E/</id>
     <published>2022-04-11T15:43:29.216Z</published>
-    <updated>2022-04-12T06:54:23.223Z</updated>
+    <updated>2022-04-13T06:09:26.086Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;关于hexo搭建博客的一些操作&quot;&gt;&lt;a href=&quot;#关于hexo搭建博客的一些操作&quot; class=&quot;headerlink&quot; title=&quot;关于hexo搭建博客的一些操作&quot;&gt;&lt;/a&gt;关于hexo搭建博客的一些操作&lt;/h2&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;hexo的基本操作&quot;&gt;&lt;a href=&quot;#hexo的基本操作&quot; class=&quot;headerlink&quot; title=&quot;hexo的基本操作&quot;&gt;&lt;/a&gt;hexo的基本操作&lt;/h2&gt;</summary>
     
     
     
-    <category term="使用" scheme="http://example.com/categories/%E4%BD%BF%E7%94%A8/"/>
+    <category term="操作" scheme="http://example.com/categories/%E6%93%8D%E4%BD%9C/"/>
     
     
   </entry>
@@ -38,7 +107,7 @@
     <link href="http://example.com/2022/04/11/hello-world/"/>
     <id>http://example.com/2022/04/11/hello-world/</id>
     <published>2022-04-11T14:06:53.514Z</published>
-    <updated>2022-04-11T17:29:54.867Z</updated>
+    <updated>2022-04-12T13:33:21.638Z</updated>
     
     
       
