@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>03.路由模式</title>
+    <url>/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
+<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
+
+<p> 如果使用history，路径与传统网址一样 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
+
+<p> 如果我们没有这个文件，而是用vue这种router </p>
+<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
+<p> 在nginx中配置每一个route，漏下一个就会404 </p>
+<p> <strong>history模式下的路由分发是服务端（nginx）来做的</strong> </p>
+<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>hash模式的url中“#“符号后面的路径并不是真实路径，而是以类似参数的形式传给默认文件 </p>
+<p>默认文件就是index，在这里通过“#“符号后面的路径去匹配路由处理，所以只要有index这一个文件是真实路径就可以 </p>
+<p> <strong>hash模式下的路由分发就不需要服务端来做了，直接在前端</strong>就处理 </p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>路由</category>
+        <category>路由模式</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>02.Vue双向数据绑定</title>
     <url>/2022/04/13/02.Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
     <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
@@ -107,45 +139,8 @@
       </tags>
   </entry>
   <entry>
-    <title>03.路由模式</title>
-    <url>/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
-<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
-
-<p> 如果使用history，路径与传统网址一样 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
-
-<p> 如果我们没有这个文件，而是用vue这种router </p>
-<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
-<p> 在nginx中配置每一个route，漏下一个就会404 </p>
-<p> <strong>history模式下的路由分发是服务端（nginx）来做的</strong> </p>
-<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>hash模式的url中“#“符号后面的路径并不是真实路径，而是以类似参数的形式传给默认文件 </p>
-<p>默认文件就是index，在这里通过“#“符号后面的路径去匹配路由处理，所以只要有index这一个文件是真实路径就可以 </p>
-<p> <strong>hash模式下的路由分发就不需要服务端来做了，直接在前端</strong>就处理 </p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>路由</category>
-        <category>路由模式</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>06.清除浮动</title>
-    <url>/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>05.行内与块的区别</title>
-    <url>/2022/04/14/05-%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <url>/2022/04/14/05.%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
 <p>块级独据一行，可包含块级、行块、行内</p>
 <h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
@@ -157,6 +152,109 @@
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>06.清除浮动</title>
+    <url>/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[<h3 id="1-父级加固定高"><a href="#1-父级加固定高" class="headerlink" title="1.父级加固定高"></a>1.父级加固定高</h3><p>不适用于内容不确定的元素。内容可能会溢出</p>
+<h3 id="2-浮动结束位置加空div标签"><a href="#2-浮动结束位置加空div标签" class="headerlink" title="2.浮动结束位置加空div标签"></a>2.浮动结束位置加空div标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.clear&#123;clear: both&#125;</span><br><span class="line"></span><br><span class="line">clear属性： </span><br><span class="line">left </span><br><span class="line">right </span><br><span class="line">both </span><br><span class="line">none</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-父级高不确定，加overflow-hidden"><a href="#3-父级高不确定，加overflow-hidden" class="headerlink" title="3.父级高不确定，加overflow: hidden"></a>3.父级高不确定，加overflow: hidden</h3><p>不适用子集有定位的元素</p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>07.this指向与改变</title>
+    <url>/2022/04/14/07.this%E6%8C%87%E5%90%91%E4%B8%8E%E6%94%B9%E5%8F%98/</url>
+    <content><![CDATA[<h3 id="指向"><a href="#指向" class="headerlink" title="指向"></a>指向</h3><h4 id="1-直接调用-向window"><a href="#1-直接调用-向window" class="headerlink" title="1.直接调用 向window"></a>1.直接调用 向window</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">	console.log(this)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun()	//window</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-对象调用-this指向对象-谁调用指向谁"><a href="#2-对象调用-this指向对象-谁调用指向谁" class="headerlink" title="2.对象调用 this指向对象(谁调用指向谁)"></a>2.对象调用 this指向对象(谁调用指向谁)</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let obj = &#123;</span><br><span class="line">	name: &#x27;一个对象&#x27;，</span><br><span class="line">	print: function() &#123;</span><br><span class="line">		console.log(this)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.print() //[object object]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-箭头函数指向-外层作用域"><a href="#3-箭头函数指向-外层作用域" class="headerlink" title="3.箭头函数指向 外层作用域"></a>3.箭头函数指向 外层作用域</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var test = &#123;</span><br><span class="line">        name: &#x27;test&#x27;,</span><br><span class="line">        print: function() &#123;</span><br><span class="line">            setTimeout(() =&gt;&#123;</span><br><span class="line">                console.log(this)</span><br><span class="line">            &#125; ,100)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.print() //&#123;name: &#x27;test&#x27;, print: ƒ&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  name: &#x27;张三&#x27;,</span><br><span class="line">  print: function() &#123;</span><br><span class="line">      console.log(this)</span><br><span class="line">      console.log(this.name)</span><br><span class="line">  &#125;,</span><br><span class="line">  fun: () =&gt; &#123;</span><br><span class="line">      console.log(this)</span><br><span class="line">      console.log(this.name)  </span><br><span class="line"></span><br><span class="line">obj.print()	//[object object]	张三</span><br><span class="line">obj.fun()	//[object window]	空字符串</span><br></pre></td></tr></table></figure>
+
+<p> 函数体内的this对象就是<strong>定义时所在的对象</strong>，而<strong>不是使用时所在的对象</strong> </p>
+<p> 箭头函数根本<strong>没有自己的this</strong>，导致<strong>内部的this就是外层代码块的this</strong>，也正是因为箭头函数没有this，所以也<strong>不能用作构造函数</strong>。 </p>
+<h4 id="4-new-调用-指向被new创建的实例"><a href="#4-new-调用-指向被new创建的实例" class="headerlink" title="4.new 调用 指向被new创建的实例"></a>4.new 调用 指向被new创建的实例</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">	console.log(this)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var fun_one = new fun()	//fun</span><br></pre></td></tr></table></figure>
+
+<p> this永远被绑定在新创建的对象上，任何方式都<strong>改变不了this的指向</strong> </p>
+<h3 id="改变指向"><a href="#改变指向" class="headerlink" title="改变指向"></a>改变指向</h3><h3 id="apply-call"><a href="#apply-call" class="headerlink" title="apply() call()"></a>apply() call()</h3><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><h5 id="1-改变this指向"><a href="#1-改变this指向" class="headerlink" title="1.改变this指向"></a>1.改变this指向</h5><h5 id="2-借用别的对象的方法"><a href="#2-借用别的对象的方法" class="headerlink" title="2.借用别的对象的方法"></a>2.借用别的对象的方法</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function test1(a,b)&#123;</span><br><span class="line">	return a+b;</span><br><span class="line">&#125;</span><br><span class="line">function test2(a,b)&#123;</span><br><span class="line">	return a-b;</span><br><span class="line">&#125;</span><br><span class="line">var a1 = add.apply(sub,[5,4]); //test2调用test1的方法</span><br><span class="line">var a2 = add.call(sub,5,4); //test2调用test1的方法</span><br><span class="line">console.log(a1);  //9</span><br><span class="line">console.log(a2);  //9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//</span><br><span class="line">var Man = function()&#123;</span><br><span class="line">	this.name = &quot;张三&quot;;</span><br><span class="line">&#125;</span><br><span class="line">var Woman = function()&#123;</span><br><span class="line">	this.getName = function()&#123;</span><br><span class="line">		console.log(this.name);</span><br><span class="line">	&#125;</span><br><span class="line">	Man.call(this);//this指向Woman，结果相当于给Woman加了name属性</span><br><span class="line">&#125;</span><br><span class="line">var person = new Woman();</span><br><span class="line">person.getName();   //张三</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-单纯的调用函数"><a href="#3-单纯的调用函数" class="headerlink" title="3.单纯的调用函数"></a>3.单纯的调用函数</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line">    alert(1);</span><br><span class="line">&#125;</span><br><span class="line">test.call();</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="apply-call-bind区别"><a href="#apply-call-bind区别" class="headerlink" title="apply call bind区别"></a>apply call bind区别</h4><p><strong>相同</strong></p>
+<p>都可以<strong>改变this指向</strong>，第一个参数都是要指定的对象</p>
+<p><strong>不同</strong></p>
+<p>apply只有两个参数，第二个参数为一个数组，需要传输的参数值须全部放到数组中。而call、bind一样，参数用逗号分开</p>
+<p> apply、call返回的的是一个值，而bind返回的是一个函数，需要执行这个函数才会得到值 </p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>08.原始数据类型与引用数据类型</title>
+    <url>/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p> Undefined	Null	Boolean	Number	String   Symbol </p>
+<p>被频繁使用的数据  直接<strong>存储在栈</strong>（stack）中的简单数据段，占据<strong>空间小，大小固定</strong></p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>对象 函数 数组</p>
+<p> 存储在<strong>堆</strong>（heap）中的对象，占据<strong>空间大，大小不固定</strong> </p>
+<h3 id="鉴别类型"><a href="#鉴别类型" class="headerlink" title="鉴别类型"></a>鉴别类型</h3><h4 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">console.log(typeof &#x27;a&#x27;);           // &quot;string&quot;</span><br><span class="line">console.log(typeof 1);            // &quot;number&quot;</span><br><span class="line">console.log(typeof false);         // &quot;boolean&quot;</span><br><span class="line">console.log(typeof undefined);     // &quot;undefined&quot;</span><br><span class="line">console.log(typeof null);         // &quot;object&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="为什么typeof-null-返回object"><a href="#为什么typeof-null-返回object" class="headerlink" title="为什么typeof(null)返回object"></a>为什么typeof(null)返回object</h5><p>这是个bug	javascript中不同对象在底层都表示为二进制，而javascript 中会把二进制前三位都为0的判断为object类型，而null的二进制表示全都是0	所以执行typeof时会返回 ‘object’。 </p>
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let a = []</span><br><span class="line">let b = &#123;&#125;</span><br><span class="line">let c = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(typeof a);      // &quot;object&quot;</span><br><span class="line">console.log(typeof b);     	// &quot;object&quot;</span><br><span class="line">console.log(typeof c);      // &quot;function&quot;</span><br></pre></td></tr></table></figure>
+
+<p>但这区分不了数组与对象</p>
+<p>所以可以使用 instanceof</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">var b = &#123;&#125;;</span><br><span class="line">var c = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(a instanceof Array);       // true</span><br><span class="line">console.log(b instanceof Object);     // true</span><br><span class="line">console.log(c instanceof Function);  // true</span><br></pre></td></tr></table></figure>
+
+<p>另外Array.isArray()鉴定数组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">console.log(Array.isArray(a)); // true</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -200,46 +298,5 @@
       <categories>
         <category>操作</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/04/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/2022/04/14/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<h1 id="dsadfa"><a href="#dsadfa" class="headerlink" title="dsadfa"></a>dsadfa</h1>]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试二</title>
-    <url>/2022/04/14/%E6%B5%8B%E8%AF%95%E4%BA%8C/</url>
-    <content><![CDATA[<p>ds</p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
   </entry>
 </search>
