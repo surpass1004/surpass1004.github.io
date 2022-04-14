@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>08.原始数据类型与引用数据类型 |  Keep your mind</title>
+      <title>13.浏览器渲染原理及优化 |  Keep your mind</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/无限.svg" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-08.原始数据类型与引用数据类型"
+  id="post-13-浏览器渲染原理及优化"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  08.原始数据类型与引用数据类型
+  13.浏览器渲染原理及优化
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
-  <time datetime="2022-04-14T07:32:04.000Z" itemprop="datePublished">2022-04-14</time>
+      <a href="/2022/04/14/13-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BC%98%E5%8C%96/" class="article-date">
+  <time datetime="2022-04-14T14:04:46.000Z" itemprop="datePublished">2022-04-14</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/%E4%BC%98%E5%8C%96/">优化</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">284</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -112,22 +112,110 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p> Undefined	Null	Boolean	Number	String   Symbol </p>
-<p>被频繁使用的数据  直接<strong>存储在栈</strong>（stack）中的简单数据段，占据<strong>空间小，大小固定</strong></p>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>对象 函数 数组</p>
-<p> 存储在<strong>堆</strong>（heap）中的对象，占据<strong>空间大，大小不固定</strong> </p>
-<h3 id="鉴别类型"><a href="#鉴别类型" class="headerlink" title="鉴别类型"></a>鉴别类型</h3><h4 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(typeof &#x27;a&#x27;);           // &quot;string&quot;</span><br><span class="line">console.log(typeof 1);            // &quot;number&quot;</span><br><span class="line">console.log(typeof false);         // &quot;boolean&quot;</span><br><span class="line">console.log(typeof undefined);     // &quot;undefined&quot;</span><br><span class="line">console.log(typeof null);         // &quot;object&quot;</span><br></pre></td></tr></table></figure>
-
-<h5 id="为什么typeof-null-返回object"><a href="#为什么typeof-null-返回object" class="headerlink" title="为什么typeof(null)返回object"></a>为什么typeof(null)返回object</h5><p>这是个bug	javascript中不同对象在底层都表示为二进制，而javascript 中会把二进制前三位都为0的判断为object类型，而null的二进制表示全都是0	所以执行typeof时会返回 ‘object’。 </p>
-<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let a = []</span><br><span class="line">let b = &#123;&#125;</span><br><span class="line">let c = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(typeof a);      // &quot;object&quot;</span><br><span class="line">console.log(typeof b);     	// &quot;object&quot;</span><br><span class="line">console.log(typeof c);      // &quot;function&quot;</span><br></pre></td></tr></table></figure>
-
-<p>但这区分不了数组与对象</p>
-<p>所以可以使用 instanceof</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">var b = &#123;&#125;;</span><br><span class="line">var c = function()&#123;&#125;</span><br><span class="line"></span><br><span class="line">console.log(a instanceof Array);       // true</span><br><span class="line">console.log(b instanceof Object);     // true</span><br><span class="line">console.log(c instanceof Function);  // true</span><br></pre></td></tr></table></figure>
-
-<p>另外Array.isArray()鉴定数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">console.log(Array.isArray(a)); // true</span><br></pre></td></tr></table></figure>
-
+  <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>为了提升浏览器的稳定性和安全性  浏览器采用了<strong>多进程模型</strong> </p>
+<p>进程是操作系统资源分配的基本单位，<strong>进程中包含线程</strong></p>
+<h4 id="优化方向：进程"><a href="#优化方向：进程" class="headerlink" title="优化方向：进程"></a>优化方向：进程</h4><p>包括</p>
+<p><strong>浏览器进程</strong>：负责显示界面，用户交互，子进程管理，储存</p>
+<p><strong>渲染进程</strong>：每个页面有单独的渲染进程，用于渲染界面</p>
+<p><strong>网络进程</strong>：处理网络资源加载html css js等</p>
+<p><strong>GPU进程</strong>：3d绘制，提高性能</p>
+<p><strong>插件进程</strong>：浏览器安装的插件</p>
+<h4 id="优化方向：线程"><a href="#优化方向：线程" class="headerlink" title="优化方向：线程"></a>优化方向：线程</h4><p>GUI渲染线程</p>
+<p>js引擎线程</p>
+<p>事件触发线程</p>
+<p>要进行具体优化，我们要知道</p>
+<h4 id="从输入url地址到浏览器显示界面都发生了什么"><a href="#从输入url地址到浏览器显示界面都发生了什么" class="headerlink" title="从输入url地址到浏览器显示界面都发生了什么"></a>从输入url地址到浏览器显示界面都发生了什么</h4><h5 id="一、DNS域名解析"><a href="#一、DNS域名解析" class="headerlink" title="一、DNS域名解析"></a>一、DNS域名解析</h5><p>根据输入url找到真实ip地址</p>
+<p>以</p>
+<p><strong>浏览器缓存</strong>	&gt;	<strong>操作系统缓存</strong>	&gt;	<strong>路由器缓存</strong>	&gt;	<strong>hosts文件缓存</strong></p>
+<p>如果缓存没有则<strong>查询DNS服务器</strong> 顶级域名&gt;二级域名….</p>
+<h5 id="二、建立TCP连接"><a href="#二、建立TCP连接" class="headerlink" title="二、建立TCP连接"></a>二、建立TCP连接</h5><p>根据 IP 地址，客户端与服务端三次握手建立连接</p>
+<h6 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h6><p>1.发送端首先给接收端发送一个带SYN标志的数据包<br>2.接收端收到后，回传一个带有SYN&#x2F;ACK标志的数据包以表示正确传达，并确认信息<br>3.发送端再回传一个带ACK标志的数据包，代表“握手”结束</p>
+<p><strong>浏览器构造一个 http 请 求</strong></p>
+<p>请求报文会包括这次请求的信息，主要是请求方法，请求说明和请求附带的数 据，</p>
+<p>并将这个 http 请求封装在一个 tcp 包中，这个 tcp 包会依次经过传输层，网络层， 数据链路层，物理层到达服务器，<strong>服务器解析</strong>这个请求来作出响应，<strong>返回相应的 html 给浏览器</strong></p>
+<h5 id="三、传输数据"><a href="#三、传输数据" class="headerlink" title="三、传输数据"></a>三、传输数据</h5><p>服务器接收到请求后，返回请求静态资源，并同时调用 服务器请求接口数据</p>
+<h5 id="四、关闭TCP连接"><a href="#四、关闭TCP连接" class="headerlink" title="四、关闭TCP连接"></a>四、关闭TCP连接</h5><h6 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h6><p>数据传输完成，客户端与服务端进行四次挥手，关闭连接</p>
+<p>1.关闭方<strong>发送一个FIN</strong> 告知关闭数据传送</p>
+<p>2.收到FIN包后，给对方<strong>发送一个ACK</strong>，确认序号为收到序号+1</p>
+<p>3.发送ACK后<strong>再发送一个FIN</strong>告知关闭数据传送</p>
+<p>4.收到FIN后，<strong>发送一个ACK</strong>，确认序号为收到序号+1</p>
+<p>完成四次握手</p>
+<h5 id="五、渲染页面"><a href="#五、渲染页面" class="headerlink" title="五、渲染页面"></a>五、渲染页面</h5><p>浏览器根据服务端返回的静态资源</p>
+<p>根据<strong>GUI引擎渲染</strong>HTML 和 CSS</p>
+<p><strong>js引擎</strong>加载js脚本</p>
+<p>浏览器根据这个 html 来构建 DOM 树，在 dom 树的构建过程中如果遇到 JS 脚本和外部 JS 连接</p>
+<p>会停止构建 DOM 树来执行和下载 相应的代码，这会造成阻塞</p>
+<p>这就是为什么</p>
+<h6 id="JS-代码应该放在-html-代码的后面"><a href="#JS-代码应该放在-html-代码的后面" class="headerlink" title="JS 代码应该放在 html 代码的后面"></a>JS 代码应该放在 html 代码的后面</h6><p>根据渲染出的DOM树和css合并为<strong>渲染树</strong></p>
+<p>之后进行<strong>布局</strong>计算出每个节点在屏幕中的位置</p>
+<p><strong>遍历render树</strong>，并绘制每个节点</p>
+<h5 id="六、加载-JavaScript-脚本"><a href="#六、加载-JavaScript-脚本" class="headerlink" title="六、加载 JavaScript 脚本"></a>六、加载 JavaScript 脚本</h5><p>HTML\CSS 与 JS 是通过不同的引擎加载，但是却是<strong>互斥</strong>的，即加载 HTML\CSS 时，JS 会停止加载，相反亦然，这是因为 JS 引擎可以操作 DOM，改变样式、内容等。所以当执行了 JS 之后，渲染树要<strong>重新构建</strong></p>
+<p>此时，页面加载出来</p>
+<p>并发生一次</p>
+<h4 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h4><p>此次<strong>回流</strong>是开销最大的一次</p>
+<p>另外</p>
+<p><strong>回流必定发生重绘</strong></p>
+<p><strong>影响到页面布局的变化</strong>都会发生<strong>回流</strong></p>
+<p><strong>不影响到页面布局</strong>的变化则是<strong>重绘</strong></p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h4><p>1.<strong>减少HTTP请求，合并js，css 合理内嵌js css</strong></p>
+<p>2.<strong>合理设置服务器缓存，提高处理速度</strong></p>
+<p>3.域名分片，资源放到不同的域名下，同一个域名最多处理6个TCP链接</p>
+<p>4.加载数据优先级：preload(预先请求当前页面需要的资源) prefetch（将来页面中使用的资源），将数据缓存到HTTP缓存中</p>
+<h4 id="渲染路径优化"><a href="#渲染路径优化" class="headerlink" title="渲染路径优化"></a>渲染路径优化</h4><ol>
+<li>JavaScript强制将计算样式和布局操作提前 （例：load中）</li>
+<li>减少发生重绘与回流</li>
+</ol>
+<h4 id="静态文件优化"><a href="#静态文件优化" class="headerlink" title="静态文件优化"></a>静态文件优化</h4><h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><h6 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h6><table>
+<thead>
+<tr>
+<th>格式</th>
+<th>适合场景</th>
+<th>不适合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>jpg</td>
+<td>色彩丰富的照片、banner图</td>
+<td>图形文字、图标（纹理有锯齿），不支持透明</td>
+</tr>
+<tr>
+<td>png</td>
+<td>纯色、透明、图标、支持半透明</td>
+<td>色彩丰富图片，因为无损储存会导致储存体积大</td>
+</tr>
+<tr>
+<td>webp</td>
+<td>适合半透明图片，可以保证图片质量和较小的体积</td>
+<td></td>
+</tr>
+<tr>
+<td>gif</td>
+<td>动画，可以动的图标</td>
+<td>不支持半透明，不适合存储彩色图片</td>
+</tr>
+<tr>
+<td>svg</td>
+<td>比jpg和png,它的体积更小适合小且色彩单一的图标</td>
+<td>渲染成本过高</td>
+</tr>
+</tbody></table>
+<h6 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h6><p>1.避免空src的图片</p>
+<p>2.减小图片尺寸，节约用户流量</p>
+<p>3.img标签设置alt属性，提升图片加载失败时的用户体验</p>
+<p>4.原生的loading:lazy图片懒加载</p>
+<p>5.不同环境下，加载不同尺寸和像素的图片</p>
+<p>6.较大的图片可以考虑采用渐进式图片 </p>
+<p>7.采用base64URL 减少图片请求</p>
+<p>8.雪碧图合并图标图片 </p>
+<h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><p> 1.减少HTML嵌套关系，减少DOM节点 </p>
+<p> 2.删除多余空格，空行、注释、及无用的属性 </p>
+<h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><p>1.减少伪类选择器，减少样式层数，减少使用通配符</p>
+<p>2.避免使用css表达式  会频繁求值 </p>
+<p>3.使用外链css,可以对css进行缓存</p>
+<p>4.添加媒体字段，只加载有效的css 文件</p>
+<h5 id="js"><a href="#js" class="headerlink" title="js"></a>js</h5><p>1.减少DOM操作，缓存访问过的元素</p>
+<p>2.事件委托，减少事件绑定个数 </p>
+<p>3.使用canvas动画、css动画 代替 js动画</p>
  
       <!-- reward -->
       
@@ -180,12 +268,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/14/13-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BC%98%E5%8C%96/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li></ul>
 
     </footer>
   </div>
@@ -193,19 +281,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            09.对象深度克隆
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/04/14/07.this%E6%8C%87%E5%90%91%E4%B8%8E%E6%94%B9%E5%8F%98/" class="article-nav-link">
+      <a href="/2022/04/14/12-%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">07.this指向与改变</div>
+        <div class="article-nav-title">12.跨域解决方案</div>
       </a>
     
   </nav>
