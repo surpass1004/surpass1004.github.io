@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>01.为什么vue组件中的data要return</title>
-    <url>/2022/04/13/01.%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</url>
-    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 防止多个组件实例对象之间共用一个data，产生数据污染 </p>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>data属于引用数据类型 ,组件多次调用data都是内存的同一个地址，一个数据改变了，那么其他的数据也随之而改变 </p>
-<p>如果data是一个函数的话，那么我们每次创建一个新的实例之后，就会调用一个新的<code>data</code>函数。也就是给每一个<code>data</code>数据定义一个新的内存地址。这样的话，修改A而不会影响B. </p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>原理</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>02.Vue双向数据绑定</title>
     <url>/2022/04/13/02.Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
     <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
@@ -52,6 +37,21 @@
 <p><code>obj:</code>必需，目标对象；<br><code> prop :</code>必需，需定义或修改的属性的名字；<br><code> descriptor:</code>必需，目标属性所拥有的特性； </p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Object.defineproperty(obj,name,&#123;</span><br><span class="line">	get:function()&#123;</span><br><span class="line">		console.log(&quot;触发获取&quot;)</span><br><span class="line">		return val</span><br><span class="line">	&#125;</span><br><span class="line">	set:function()&#123;</span><br><span class="line">		console.log(&quot;触发设置&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">obj.name = &#x27;张三&#x27; //触发set</span><br><span class="line">//打印	触发设置</span><br><span class="line"></span><br><span class="line">let val = obj.name //触发get</span><br><span class="line">//打印	触发获取</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>原理</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01.为什么vue组件中的data要return</title>
+    <url>/2022/04/13/01.%E4%B8%BA%E4%BB%80%E4%B9%88vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84data%E8%A6%81return/</url>
+    <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p> 防止多个组件实例对象之间共用一个data，产生数据污染 </p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>data属于引用数据类型 ,组件多次调用data都是内存的同一个地址，一个数据改变了，那么其他的数据也随之而改变 </p>
+<p>如果data是一个函数的话，那么我们每次创建一个新的实例之后，就会调用一个新的<code>data</code>函数。也就是给每一个<code>data</code>数据定义一个新的内存地址。这样的话，修改A而不会影响B. </p>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -139,6 +139,11 @@
       </tags>
   </entry>
   <entry>
+    <title>06.清除浮动</title>
+    <url>/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>05.行内与块的区别</title>
     <url>/2022/04/14/05-%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
@@ -153,40 +158,6 @@
       <tags>
         <tag>HTML</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>06.清除浮动</title>
-    <url>/2022/04/14/06.%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/2022/04/14/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<h1 id="dsadfa"><a href="#dsadfa" class="headerlink" title="dsadfa"></a>dsadfa</h1>]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/04/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>关于hexo的操作</title>
@@ -229,6 +200,35 @@
       <categories>
         <category>操作</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>测试</title>
+    <url>/2022/04/14/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="dsadfa"><a href="#dsadfa" class="headerlink" title="dsadfa"></a>dsadfa</h1>]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
   </entry>
   <entry>
     <title>测试二</title>
