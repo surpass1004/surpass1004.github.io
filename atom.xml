@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-04-14T08:42:25.323Z</updated>
+  <updated>2022-04-14T10:12:23.322Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,120 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>12.跨域解决方案</title>
+    <link href="http://example.com/2022/04/14/12-%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://example.com/2022/04/14/12-%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</id>
+    <published>2022-04-14T09:59:46.000Z</published>
+    <updated>2022-04-14T10:12:23.322Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;同源策略&quot;&gt;&lt;a href=&quot;#同源策略&quot; class=&quot;headerlink&quot; title=&quot;同源策略&quot;&gt;&lt;/a&gt;同源策略&lt;/h3&gt;&lt;p&gt; ajax请求的url中的传输协议、域名、端口号，有任意一个不同时，就会触发同源策略 &lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP" scheme="http://example.com/categories/HTTP/"/>
+    
+    <category term="Ajax" scheme="http://example.com/categories/Ajax/"/>
+    
+    
+    <category term="HTTP" scheme="http://example.com/tags/HTTP/"/>
+    
+    <category term="Ajax" scheme="http://example.com/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>11.get与post区别</title>
+    <link href="http://example.com/2022/04/14/11-get%E4%B8%8Epost%E5%8C%BA%E5%88%AB/"/>
+    <id>http://example.com/2022/04/14/11-get%E4%B8%8Epost%E5%8C%BA%E5%88%AB/</id>
+    <published>2022-04-14T09:42:36.000Z</published>
+    <updated>2022-04-14T09:49:54.496Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;GET请求在URL中传送的参数是有长度限制的，而POST没有&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;POST比GET更安全，因为参数直接暴露在URL上，而POST数据是放在Request body中</summary>
+        
+      
+    
+    
+    
+    <category term="HTTP" scheme="http://example.com/categories/HTTP/"/>
+    
+    
+    <category term="HTTP" scheme="http://example.com/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>10.同步异步、微任务与宏任务</title>
+    <link href="http://example.com/2022/04/14/10-%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/"/>
+    <id>http://example.com/2022/04/14/10-%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1/</id>
+    <published>2022-04-14T09:27:40.000Z</published>
+    <updated>2022-04-14T09:40:00.956Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;同步异步&quot;&gt;&lt;a href=&quot;#同步异步&quot; class=&quot;headerlink&quot; title=&quot;同步异步&quot;&gt;&lt;/a&gt;同步异步&lt;/h3&gt;&lt;h4 id=&quot;同步&quot;&gt;&lt;a href=&quot;#同步&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="http://example.com/categories/JavaScript/"/>
+    
+    
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>09.对象深度克隆</title>
+    <link href="http://example.com/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/"/>
+    <id>http://example.com/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/</id>
+    <published>2022-04-14T09:09:36.000Z</published>
+    <updated>2022-04-14T09:26:48.483Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;方法一、对象序列化再解析&quot;&gt;&lt;a href=&quot;#方法一、对象序列化再解析&quot; class=&quot;headerlink&quot; title=&quot;方法一、对象序列化再解析&quot;&gt;&lt;/a&gt;方法一、对象序列化再解析&lt;/h3&gt;&lt;p&gt;缺点：无法克隆方法 &lt;/p&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="http://example.com/categories/JavaScript/"/>
+    
+    
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>08.原始数据类型与引用数据类型</title>
     <link href="http://example.com/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <id>http://example.com/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
     <published>2022-04-14T07:32:04.000Z</published>
-    <updated>2022-04-14T08:42:25.323Z</updated>
+    <updated>2022-04-14T09:00:34.361Z</updated>
     
     
       
