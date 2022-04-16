@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>09.对象深度克隆 |  Keep your mind</title>
+      <title>19.作用域 变量 |  Keep your mind</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/无限.svg" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-09-对象深度克隆"
+  id="post-19-作用域-变量"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  09.对象深度克隆
+  19.作用域 变量
 </h1>
  
 
@@ -76,8 +76,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" class="article-date">
-  <time datetime="2022-04-14T09:09:36.000Z" itemprop="datePublished">2022-04-14</time>
+      <a href="/2022/04/16/19-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8F%98%E9%87%8F/" class="article-date">
+  <time datetime="2022-04-16T12:54:55.000Z" itemprop="datePublished">2022-04-16</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">118</span>
+            <span class="post-count">579</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -112,17 +112,38 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="方法一、对象序列化再解析"><a href="#方法一、对象序列化再解析" class="headerlink" title="方法一、对象序列化再解析"></a>方法一、对象序列化再解析</h3><p>缺点：无法克隆方法 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>:<span class="string">&#x27;wee&#x27;</span>,</span><br><span class="line">  <span class="attr">sds</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">ds</span>:&#123;</span><br><span class="line">    <span class="attr">dksk</span>:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj));</span><br></pre></td></tr></table></figure>
+  <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>一个Script标签就是一个<strong>全局作用域</strong></p>
+<p>全局作用域可访问<strong>自身</strong>作用域的函数和变量</p>
+<h4 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h4><p> 一个函数就是一个局部作用域 </p>
+<p>局部作用域 可访问<strong>全局作用域和自身</strong>的函数和变量</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="声明方式"><a href="#声明方式" class="headerlink" title="声明方式"></a>声明方式</h4><p><strong>var let const</strong></p>
+<p>只有var与window相映射</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> c =<span class="number">3</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">a</span>)		<span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">b</span>)		<span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">c</span>)		<span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="方法二、写一个方法"><a href="#方法二、写一个方法" class="headerlink" title="方法二、写一个方法"></a>方法二、写一个方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deepClone</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> newobj = obj.<span class="property">constructor</span> === <span class="title class_">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	newobj[i] = <span class="keyword">typeof</span> obj[i] === <span class="string">&#x27;object&#x27;</span> ? <span class="title function_">cloneObj</span>(obj[i]) : obj[i]; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newobj; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newObj = <span class="title function_">deepClone</span>(obj));</span><br></pre></td></tr></table></figure>
+<h6 id="var"><a href="#var" class="headerlink" title="var"></a>var</h6><p>全局声明</p>
+<p>可重复声明，后者替换前者</p>
+<p>存在变量提升(暂时性死区)——未声明调用为undefined</p>
+<h6 id="let"><a href="#let" class="headerlink" title="let"></a>let</h6><p>块级作用域有效</p>
+<p>不可重复声明</p>
+<h6 id="const是常量"><a href="#const是常量" class="headerlink" title="const是常量"></a>const是常量</h6><p>块级作用域有效</p>
+<p>不可重复声明</p>
+<p>const声明的常量的是一个只读的常量，声明后不能更改，const保证的不是常量的值不改变，而是常量指向的那个内存地址的数据不被改变</p>
+<p> const定义的基本类型不能改变，但是定义的队形是可以通过修改对象属性等方法来改变 </p>
+<h5 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a><strong>全局变量</strong></h5><p>全局作用域下定义的变量</p>
+<h6 id="全局作用域访问全局变量"><a href="#全局作用域访问全局变量" class="headerlink" title="全局作用域访问全局变量"></a>全局作用域访问全局变量</h6><h6 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h6><p>内部函数访问外部函数的变量时候，采用的是链式查找的方式来决定取哪个值。【就近原则】 </p>
+<p><strong>var</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//变量提升（暂时性死区）</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)		<span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;			</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;			<span class="comment">//可以覆盖</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)		<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a)	<span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun1</span>()				</span><br><span class="line"></span><br><span class="line"><span class="comment">//作用域链	【就近原则】</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun2</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a)	<span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a)	<span class="comment">//3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun2</span>()				</span><br></pre></td></tr></table></figure>
 
+<p><strong>let</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// console.log(a)	//let声明前不可调用</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line">a =<span class="number">2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="comment">// let a = 3		//let声明变量后不可重复声明</span></span><br></pre></td></tr></table></figure>
 
+<p><strong>const</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// console.log(a)	//const声明前不可调用</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="comment">// a =2				//const声明前不可直接更改</span></span><br><span class="line"><span class="comment">// const a = 3		//const声明变量后不可重复声明</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="number">4</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;;</span><br><span class="line">obj[<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;李四&quot;</span>;</span><br><span class="line">obj.<span class="property">age</span> = <span class="number">18</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123;name: &quot;李四&quot;, age: 18&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
-
+<p><strong>const定义的基本类型不能改变，但是定义的引用类型中的 数组 与 对象 可以通过修改对象属性改变</strong> </p>
+<h5 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h5><p>局部作用域下定义的变量</p>
  
       <!-- reward -->
       
@@ -175,7 +196,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/16/19-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8F%98%E9%87%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -188,19 +209,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/14/10-%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1%20EventLoop%20/" class="article-nav-link">
+      <a href="/2022/04/16/20-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            10.同步异步、微任务与宏任务 EventLoop
+            20.创建对象的方法
           
         </div>
       </a>
     
     
-      <a href="/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-nav-link">
+      <a href="/2022/04/16/18-%E5%86%92%E6%B3%A1-%E6%8D%95%E8%8E%B7-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">08.原始数据类型与引用数据类型</div>
+        <div class="article-nav-title">18.冒泡 捕获 事件委托 默认行为</div>
       </a>
     
   </nav>
