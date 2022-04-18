@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>21.ES6新增(01) |  Make progress, Wu</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/无限.svg" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Make progress, Wu" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-21-ES6新增"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  21.ES6新增(01)
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/17/21-ES6%E6%96%B0%E5%A2%9E/" class="article-date">
+  <time datetime="2022-04-17T09:37:02.000Z" itemprop="datePublished">2022-04-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>常用新增</p>
+<p>let	const</p>
+<p>变量的解构赋值</p>
+<p>Symbol原始数据类型</p>
+<p>Set和Map类型</p>
+<p>Class类</p>
+<p>Promise对象</p>
+<p>async对象</p>
+<p>Proxy代理</p>
+<h3 id="1-新增变量声明"><a href="#1-新增变量声明" class="headerlink" title="1.新增变量声明"></a>1.新增变量声明</h3><h4 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h4><p><strong>共同点</strong></p>
+<p>1.不存在变量提升</p>
+<p>2.不可重复命名</p>
+<p>3.只在当前块级作用域使用</p>
+<p><strong>不同点</strong></p>
+<p>1.let 允许先声明后赋值 const不允许</p>
+<p>2.const声明变量不能被修改但声明的数组和对象可以修改</p>
+<p>因此，不推荐用const声明引用类型</p>
+<h3 id="2-新增原始数据类型"><a href="#2-新增原始数据类型" class="headerlink" title="2.新增原始数据类型"></a>2.新增原始数据类型</h3><h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><p> 保证每个属性名独一无二，防止属性名的冲突 </p>
+<p> Symbol 值通过**<code>Symbol()</code>函数**生成 </p>
+<p> <strong>对象的属性名</strong>现在可以有<strong>两种类型</strong>，一种是<strong>字符串</strong>，另一种 <strong>Symbol 类型</strong> </p>
+<p> <code>Symbol</code>函数前<strong>不能使用<code>new</code>命令</strong>，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象 </p>
+<p> <code>Symbol</code>函数的参数只是表示对当前 Symbol 值的描述，因此<strong>相同参数的<code>Symbol</code>函数的返回值是不相等</strong> </p>
+<h5 id="作为对象的属性"><a href="#作为对象的属性" class="headerlink" title="作为对象的属性"></a>作为对象的属性</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sy = <span class="title class_">Symbol</span>();</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 写法1</span></span><br><span class="line"><span class="keyword">let</span> syObject = &#123;&#125;;</span><br><span class="line">syObject[sy] = <span class="string">&quot;symbol&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(syObject);    <span class="comment">// &#123;Symbol(): &quot;symbol&quot;&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 写法2</span></span><br><span class="line"><span class="keyword">let</span> syObject = &#123;</span><br><span class="line">  [sy]: <span class="string">&quot;symbol&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(syObject);    <span class="comment">// &#123;Symbol(): &quot;symbol&quot;&#125;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 写法3</span></span><br><span class="line"><span class="keyword">let</span> syObject = &#123;&#125;;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(syObject, sy, &#123;<span class="attr">value</span>: <span class="string">&quot;symbol&quot;</span>&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(syObject);   <span class="comment">// &#123;Symbol(): &quot;symbol&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不能用点</span></span><br><span class="line">syObject[sy];  <span class="comment">// &quot;symbol&quot;</span></span><br><span class="line">syObject.<span class="property">sy</span>;   <span class="comment">// undefined </span></span><br><span class="line"><span class="comment">// syObject.sy ==&gt; syObject[&quot;sy&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-解构赋值"><a href="#3-解构赋值" class="headerlink" title="3.解构赋值"></a>3.解构赋值</h3><p><strong>定义</strong></p>
+<p>从数组和对象提取值，对变量赋值</p>
+<p><strong>表达式的组成</strong></p>
+<p>目标	&#x3D;	来源</p>
+<h4 id="解构数组"><a href="#解构数组" class="headerlink" title="解构数组"></a>解构数组</h4><p><strong>有次序</strong></p>
+<p>示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="comment">//以上分别声明三个变量并赋值</span></span><br><span class="line"><span class="comment">//用解构赋值的写法则为</span></span><br><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>可嵌套</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,[b,c],d] = [<span class="number">1</span>,[<span class="number">2</span>,<span class="number">3</span>],<span class="number">4</span>]</span><br><span class="line"><span class="comment">//a	1</span></span><br><span class="line"><span class="comment">//b	2</span></span><br><span class="line"><span class="comment">//c	3</span></span><br><span class="line"><span class="comment">//d	4</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>可忽略</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment">//a 1</span></span><br><span class="line"><span class="comment">//c	3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>可覆盖</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a = <span class="number">5</span>,,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment">//a 1</span></span><br><span class="line"><span class="comment">//c	3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>不完全解构</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a = <span class="number">1</span>, b] = []; </span><br><span class="line"><span class="comment">// a = 1</span></span><br><span class="line"><span class="comment">// b = undefined</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>值为[] undefined null</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b] = [];</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">let</span> [a,b] = [<span class="literal">undefined</span>];</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">let</span> [a=<span class="number">1</span>] = [<span class="literal">undefined</span>]</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="keyword">let</span> [a = <span class="number">1</span>,b] = [<span class="literal">null</span>]</span><br><span class="line"><span class="comment">//null</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>可使用剩余运算符</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a, ...b] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">//a = 1</span></span><br><span class="line"><span class="comment">//b = [2, 3]</span></span><br><span class="line"><span class="comment">//剩余运算符只能放最后</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>若变量为数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,[<span class="number">2</span>,<span class="number">3</span>],<span class="number">4</span>]</span><br><span class="line"><span class="comment">//a	1</span></span><br><span class="line"><span class="comment">//b	[2,3]</span></span><br><span class="line"><span class="comment">//c	4</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="不可解构"><a href="#不可解构" class="headerlink" title="不可解构"></a>不可解构</h5><p><strong>不能遍历的结构不能被解构</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let [a] = 1</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="解构对象"><a href="#解构对象" class="headerlink" title="解构对象"></a>解构对象</h4><p><strong>没有次序</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;name,age&#125; = &#123;<span class="attr">age</span>:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>&#125;</span><br><span class="line"><span class="comment">// name = &quot;张三&quot;</span></span><br><span class="line"><span class="comment">// age = 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//name是name:name</span></span><br><span class="line"><span class="comment">//ES6新特性规定对象的属性和值用同一变量可以简写为一个</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="已经声明的变量用于解构赋值"><a href="#已经声明的变量用于解构赋值" class="headerlink" title="已经声明的变量用于解构赋值"></a>已经声明的变量用于解构赋值</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x;</span><br><span class="line">&#123;x&#125; = &#123;<span class="attr">x</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Unexpected token &#x27;=&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x;</span><br><span class="line">(&#123;x&#125; = &#123;<span class="attr">x</span>: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>变量名与属性不一致</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">foo</span>: baz&#125; = &#123;<span class="attr">foo</span>:<span class="string">&quot;a&quot;</span>,<span class="attr">bar</span>: <span class="string">&quot;b&quot;</span>&#125;</span><br><span class="line"><span class="comment">//baz ——&gt; a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这是因为解构赋值的内部机制是先找同名属性，再赋值给变量</span></span><br><span class="line"><span class="comment">//真正被赋值的是后者baz</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><h6 id="1-任意个参数求和"><a href="#1-任意个参数求和" class="headerlink" title="1.任意个参数求和"></a>1.任意个参数求和</h6><p>传统方法：   js传统方法需要借助arguments来实现，具体方法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> len = <span class="variable language_">arguments</span>.<span class="property">length</span>; <span class="comment">// 将长度存储在变量中可以减少循环次数，提升性能</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line">    sum +=<span class="variable language_">arguments</span>[i]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);  <span class="comment">// 6</span></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="string">&quot;4&quot;</span>); <span class="comment">// &quot;34&quot;</span></span><br><span class="line">此处只是为了对比传统方法和<span class="title class_">ES6</span>新方法求和，未作数值类型转化，故第二个调用出现了字符串拼接</span><br></pre></td></tr></table></figure>
+
+<p>ES6新方法：   ES6用剩余项表达式和解构来存储参数个数，求和的方法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">...nums</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> sum = nums.<span class="title function_">reduce</span>(<span class="function">(<span class="params">x,y</span>)=&gt;</span>&#123;<span class="keyword">return</span> x+y&#125;)</span><br><span class="line">  <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);  <span class="comment">// 6</span></span><br><span class="line"><span class="title function_">sum</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="string">&quot;4&quot;</span>); <span class="comment">// &quot;34&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>注意此处使用了ES6数组的新方法：reduce，reduce的作用是汇总，输入一堆，输出一个结果</code>   在这里我们可能感觉两种方法的实现原理好像是一样的额，其实并不然，传统方法借助的arguments是一个类数组，虽然我们可以像数组一样用下标，即<code>arguments[0],arguments[1]</code>,…的方式去访问它，也能通过<code>arguments.length</code>来计算传入参数的个数，还能使用<code>arguments.callee</code>(注意在ES5中这个属性已被废弃，<code>caller</code>不是的属性)，然而它还是没有数组常用的一些方法，比如<code>reduce,pop,push,shift,unshift</code>等，所以用传统方法求参数和要比ES6的代码多好几行。</p>
+<h6 id="2-不借助第三个参数交换变量的值"><a href="#2-不借助第三个参数交换变量的值" class="headerlink" title="2.不借助第三个参数交换变量的值"></a>2.不借助第三个参数交换变量的值</h6><p>传统方法：   传统方法（ES6之前，C语言等）要交换两个变量的值需要借助第三个变量，在js中的实现方法大概如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">let</span> c = a;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a,b,c);</span><br><span class="line">a = b;</span><br><span class="line">b = c;</span><br><span class="line"><span class="comment">// a = 2;</span></span><br><span class="line"><span class="comment">// b = 1;</span></span><br><span class="line"><span class="comment">// c = 1;</span></span><br></pre></td></tr></table></figure>
+
+<p>所以，传统方法大概需要5行代码才能实现。</p>
+<p>ES6方法： ES6中我们不需要借助第三个参数，具体实现方法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span>;</span><br><span class="line">[a, b] = [b, a];</span><br><span class="line"><span class="comment">// a = 2;</span></span><br><span class="line"><span class="comment">// b = 1;</span></span><br></pre></td></tr></table></figure>
+
+<p>从上面可以看出我们只需要三行代码就能完成参数的交换。</p>
+<h6 id="3-收集函数的剩余参数-用作公共函数可选项"><a href="#3-收集函数的剩余参数-用作公共函数可选项" class="headerlink" title="3.收集函数的剩余参数,用作公共函数可选项"></a>3.收集函数的剩余参数,用作公共函数可选项</h6><p>  我们都知道js中传递的实参可以不和形参一一对应；   形参个数大于实参个数时，多余的形参会被初始化为<code>undefined</code>(函数声明整体提升，随后找形参并将形参初始化为undefined，最后才是实参和形参相统一，所以没有实参对应的形参值仍然是undefined)；   当形参个数小于实参个数时，多余的实参会被忽略；   因此，一些场景下即使我们只用到一次的或者可能不会用到的参数都要在定义形参来传递，一些参数个数不确定的场景下我们只能通过多定义形参来解决问题，但是这显然有些笨拙。   在ES6新特性中，我们可以通过“…+变量名”来解决参数传递的问题。   下面我们可以通过函数来简单模范api的可选参数，我们把必填参数放在前面，把可选参数放在剩余项里，这样我们的代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">dateFormat</span>(<span class="params">a,..b</span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  上面代码a是必填参数，b是可选参数的集合，这样我们就能通过一个变量将不常用的参数放到一个集合中了。</p>
+<h6 id="4-返回多个函数结果"><a href="#4-返回多个函数结果" class="headerlink" title="4.返回多个函数结果"></a>4.返回多个函数结果</h6><p>  ES6之前我们想从函数返回多个结果，只能将它们放在数组或对象里返回，想要获取每一个返回结果，少不了循环和遍历语句，这很让人头疼。   有了ES6后我们就可以将函数执行的结果一个一个的提取出来。大概的代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回一个数组</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> [a, b, c] = <span class="title function_">test</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回一个对象</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">foo</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">bar</span>: <span class="number">2</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> &#123; foo, bar &#125; = <span class="title function_">test</span>();</span><br></pre></td></tr></table></figure>
+
+<h6 id="5-简化底层数据的调用"><a href="#5-简化底层数据的调用" class="headerlink" title="5.简化底层数据的调用"></a>5.简化底层数据的调用</h6><p>  很多时候后台返回给我们的都是一些对象和数组的混合嵌套体，对于深层数据的访问我们往往需要写一长串“.”引用，用解构赋值我们就可以将这些数据单独获取出来。</p>
+<h6 id="6-设置函数参数的默认值"><a href="#6-设置函数参数的默认值" class="headerlink" title="6.设置函数参数的默认值"></a>6.设置函数参数的默认值</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jQuery.<span class="property">ajax</span> = <span class="keyword">function</span> (<span class="params">url, &#123;</span></span><br><span class="line"><span class="params">  <span class="keyword">async</span> = <span class="literal">true</span>,</span></span><br><span class="line"><span class="params">  beforeSend = <span class="keyword">function</span> () &#123;&#125;,</span></span><br><span class="line"><span class="params">  cache = <span class="literal">true</span>,</span></span><br><span class="line"><span class="params">  complete = <span class="keyword">function</span> () &#123;&#125;,</span></span><br><span class="line"><span class="params">  crossDomain = <span class="literal">false</span>,</span></span><br><span class="line"><span class="params">  <span class="variable language_">global</span> = <span class="literal">true</span>,</span></span><br><span class="line"><span class="params">  // ... more config</span></span><br><span class="line"><span class="params">&#125; = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="comment">// ... do stuff</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>指定参数的默认值，就避免了在函数体内部再写<code>var foo = config.foo || &#39;default foo&#39;;</code>这样的语句。</p>
+<h6 id="7-遍历-Map-结构"><a href="#7-遍历-Map-结构" class="headerlink" title="7.遍历 Map 结构"></a>7.遍历 Map 结构</h6><p>任何部署了 Iterator 接口的对象，都可以用for…of循环遍历。Map 结构原生支持 Iterator 接口，配合变量的解构赋值，获取键名和键值就非常方便。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line">map.<span class="title function_">set</span>(<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">map.<span class="title function_">set</span>(<span class="string">&#x27;second&#x27;</span>, <span class="string">&#x27;world&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(key + <span class="string">&quot; is &quot;</span> + value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// first is hello</span></span><br><span class="line"><span class="comment">// second is world</span></span><br></pre></td></tr></table></figure>
+
+<p>如果只想获取键名，或者只想获取键值，可以写成下面这样。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取键名</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key] <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取键值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [,value] <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="8-输入模块的指定方法"><a href="#8-输入模块的指定方法" class="headerlink" title="8.输入模块的指定方法"></a>8.输入模块的指定方法</h6><p>加载模块时，往往需要指定输入哪些方法。解构赋值使得输入语句非常清晰。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">SourceMapConsumer</span>, <span class="title class_">SourceNode</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;source-map&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-字符串模板"><a href="#4-字符串模板" class="headerlink" title="4.字符串模板"></a>4.字符串模板</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = &#x27;hello&#x27;</span><br><span class="line">var b = `$&#123;a&#125; world!`</span><br><span class="line">console.log(b);</span><br></pre></td></tr></table></figure>
+
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/17/21-ES6%E6%96%B0%E5%A2%9E/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/04/17/22-ES6%E6%96%B0%E5%A2%9E-02/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            22.ES6新增(02)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/04/16/20-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">20.创建对象的方法</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "3qyLjrAr7YkTJKI0Xl80BcAY-gzGzoHsz",
+    app_key: "kyl2Culg6fFEqXmB2pJJm7bo",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022
+        <i class="ri-heart-fill heart_icon"></i> Wu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/wuxianjinbu.svg" alt="Make progress, Wu"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

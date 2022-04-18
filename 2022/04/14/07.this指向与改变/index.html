@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>07.this指向与改变 |  Keep your mind</title>
+      <title>07.this指向与改变 |  Make progress, Wu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/无限.svg" />
@@ -41,7 +41,7 @@
           font-size: 1.6rem;
         }
       </style>
-    <link rel="alternate" href="/atom.xml" title="Keep your mind" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Make progress, Wu" type="application/atom+xml">
 </head>
   </html>
 </html>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">514</span>
+            <span class="post-count">536</span>
         </span>
     </span>
 
@@ -120,7 +120,8 @@
 
 
 
-<h4 id="3-箭头函数指向-外层作用域"><a href="#3-箭头函数指向-外层作用域" class="headerlink" title="3.箭头函数指向 外层作用域"></a>3.箭头函数指向 外层作用域</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">        <span class="attr">print</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">            &#125; ,<span class="number">100</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.<span class="title function_">print</span>() <span class="comment">//&#123;name: &#x27;test&#x27;, print: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-箭头函数指向-外层作用域"><a href="#3-箭头函数指向-外层作用域" class="headerlink" title="3.箭头函数指向 外层作用域"></a>3.箭头函数指向 外层作用域</h4><p>不绑定this关键字，指向函数定义位置的作用域中的this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;test&#x27;</span>,</span><br><span class="line">        <span class="attr">print</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">            &#125; ,<span class="number">100</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">test.<span class="title function_">print</span>() <span class="comment">//&#123;name: &#x27;test&#x27;, print: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  <span class="attr">print</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">fun</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)  </span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">print</span>()	<span class="comment">//[object object]	张三</span></span><br><span class="line">obj.<span class="title function_">fun</span>()	<span class="comment">//[object window]	空字符串</span></span><br></pre></td></tr></table></figure>
 
@@ -342,7 +343,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/wuxianjinbu.svg" alt="Keep your mind"></a>
+    <a href="/"><img src="/images/wuxianjinbu.svg" alt="Make progress, Wu"></a>
   </div>
   
   <ul class="nav nav-main">
