@@ -16,6 +16,38 @@
       </tags>
   </entry>
   <entry>
+    <title>03.路由模式</title>
+    <url>/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
+<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
+
+<p> 如果使用history，路径与传统网址一样 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
+
+<p> 如果我们没有这个文件，而是用vue这种router </p>
+<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
+<p> 在nginx中配置每一个route，漏下一个就会404 </p>
+<p> <strong>history模式下的路由分发是服务端（nginx）来做的</strong> </p>
+<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>hash模式的url中“#“符号后面的路径并不是真实路径，而是以类似参数的形式传给默认文件 </p>
+<p>默认文件就是index，在这里通过“#“符号后面的路径去匹配路由处理，所以只要有index这一个文件是真实路径就可以 </p>
+<p> <strong>hash模式下的路由分发就不需要服务端来做了，直接在前端</strong>就处理 </p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>路由</category>
+        <category>路由模式</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>02.Vue双向数据绑定</title>
     <url>/2022/04/13/02.Vue%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/%5Bobject%20Object%5D/</url>
     <content><![CDATA[<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
@@ -59,54 +91,6 @@
       </categories>
       <tags>
         <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>03.路由模式</title>
-    <url>/2022/04/13/03.%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="hash-与-history"><a href="#hash-与-history" class="headerlink" title="hash 与 history"></a>hash 与 history</h3><p>在new 的 Router实例中 mode上进行设置 默认hash</p>
-<p> hash模式，url中就会存在“#“符号，这个符号后面的是路径 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/#/</span><br><span class="line">http://localhost:8080/#/test </span><br></pre></td></tr></table></figure>
-
-<p> 如果使用history，路径与传统网址一样 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/</span><br><span class="line">http://localhost:8080/test</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="history模式"><a href="#history模式" class="headerlink" title="history模式"></a>history模式</h4><p> url中的路径就是服务端根目录下的相对路径，是<strong>真实路径</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://localhost:8080/test/123.html</span><br><span class="line">就需要在根目录下有test文件夹，文件夹下有123.html这个文件 </span><br></pre></td></tr></table></figure>
-
-<p> 如果我们没有这个文件，而是用vue这种router </p>
-<p> 就必须用nginx代理，否则找不到这个文件就是返回404 </p>
-<p> 在nginx中配置每一个route，漏下一个就会404 </p>
-<p> <strong>history模式下的路由分发是服务端（nginx）来做的</strong> </p>
-<h4 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h4><p>hash模式的url中“#“符号后面的路径并不是真实路径，而是以类似参数的形式传给默认文件 </p>
-<p>默认文件就是index，在这里通过“#“符号后面的路径去匹配路由处理，所以只要有index这一个文件是真实路径就可以 </p>
-<p> <strong>hash模式下的路由分发就不需要服务端来做了，直接在前端</strong>就处理 </p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-        <category>路由</category>
-        <category>路由模式</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>05.行内与块的区别</title>
-    <url>/2022/04/14/05.%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
-<p>块级独据一行，可包含块级、行块、行内</p>
-<h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
-<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display: block			//块</span><br><span class="line">display: inline-block	//行块</span><br><span class="line">display: inline			//行内</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -172,6 +156,49 @@
       </tags>
   </entry>
   <entry>
+    <title>05.行内与块的区别</title>
+    <url>/2022/04/14/05.%E8%A1%8C%E5%86%85%E4%B8%8E%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="在流体布局上"><a href="#在流体布局上" class="headerlink" title="在流体布局上"></a>在流体布局上</h3><p>行内在一条直线上排列，只可包含行内</p>
+<p>块级独据一行，可包含块级、行块、行内</p>
+<h3 id="在盒模型上"><a href="#在盒模型上" class="headerlink" title="在盒模型上"></a>在盒模型上</h3><p>行内宽高无效，margin和padding上下无效</p>
+<h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display: block			//块</span><br><span class="line">display: inline-block	//行块</span><br><span class="line">display: inline			//行内</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>08.原始数据类型与引用数据类型</title>
+    <url>/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p> Undefined	Null	Boolean	Number	String   Symbol </p>
+<p>被频繁使用的数据  直接<strong>存储在栈</strong>（stack）中的简单数据段，占据<strong>空间小，大小固定</strong></p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>对象 函数 数组</p>
+<p> 存储在<strong>堆</strong>（heap）中的对象，占据<strong>空间大，大小不固定</strong> </p>
+<h3 id="鉴别类型"><a href="#鉴别类型" class="headerlink" title="鉴别类型"></a>鉴别类型</h3><h4 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="string">&#x27;a&#x27;</span>);           <span class="comment">// &quot;string&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="number">1</span>);            <span class="comment">// &quot;number&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">false</span>);         <span class="comment">// &quot;boolean&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">undefined</span>);     <span class="comment">// &quot;undefined&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">null</span>);         <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="为什么typeof-null-返回object"><a href="#为什么typeof-null-返回object" class="headerlink" title="为什么typeof(null)返回object"></a>为什么typeof(null)返回object</h5><p>这是个bug	javascript中不同对象在底层都表示为二进制，而javascript 中会把二进制前三位都为0的判断为object类型，而null的二进制表示全都是0	所以执行typeof时会返回 ‘object’。 </p>
+<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = []</span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> a);      <span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);     	<span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> c);      <span class="comment">// &quot;function&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>但这区分不了数组与对象</p>
+<p>所以可以使用 instanceof</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">var</span> b = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a <span class="keyword">instanceof</span> <span class="title class_">Array</span>);       <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b <span class="keyword">instanceof</span> <span class="title class_">Object</span>);     <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c <span class="keyword">instanceof</span> <span class="title class_">Function</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>另外Array.isArray()鉴定数组</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">isArray</span>(a)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>07.this指向与改变</title>
     <url>/2022/04/14/07.this%E6%8C%87%E5%90%91%E4%B8%8E%E6%94%B9%E5%8F%98/%5Bobject%20Object%5D/</url>
     <content><![CDATA[<h3 id="指向"><a href="#指向" class="headerlink" title="指向"></a>指向</h3><h4 id="1-直接调用-向window"><a href="#1-直接调用-向window" class="headerlink" title="1.直接调用 向window"></a>1.直接调用 向window</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>()	<span class="comment">//window</span></span><br></pre></td></tr></table></figure>
@@ -214,23 +241,18 @@
       </tags>
   </entry>
   <entry>
-    <title>08.原始数据类型与引用数据类型</title>
-    <url>/2022/04/14/08.%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p> Undefined	Null	Boolean	Number	String   Symbol </p>
-<p>被频繁使用的数据  直接<strong>存储在栈</strong>（stack）中的简单数据段，占据<strong>空间小，大小固定</strong></p>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>对象 函数 数组</p>
-<p> 存储在<strong>堆</strong>（heap）中的对象，占据<strong>空间大，大小不固定</strong> </p>
-<h3 id="鉴别类型"><a href="#鉴别类型" class="headerlink" title="鉴别类型"></a>鉴别类型</h3><h4 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="string">&#x27;a&#x27;</span>);           <span class="comment">// &quot;string&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="number">1</span>);            <span class="comment">// &quot;number&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">false</span>);         <span class="comment">// &quot;boolean&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">undefined</span>);     <span class="comment">// &quot;undefined&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="literal">null</span>);         <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>09.对象深度克隆</title>
+    <url>/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="方法一、对象序列化再解析"><a href="#方法一、对象序列化再解析" class="headerlink" title="方法一、对象序列化再解析"></a>方法一、对象序列化再解析</h3><p>缺点：无法克隆方法 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>:<span class="string">&#x27;wee&#x27;</span>,</span><br><span class="line">  <span class="attr">sds</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">ds</span>:&#123;</span><br><span class="line">    <span class="attr">dksk</span>:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj));</span><br></pre></td></tr></table></figure>
 
-<h5 id="为什么typeof-null-返回object"><a href="#为什么typeof-null-返回object" class="headerlink" title="为什么typeof(null)返回object"></a>为什么typeof(null)返回object</h5><p>这是个bug	javascript中不同对象在底层都表示为二进制，而javascript 中会把二进制前三位都为0的判断为object类型，而null的二进制表示全都是0	所以执行typeof时会返回 ‘object’。 </p>
-<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = []</span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> a);      <span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> b);     	<span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> c);      <span class="comment">// &quot;function&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>但这区分不了数组与对象</p>
-<p>所以可以使用 instanceof</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">var</span> b = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a <span class="keyword">instanceof</span> <span class="title class_">Array</span>);       <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b <span class="keyword">instanceof</span> <span class="title class_">Object</span>);     <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c <span class="keyword">instanceof</span> <span class="title class_">Function</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<p>另外Array.isArray()鉴定数组</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">isArray</span>(a)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法二、写一个方法"><a href="#方法二、写一个方法" class="headerlink" title="方法二、写一个方法"></a>方法二、写一个方法</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deepClone</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> newobj = obj.<span class="property">constructor</span> === <span class="title class_">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	newobj[i] = <span class="keyword">typeof</span> obj[i] === <span class="string">&#x27;object&#x27;</span> ? <span class="title function_">cloneObj</span>(obj[i]) : obj[i]; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newobj; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newObj = <span class="title function_">deepClone</span>(obj));</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -282,28 +304,6 @@
       </tags>
   </entry>
   <entry>
-    <title>09.对象深度克隆</title>
-    <url>/2022/04/14/09-%E5%AF%B9%E8%B1%A1%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="方法一、对象序列化再解析"><a href="#方法一、对象序列化再解析" class="headerlink" title="方法一、对象序列化再解析"></a>方法一、对象序列化再解析</h3><p>缺点：无法克隆方法 </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>:<span class="string">&#x27;wee&#x27;</span>,</span><br><span class="line">  <span class="attr">sds</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">ds</span>:&#123;</span><br><span class="line">    <span class="attr">dksk</span>:<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj));</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="方法二、写一个方法"><a href="#方法二、写一个方法" class="headerlink" title="方法二、写一个方法"></a>方法二、写一个方法</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">deepClone</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> newobj = obj.<span class="property">constructor</span> === <span class="title class_">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	newobj[i] = <span class="keyword">typeof</span> obj[i] === <span class="string">&#x27;object&#x27;</span> ? <span class="title function_">cloneObj</span>(obj[i]) : obj[i]; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newobj; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newObj = <span class="title function_">deepClone</span>(obj));</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>11.get与post区别</title>
     <url>/2022/04/14/11-get%E4%B8%8Epost%E5%8C%BA%E5%88%AB/%5Bobject%20Object%5D/</url>
     <content><![CDATA[<ol>
@@ -333,6 +333,105 @@
       </categories>
       <tags>
         <tag>HTTP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>12.跨域解决方案</title>
+    <url>/2022/04/14/12-%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p> ajax请求的url中的传输协议、域名、端口号，有任意一个不同时，就会触发同源策略 </p>
+<h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p><strong>原理</strong></p>
+<p> script的src属性不受浏览器同源策略限制，可以通过该属性进行跨域请求 </p>
+<p> jsonp技术就是让后端返回一个函数调用，把数据作为实参给前端定义好的形参，从而实现数据的接收 </p>
+<h3 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h3><p>cors跨域是后端响应头的配置，在后端语言中配置的</p>
+<p>副作用最小的，在应用场景中使用最多的跨域方式 </p>
+<h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><p> proxy 代理跨域（让服务器代理跨域） </p>
+<p>浏览器同源设置一个代理服务器 </p>
+<p>把本该发送给目标服务器的请求发送给代理服务器</p>
+<p>代理服务器转发请求给目标服务器，目标服务器会把响应给代理服务器，代理服务器再把响应给到浏览器 </p>
+]]></content>
+      <categories>
+        <category>HTTP</category>
+        <category>Ajax</category>
+      </categories>
+      <tags>
+        <tag>HTTP</tag>
+        <tag>Ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>14.coookie localStorage SessionStorage</title>
+    <url>/2022/04/15/14-coookie-localStorage-SessionStorage/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="客户端存储"><a href="#客户端存储" class="headerlink" title="客户端存储"></a>客户端存储</h3><p><strong>cookie</strong>	<strong>WebStorage</strong>(H5)</p>
+<p>WebStorage又可分为<strong>sessionStorage</strong>和<strong>localStorage</strong></p>
+<h4 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h4><p>都可在本地存储</p>
+<h4 id="不同"><a href="#不同" class="headerlink" title="不同"></a>不同</h4><h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>大小受限，每次新页面请求会发送cookie需指定作用域，可设过期时间，不可跨域调用</p>
+<p>大小4k左右 一个页面最多20个</p>
+<h5 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h5><p>只在同一会话才能访问，当网页关闭数据也销毁</p>
+<h5 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h5><p>持久的本地化存储，除非主动删除。否则数据永不过期</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="cookie-1"><a href="#cookie-1" class="headerlink" title="cookie"></a>cookie</h4><p>以</p>
+<p><strong>名&#x3D;值</strong></p>
+<p>的形式存储</p>
+<h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.cookie = &quot;user=张三&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h5><p>直接重新创建</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.cookie = &quot;user=李四&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p>将值赋空</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.cookie = &quot;username=;&quot;</span><br></pre></td></tr></table></figure>
+
+<h6 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h6><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>必选，cookie名</td>
+</tr>
+<tr>
+<td>value</td>
+<td>必选，cookie值</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>可选，有效期</td>
+</tr>
+<tr>
+<td>path</td>
+<td>可选，生效路径</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>可选，规定ckkoie域名</td>
+</tr>
+<tr>
+<td>serure</td>
+<td>可选，规定是否通过HTTPS传输</td>
+</tr>
+</tbody></table>
+<h4 id="sessionStorage-localStorage"><a href="#sessionStorage-localStorage" class="headerlink" title="sessionStorage 	localStorage"></a>sessionStorage 	localStorage</h4><p>Web Storage API 继承于Window 对象,并提供两个新属性 — Window.sessionStorage 和 Window.localStorage </p>
+<p><strong>只能存储字符串类型的对象</strong> </p>
+<p>可用JSON对象的<strong>parse</strong> 和 <strong>stringify</strong>储存提取对象</p>
+<h5 id="存"><a href="#存" class="headerlink" title="存"></a>存</h5><p>setitem</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let obj = &#123;&quot;name&quot;:&quot;zhangsan&quot;,&quot;age&quot;:&quot;18&quot;&#125;</span><br><span class="line"></span><br><span class="line">localStronge.setitem(&quot;user&quot;,JSON.stringify(obj))</span><br></pre></td></tr></table></figure>
+
+<h5 id="取"><a href="#取" class="headerlink" title="取"></a>取</h5><p>getItem</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var userinfo = JSON.parse(localStorage.getItem(&quot;user&quot;))</span><br></pre></td></tr></table></figure>
+
+<h5 id="删"><a href="#删" class="headerlink" title="删"></a>删</h5><p>remove</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">localStorage.remove(&quot;user&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="清空"><a href="#清空" class="headerlink" title="清空"></a>清空</h5><p>clear</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">localStorage.clear();</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
       </tags>
   </entry>
   <entry>
@@ -451,102 +550,35 @@
       </tags>
   </entry>
   <entry>
-    <title>12.跨域解决方案</title>
-    <url>/2022/04/14/12-%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p> ajax请求的url中的传输协议、域名、端口号，有任意一个不同时，就会触发同源策略 </p>
-<h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p><strong>原理</strong></p>
-<p> script的src属性不受浏览器同源策略限制，可以通过该属性进行跨域请求 </p>
-<p> jsonp技术就是让后端返回一个函数调用，把数据作为实参给前端定义好的形参，从而实现数据的接收 </p>
-<h3 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h3><p>cors跨域是后端响应头的配置，在后端语言中配置的</p>
-<p>副作用最小的，在应用场景中使用最多的跨域方式 </p>
-<h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><p> proxy 代理跨域（让服务器代理跨域） </p>
-<p>浏览器同源设置一个代理服务器 </p>
-<p>把本该发送给目标服务器的请求发送给代理服务器</p>
-<p>代理服务器转发请求给目标服务器，目标服务器会把响应给代理服务器，代理服务器再把响应给到浏览器 </p>
+    <title>17.原型与原型链</title>
+    <url>/2022/04/16/17-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h3><p>早期js没有继承机制</p>
+<p>构造函数内部的属性方法，每次new一个实例对象的时候，都会创建内部的这些属性和方法，并且不同的实例对象之间，不能共享这些方法，造成了资源的浪费 </p>
+<p> 为了将所有的对象关联 	 原型 </p>
+<p>引入了new关键字 和 constructor构造函数来简化对象的设计</p>
+<p>引入了<strong>prototype函数对象</strong>来<strong>包含所有实例对象的构造函数的属性和方法</strong></p>
+<p>引入了<strong>proto原型</strong>和<strong>原型链</strong>的概念<strong>解决继承</strong>的问题 </p>
+<h3 id="原型与原型链"><a href="#原型与原型链" class="headerlink" title="原型与原型链"></a>原型与原型链</h3><p>所有<strong>引用类型</strong>都有**<code>__proto__</code>隐式原型**属性</p>
+<p>所有<strong>函数</strong>都有<strong>prototype显式原型</strong>属性</p>
+<p>理解<strong>实例继承构造函数</strong>的方法和属性 </p>
+<p><strong>实例的隐式原型指向它构造函数的显示原型</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">18</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">setSex</span> = <span class="keyword">function</span>(<span class="params">sex</span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">sex</span> = sex</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Man</span> = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>)				<span class="comment">//①</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>)				<span class="comment">//②</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">name</span>)			<span class="comment">//③</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">age</span>)			<span class="comment">//④</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">setSex</span>)			<span class="comment">//⑤</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>)	<span class="comment">//⑥</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">__proto__</span>)		<span class="comment">//⑦</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//打印</span></span><br><span class="line">①</span><br><span class="line">ƒ <span class="title class_">Person</span>()&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">②</span><br><span class="line"><span class="title class_">Person</span> &#123;<span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>&#125;</span><br><span class="line">③</span><br><span class="line">张三</span><br><span class="line">④</span><br><span class="line"><span class="number">18</span></span><br><span class="line">⑤</span><br><span class="line">ƒ (sex)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">sex</span> = sex</span><br><span class="line">&#125;</span><br><span class="line">⑥</span><br><span class="line">&#123;<span class="attr">age</span>: <span class="number">18</span>, <span class="attr">setSex</span>: ƒ, <span class="attr">constructor</span>: ƒ&#125;</span><br><span class="line">⑦</span><br><span class="line">&#123;<span class="attr">age</span>: <span class="number">18</span>, <span class="attr">setSex</span>: ƒ, <span class="attr">constructor</span>: ƒ&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原型的使用"><a href="#原型的使用" class="headerlink" title="原型的使用"></a>原型的使用</h4><p><strong>构造函数创建的实例可以访问构造函数的属性和方法，也可以访问原型的属性和方法</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span>= <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">setName</span>= <span class="keyword">function</span> (<span class="params">name</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">setAge</span> =<span class="keyword">function</span>(<span class="params">age</span>)&#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(man.<span class="property">name</span>)			<span class="comment">//①</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(man.<span class="property">__proto__</span>)		<span class="comment">//②</span></span><br><span class="line"></span><br><span class="line">①</span><br><span class="line">张三</span><br><span class="line">②</span><br><span class="line">&#123;<span class="attr">setAge</span>: ƒ, <span class="attr">constructor</span>: ƒ&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p>对象访问属性和方法的时候，会往自身查找，如果没有才会去原型中找。（一级一级传递 形成了原型链） </p>
+<p>原型链的本质：建立对象之间的关联 实现继承</p>
 ]]></content>
       <categories>
-        <category>HTTP</category>
-        <category>Ajax</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>HTTP</tag>
-        <tag>Ajax</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>14.coookie localStorage SessionStorage</title>
-    <url>/2022/04/15/14-coookie-localStorage-SessionStorage/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="客户端存储"><a href="#客户端存储" class="headerlink" title="客户端存储"></a>客户端存储</h3><p><strong>cookie</strong>	<strong>WebStorage</strong>(H5)</p>
-<p>WebStorage又可分为<strong>sessionStorage</strong>和<strong>localStorage</strong></p>
-<h4 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h4><p>都可在本地存储</p>
-<h4 id="不同"><a href="#不同" class="headerlink" title="不同"></a>不同</h4><h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>大小受限，每次新页面请求会发送cookie需指定作用域，可设过期时间，不可跨域调用</p>
-<p>大小4k左右 一个页面最多20个</p>
-<h5 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h5><p>只在同一会话才能访问，当网页关闭数据也销毁</p>
-<h5 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h5><p>持久的本地化存储，除非主动删除。否则数据永不过期</p>
-<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="cookie-1"><a href="#cookie-1" class="headerlink" title="cookie"></a>cookie</h4><p>以</p>
-<p><strong>名&#x3D;值</strong></p>
-<p>的形式存储</p>
-<h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.cookie = &quot;user=张三&quot;</span><br></pre></td></tr></table></figure>
-
-<h5 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h5><p>直接重新创建</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.cookie = &quot;user=李四&quot;</span><br></pre></td></tr></table></figure>
-
-<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><p>将值赋空</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.cookie = &quot;username=;&quot;</span><br></pre></td></tr></table></figure>
-
-<h6 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h6><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>name</td>
-<td>必选，cookie名</td>
-</tr>
-<tr>
-<td>value</td>
-<td>必选，cookie值</td>
-</tr>
-<tr>
-<td>expire</td>
-<td>可选，有效期</td>
-</tr>
-<tr>
-<td>path</td>
-<td>可选，生效路径</td>
-</tr>
-<tr>
-<td>domain</td>
-<td>可选，规定ckkoie域名</td>
-</tr>
-<tr>
-<td>serure</td>
-<td>可选，规定是否通过HTTPS传输</td>
-</tr>
-</tbody></table>
-<h4 id="sessionStorage-localStorage"><a href="#sessionStorage-localStorage" class="headerlink" title="sessionStorage 	localStorage"></a>sessionStorage 	localStorage</h4><p>Web Storage API 继承于Window 对象,并提供两个新属性 — Window.sessionStorage 和 Window.localStorage </p>
-<p><strong>只能存储字符串类型的对象</strong> </p>
-<p>可用JSON对象的<strong>parse</strong> 和 <strong>stringify</strong>储存提取对象</p>
-<h5 id="存"><a href="#存" class="headerlink" title="存"></a>存</h5><p>setitem</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">let obj = &#123;&quot;name&quot;:&quot;zhangsan&quot;,&quot;age&quot;:&quot;18&quot;&#125;</span><br><span class="line"></span><br><span class="line">localStronge.setitem(&quot;user&quot;,JSON.stringify(obj))</span><br></pre></td></tr></table></figure>
-
-<h5 id="取"><a href="#取" class="headerlink" title="取"></a>取</h5><p>getItem</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var userinfo = JSON.parse(localStorage.getItem(&quot;user&quot;))</span><br></pre></td></tr></table></figure>
-
-<h5 id="删"><a href="#删" class="headerlink" title="删"></a>删</h5><p>remove</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">localStorage.remove(&quot;user&quot;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="清空"><a href="#清空" class="headerlink" title="清空"></a>清空</h5><p>clear</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">localStorage.clear();</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -607,38 +639,6 @@
       </tags>
   </entry>
   <entry>
-    <title>17.原型与原型链</title>
-    <url>/2022/04/16/17-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h3><p>早期js没有继承机制</p>
-<p>构造函数内部的属性方法，每次new一个实例对象的时候，都会创建内部的这些属性和方法，并且不同的实例对象之间，不能共享这些方法，造成了资源的浪费 </p>
-<p> 为了将所有的对象关联 	 原型 </p>
-<p>引入了new关键字 和 constructor构造函数来简化对象的设计</p>
-<p>引入了<strong>prototype函数对象</strong>来<strong>包含所有实例对象的构造函数的属性和方法</strong></p>
-<p>引入了<strong>proto原型</strong>和<strong>原型链</strong>的概念<strong>解决继承</strong>的问题 </p>
-<h3 id="原型与原型链"><a href="#原型与原型链" class="headerlink" title="原型与原型链"></a>原型与原型链</h3><p>所有<strong>引用类型</strong>都有**<code>__proto__</code>隐式原型**属性</p>
-<p>所有<strong>函数</strong>都有<strong>prototype显式原型</strong>属性</p>
-<p>理解<strong>实例继承构造函数</strong>的方法和属性 </p>
-<p><strong>实例的隐式原型指向它构造函数的显示原型</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">18</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">setSex</span> = <span class="keyword">function</span>(<span class="params">sex</span>)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">sex</span> = sex</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Man</span> = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>)				<span class="comment">//①</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>)				<span class="comment">//②</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">name</span>)			<span class="comment">//③</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">age</span>)			<span class="comment">//④</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">setSex</span>)			<span class="comment">//⑤</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>)	<span class="comment">//⑥</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Man</span>.<span class="property">__proto__</span>)		<span class="comment">//⑦</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//打印</span></span><br><span class="line">①</span><br><span class="line">ƒ <span class="title class_">Person</span>()&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">②</span><br><span class="line"><span class="title class_">Person</span> &#123;<span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>&#125;</span><br><span class="line">③</span><br><span class="line">张三</span><br><span class="line">④</span><br><span class="line"><span class="number">18</span></span><br><span class="line">⑤</span><br><span class="line">ƒ (sex)&#123;</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">sex</span> = sex</span><br><span class="line">&#125;</span><br><span class="line">⑥</span><br><span class="line">&#123;<span class="attr">age</span>: <span class="number">18</span>, <span class="attr">setSex</span>: ƒ, <span class="attr">constructor</span>: ƒ&#125;</span><br><span class="line">⑦</span><br><span class="line">&#123;<span class="attr">age</span>: <span class="number">18</span>, <span class="attr">setSex</span>: ƒ, <span class="attr">constructor</span>: ƒ&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原型的使用"><a href="#原型的使用" class="headerlink" title="原型的使用"></a>原型的使用</h4><p><strong>构造函数创建的实例可以访问构造函数的属性和方法，也可以访问原型的属性和方法</strong> </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span>= <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">setName</span>= <span class="keyword">function</span> (<span class="params">name</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">setAge</span> =<span class="keyword">function</span>(<span class="params">age</span>)&#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(man.<span class="property">name</span>)			<span class="comment">//①</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(man.<span class="property">__proto__</span>)		<span class="comment">//②</span></span><br><span class="line"></span><br><span class="line">①</span><br><span class="line">张三</span><br><span class="line">②</span><br><span class="line">&#123;<span class="attr">setAge</span>: ƒ, <span class="attr">constructor</span>: ƒ&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p>对象访问属性和方法的时候，会往自身查找，如果没有才会去原型中找。（一级一级传递 形成了原型链） </p>
-<p>原型链的本质：建立对象之间的关联 实现继承</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>18.冒泡 捕获 事件委托 默认行为</title>
     <url>/2022/04/16/18-%E5%86%92%E6%B3%A1-%E6%8D%95%E8%8E%B7-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98-%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA/%5Bobject%20Object%5D/</url>
     <content><![CDATA[<h3 id="冒泡与捕获"><a href="#冒泡与捕获" class="headerlink" title="冒泡与捕获"></a>冒泡与捕获</h3><h4 id="冒泡"><a href="#冒泡" class="headerlink" title="冒泡"></a>冒泡</h4><p>从内层往父级层层往上，往上传递的行为</p>
@@ -666,31 +666,6 @@
 <p><strong>阻止方法</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.函数最后一行写 return false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.event对象proeventDefault()</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">oncontextmenu</span> = <span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="comment">// alert(1);</span></span><br><span class="line">    <span class="comment">//1</span></span><br><span class="line">    <span class="comment">// return false;</span></span><br><span class="line">    <span class="comment">//2</span></span><br><span class="line">    <span class="keyword">var</span> oEv = e || oEv;</span><br><span class="line">    oEv.<span class="title function_">preventDefault</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20.创建对象的方法</title>
-    <url>/2022/04/16/20-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="1-字面量"><a href="#1-字面量" class="headerlink" title="1.字面量"></a>1.字面量</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>,</span><br><span class="line">	<span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-new-Object"><a href="#2-new-Object" class="headerlink" title="2.new Object"></a>2.new Object</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span></span><br><span class="line">obj.<span class="property">fun</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	onsole.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-工厂模式"><a href="#3-工厂模式" class="headerlink" title="3.工厂模式"></a>3.工厂模式</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line">    obj.<span class="property">name</span>=name;</span><br><span class="line">    obj.<span class="property">fun</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;张三&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>函数名<strong>小写</strong>，<strong>调用系统构造函数Object</strong>创建对象，为对象添加属性或方法后<strong>返回</strong>，直接调用<strong>函数创建对象</strong> </p>
-<h3 id="4-构造函数"><a href="#4-构造函数" class="headerlink" title="4.构造函数"></a>4.构造函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fun</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;张三&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>首字母大写</strong>，<strong>this是当前对象</strong>，通过<strong>new的方式来创建</strong>对象 </p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -735,6 +710,31 @@
 
 <p><strong>const定义的基本类型不能改变，但是定义的引用类型中的 数组 与 对象 可以通过修改对象属性改变</strong> </p>
 <h5 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h5><p>局部作用域下定义的变量</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20.创建对象的方法</title>
+    <url>/2022/04/16/20-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="1-字面量"><a href="#1-字面量" class="headerlink" title="1.字面量"></a>1.字面量</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&quot;张三&quot;</span>,</span><br><span class="line">	<span class="title function_">fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-new-Object"><a href="#2-new-Object" class="headerlink" title="2.new Object"></a>2.new Object</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span></span><br><span class="line">obj.<span class="property">fun</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	onsole.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-工厂模式"><a href="#3-工厂模式" class="headerlink" title="3.工厂模式"></a>3.工厂模式</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line">    obj.<span class="property">name</span>=name;</span><br><span class="line">    obj.<span class="property">fun</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;张三&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>函数名<strong>小写</strong>，<strong>调用系统构造函数Object</strong>创建对象，为对象添加属性或方法后<strong>返回</strong>，直接调用<strong>函数创建对象</strong> </p>
+<h3 id="4-构造函数"><a href="#4-构造函数" class="headerlink" title="4.构造函数"></a>4.构造函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">fun</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;张三&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>首字母大写</strong>，<strong>this是当前对象</strong>，通过<strong>new的方式来创建</strong>对象 </p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -870,113 +870,6 @@
       </tags>
   </entry>
   <entry>
-    <title>23.定时器</title>
-    <url>/2022/04/18/23-%E5%AE%9A%E6%97%B6%E5%99%A8/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="setTimeoutsetInterval"><a href="#setTimeoutsetInterval" class="headerlink" title="setTimeout	setInterval"></a>setTimeout	setInterval</h3><p>setTimeout(fun,time,val1,val)</p>
-<p><strong>至少接受两个值</strong></p>
-<p>第一个值为调用函数的函数名</p>
-<p>第二个值为函数执行时间</p>
-<p>其后的值都为函数的参数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">logNum</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">setTimeout</span>(logNum,<span class="number">1000</span>,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">setInterval</span>(logNum,<span class="number">1000</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//清除定时器</span></span><br><span class="line"><span class="comment">//clearTimeout(a)</span></span><br><span class="line"><span class="comment">//clearInterval(b)</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>setTimeout()	为创建之后一段时间执行</p>
-<p>clearInterval()	为每隔一段时间执行</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/04/11/hello-world/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>关于hexo的操作</title>
-    <url>/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h2 id="hexo的基本操作"><a href="#hexo的基本操作" class="headerlink" title="hexo的基本操作"></a>hexo的基本操作</h2><span id="more"></span>
-
-<p>我的地址</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://surpass1004.github.io/</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="创建一个页面"><a href="#创建一个页面" class="headerlink" title="创建一个页面"></a>创建一个页面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//新建一个标题为 name 的页面，默认链接地址为主页地址/name / </span><br><span class="line">hexo new/n page name 	</span><br><span class="line"></span><br><span class="line">//在生成的.md文件配置</span><br><span class="line">title: 与_config.yml文件中 meun 配置一致</span><br><span class="line">date: </span><br><span class="line">type: 与_config.yml文件中 meun 配置的值一致</span><br><span class="line">layout: 打开的页面，尽量与type一致</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="创建博客文章"><a href="#创建博客文章" class="headerlink" title="创建博客文章"></a>创建博客文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//清除所有记录 </span><br><span class="line">hexo clean	</span><br><span class="line"></span><br><span class="line">//新建一个标题为 name 的文章 在你的blog/source/_posts下 name .md</span><br><span class="line">hexo new/n &quot;name &quot; </span><br><span class="line"></span><br><span class="line">//生成静态网页  到默认设置的 public 文件夹 </span><br><span class="line">hexo generate/g		</span><br><span class="line"></span><br><span class="line">//生成静态网页   并部署到设定的仓库 </span><br><span class="line">hexo deploy/d 	</span><br><span class="line"></span><br><span class="line">//启动服务 </span><br><span class="line">hexo server/s 	</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="配置分类或标签"><a href="#配置分类或标签" class="headerlink" title="配置分类或标签"></a>配置分类或标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//标题</span><br><span class="line">tags: name</span><br><span class="line"></span><br><span class="line">//分类</span><br><span class="line">categories: namae</span><br><span class="line"></span><br><span class="line">//多级分类</span><br><span class="line">categories:</span><br><span class="line">  - 主分类</span><br><span class="line">  - 次分类</span><br><span class="line">//或者</span><br><span class="line">categories: [主分类,次分类]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p> <a href="https://hexo.io/themes/">Themes | Hexo</a> </p>
-<p>cd 博客目录</p>
-<p>git clone 主题url</p>
-<p> 将博客根目录下的 <code>_config.yml</code> 里的 <code>theme</code> 值修改成下载的主题</p>
-<p>例：本博客采用Ayer</p>
-<p>详情见	 <a href="https://shen-yu.gitee.io/2019/ayer/#%E5%AE%89%E8%A3%85">Ayer中文说明 | 岛 (gitee.io)</a> </p>
-<h3 id="配置到远程仓库（码云）"><a href="#配置到远程仓库（码云）" class="headerlink" title="配置到远程仓库（码云）"></a>配置到远程仓库（码云）</h3><p>参考 <a href="https://blog.csdn.net/cungudafa/article/details/104260494?ops_request_misc=%7B%22request_id%22:%22164969418816782089398873%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=164969418816782089398873&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104260494.142%5Ev7%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B0gitee&spm=1018.2226.3001.4187">基于Gitee+Hexo搭建个人博客_cungudafa的博客-CSDN博客_gitee个人博客模板</a> </p>
-<p>项目目录下 _config.yml 文件 修改 </p>
-<p> ：后都有一个空格 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的项目地址（https）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>部署</p>
-<p>需要下载插件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save	</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g --d  #一键部署</span><br></pre></td></tr></table></figure>
-
-<p>每次添加文件都要手动在gitee更新</p>
-]]></content>
-      <categories>
-        <category>操作</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>24.ES6新增(03)</title>
-    <url>/2022/04/18/24-ES6%E6%96%B0%E5%A2%9E03/%5Bobject%20Object%5D/</url>
-    <content><![CDATA[<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="keyword">function</span> (<span class="params"></span>)&#123;&#125;		<span class="comment">//匿名函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;&#125;	<span class="comment">//具名函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun2</span>(<span class="params">a,b</span>)&#123;&#125;	<span class="comment">//传参</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line">() =&gt; &#123;&#125;						<span class="comment">//匿名函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun</span> = (<span class="params"></span>) =&gt; &#123;&#125;			<span class="comment">//具名函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun2</span> = (<span class="params">a,b</span>) =&gt; &#123;&#125;		<span class="comment">//传参</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun3</span> = a =&gt; &#123;&#125;			<span class="comment">//只有一个参可省略()</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun4</span> = a =&gt; <span class="keyword">return</span> <span class="number">1</span>		<span class="comment">//函数体只有一句可省略&#123;&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注意</strong></p>
-<p>1.箭头函数this指向函数定义位置中作用域的this，不可更改</p>
-<p>因此：箭头函数不可作为构造函数，不能使用new</p>
-<p>2.箭头函数没有原型属性</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>ES6</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>22.ES6新增(02)</title>
     <url>/2022/04/17/22-ES6%E6%96%B0%E5%A2%9E-02/%5Bobject%20Object%5D/</url>
     <content><![CDATA[<h3 id="Promiseasyncawait"><a href="#Promiseasyncawait" class="headerlink" title="Promise	async	await"></a>Promise	async	await</h3><h4 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h4><p>用途：解决<strong>回调地狱</strong></p>
@@ -1100,6 +993,113 @@
 <p>如果一个业务需要多步完成，每个步骤都是异步，依赖上一步骤结果</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pub</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> <span class="title function_">resolve</span>(n + <span class="number">100</span>),n)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;a&quot;</span> + n)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">pub</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;b&quot;</span> + n)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">pub</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">c</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;c&quot;</span> + n)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">pub</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Promise写法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">doIt</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&quot;doIt&quot;</span>)	<span class="comment">//查看代码运行效率</span></span><br><span class="line">    <span class="keyword">const</span> time1 = <span class="number">300</span></span><br><span class="line">    <span class="title function_">a</span>(time1).<span class="title function_">then</span>(<span class="function"><span class="params">time2</span> =&gt;</span> <span class="title function_">b</span>(time2))</span><br><span class="line">        	.<span class="title function_">then</span>(<span class="function"><span class="params">time3</span> =&gt;</span> <span class="title function_">b</span>(time3))</span><br><span class="line">    		.<span class="title function_">then</span>(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&quot;doIt&quot;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//async await写法</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">doIt</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&quot;doIt&quot;</span>)</span><br><span class="line">    <span class="keyword">const</span> time1 = <span class="number">300</span></span><br><span class="line">    <span class="keyword">const</span> time2 = <span class="keyword">await</span> <span class="title function_">a</span>(time1)</span><br><span class="line">    <span class="keyword">const</span> time3 = <span class="keyword">await</span> <span class="title function_">b</span>(time2)</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="title function_">c</span>(time3)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&quot;doIt&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>23.定时器</title>
+    <url>/2022/04/18/23-%E5%AE%9A%E6%97%B6%E5%99%A8/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="setTimeoutsetInterval"><a href="#setTimeoutsetInterval" class="headerlink" title="setTimeout	setInterval"></a>setTimeout	setInterval</h3><p>setTimeout(fun,time,val1,val)</p>
+<p><strong>至少接受两个值</strong></p>
+<p>第一个值为调用函数的函数名</p>
+<p>第二个值为函数执行时间</p>
+<p>其后的值都为函数的参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">logNum</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">setTimeout</span>(logNum,<span class="number">1000</span>,<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">setInterval</span>(logNum,<span class="number">1000</span>,<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//清除定时器</span></span><br><span class="line"><span class="comment">//clearTimeout(a)</span></span><br><span class="line"><span class="comment">//clearInterval(b)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p>setTimeout()	为创建之后一段时间执行</p>
+<p>clearInterval()	为每隔一段时间执行</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/04/11/hello-world/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>关于hexo的操作</title>
+    <url>/2022/04/11/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%93%8D%E4%BD%9C/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h2 id="hexo的基本操作"><a href="#hexo的基本操作" class="headerlink" title="hexo的基本操作"></a>hexo的基本操作</h2><span id="more"></span>
+
+<p>我的地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://surpass1004.github.io/</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建一个页面"><a href="#创建一个页面" class="headerlink" title="创建一个页面"></a>创建一个页面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//新建一个标题为 name 的页面，默认链接地址为主页地址/name / </span><br><span class="line">hexo new/n page name 	</span><br><span class="line"></span><br><span class="line">//在生成的.md文件配置</span><br><span class="line">title: 与_config.yml文件中 meun 配置一致</span><br><span class="line">date: </span><br><span class="line">type: 与_config.yml文件中 meun 配置的值一致</span><br><span class="line">layout: 打开的页面，尽量与type一致</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建博客文章"><a href="#创建博客文章" class="headerlink" title="创建博客文章"></a>创建博客文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//清除所有记录 </span><br><span class="line">hexo clean	</span><br><span class="line"></span><br><span class="line">//新建一个标题为 name 的文章 在你的blog/source/_posts下 name .md</span><br><span class="line">hexo new/n &quot;name &quot; </span><br><span class="line"></span><br><span class="line">//生成静态网页  到默认设置的 public 文件夹 </span><br><span class="line">hexo generate/g		</span><br><span class="line"></span><br><span class="line">//生成静态网页   并部署到设定的仓库 </span><br><span class="line">hexo deploy/d 	</span><br><span class="line"></span><br><span class="line">//启动服务 </span><br><span class="line">hexo server/s 	</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置分类或标签"><a href="#配置分类或标签" class="headerlink" title="配置分类或标签"></a>配置分类或标签</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//标题</span><br><span class="line">tags: name</span><br><span class="line"></span><br><span class="line">//分类</span><br><span class="line">categories: namae</span><br><span class="line"></span><br><span class="line">//多级分类</span><br><span class="line">categories:</span><br><span class="line">  - 主分类</span><br><span class="line">  - 次分类</span><br><span class="line">//或者</span><br><span class="line">categories: [主分类,次分类]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p> <a href="https://hexo.io/themes/">Themes | Hexo</a> </p>
+<p>cd 博客目录</p>
+<p>git clone 主题url</p>
+<p> 将博客根目录下的 <code>_config.yml</code> 里的 <code>theme</code> 值修改成下载的主题</p>
+<p>例：本博客采用Ayer</p>
+<p>详情见	 <a href="https://shen-yu.gitee.io/2019/ayer/#%E5%AE%89%E8%A3%85">Ayer中文说明 | 岛 (gitee.io)</a> </p>
+<h3 id="配置到远程仓库（码云）"><a href="#配置到远程仓库（码云）" class="headerlink" title="配置到远程仓库（码云）"></a>配置到远程仓库（码云）</h3><p>参考 <a href="https://blog.csdn.net/cungudafa/article/details/104260494?ops_request_misc=%7B%22request_id%22:%22164969418816782089398873%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=164969418816782089398873&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104260494.142%5Ev7%5Epc_search_result_control_group,157%5Ev4%5Econtrol&utm_term=hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%88%B0gitee&spm=1018.2226.3001.4187">基于Gitee+Hexo搭建个人博客_cungudafa的博客-CSDN博客_gitee个人博客模板</a> </p>
+<p>项目目录下 _config.yml 文件 修改 </p>
+<p> ：后都有一个空格 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你的项目地址（https）</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>部署</p>
+<p>需要下载插件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g --d  #一键部署</span><br></pre></td></tr></table></figure>
+
+<p>每次添加文件都要手动在gitee更新</p>
+]]></content>
+      <categories>
+        <category>操作</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>24.ES6新增(03)</title>
+    <url>/2022/04/18/24-ES6%E6%96%B0%E5%A2%9E03/%5Bobject%20Object%5D/</url>
+    <content><![CDATA[<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="keyword">function</span> (<span class="params"></span>)&#123;&#125;		<span class="comment">//匿名函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;&#125;	<span class="comment">//具名函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun2</span>(<span class="params">a,b</span>)&#123;&#125;	<span class="comment">//传参</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line">() =&gt; &#123;&#125;						<span class="comment">//匿名函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun</span> = (<span class="params"></span>) =&gt; &#123;&#125;			<span class="comment">//具名函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun2</span> = (<span class="params">a,b</span>) =&gt; &#123;&#125;		<span class="comment">//传参</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun3</span> = a =&gt; &#123;&#125;			<span class="comment">//只有一个参可省略()</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">fun4</span> = a =&gt; <span class="keyword">return</span> <span class="number">1</span>		<span class="comment">//函数体只有一句可省略&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong></p>
+<p>1.箭头函数this指向函数定义位置中作用域的this，不可更改</p>
+<p>因此：箭头函数不可作为构造函数，不能使用new</p>
+<p>2.箭头函数没有原型属性</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
