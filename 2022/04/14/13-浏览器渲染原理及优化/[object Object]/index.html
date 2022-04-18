@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>13.浏览器渲染原理及优化 |  Make progress, Wu</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/无限.svg" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Make progress, Wu" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-13-浏览器渲染原理及优化"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  13.浏览器渲染原理及优化
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/14/13-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BC%98%E5%8C%96/%5Bobject%20Object%5D/" class="article-date">
+  <time datetime="2022-04-14T14:04:46.000Z" itemprop="datePublished">2022-04-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BC%98%E5%8C%96/">优化</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>为了提升浏览器的稳定性和安全性  浏览器采用了<strong>多进程模型</strong> </p>
+<p>进程是操作系统资源分配的基本单位，<strong>进程中包含线程</strong></p>
+<h4 id="优化方向：进程"><a href="#优化方向：进程" class="headerlink" title="优化方向：进程"></a>优化方向：进程</h4><p>包括</p>
+<p><strong>浏览器进程</strong>：负责显示界面，用户交互，子进程管理，储存</p>
+<p><strong>渲染进程</strong>：每个页面有单独的渲染进程，用于渲染界面</p>
+<p><strong>网络进程</strong>：处理网络资源加载html css js等</p>
+<p><strong>GPU进程</strong>：3d绘制，提高性能</p>
+<p><strong>插件进程</strong>：浏览器安装的插件</p>
+<h4 id="优化方向：线程"><a href="#优化方向：线程" class="headerlink" title="优化方向：线程"></a>优化方向：线程</h4><p>GUI渲染线程</p>
+<p>js引擎线程</p>
+<p>事件触发线程</p>
+<p>要进行具体优化，我们要知道</p>
+<h4 id="从输入url地址到浏览器显示界面都发生了什么"><a href="#从输入url地址到浏览器显示界面都发生了什么" class="headerlink" title="从输入url地址到浏览器显示界面都发生了什么"></a>从输入url地址到浏览器显示界面都发生了什么</h4><h5 id="一、DNS域名解析"><a href="#一、DNS域名解析" class="headerlink" title="一、DNS域名解析"></a>一、DNS域名解析</h5><p>根据输入url找到真实ip地址</p>
+<p>以</p>
+<p><strong>浏览器缓存</strong>	&gt;	<strong>操作系统缓存</strong>	&gt;	<strong>路由器缓存</strong>	&gt;	<strong>hosts文件缓存</strong></p>
+<p>如果缓存没有则<strong>查询DNS服务器</strong> 顶级域名&gt;二级域名….</p>
+<h5 id="二、建立TCP连接"><a href="#二、建立TCP连接" class="headerlink" title="二、建立TCP连接"></a>二、建立TCP连接</h5><p>根据 IP 地址，客户端与服务端三次握手建立连接</p>
+<h6 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h6><p>1.发送端首先给接收端发送一个带SYN标志的数据包<br>2.接收端收到后，回传一个带有SYN&#x2F;ACK标志的数据包以表示正确传达，并确认信息<br>3.发送端再回传一个带ACK标志的数据包，代表“握手”结束</p>
+<p><strong>浏览器构造一个 http 请 求</strong></p>
+<p>请求报文会包括这次请求的信息，主要是请求方法，请求说明和请求附带的数 据，</p>
+<p>并将这个 http 请求封装在一个 tcp 包中，这个 tcp 包会依次经过传输层，网络层， 数据链路层，物理层到达服务器，<strong>服务器解析</strong>这个请求来作出响应，<strong>返回相应的 html 给浏览器</strong></p>
+<h5 id="三、传输数据"><a href="#三、传输数据" class="headerlink" title="三、传输数据"></a>三、传输数据</h5><p>服务器接收到请求后，返回请求静态资源，并同时调用 服务器请求接口数据</p>
+<h5 id="四、关闭TCP连接"><a href="#四、关闭TCP连接" class="headerlink" title="四、关闭TCP连接"></a>四、关闭TCP连接</h5><h6 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h6><p>数据传输完成，客户端与服务端进行四次挥手，关闭连接</p>
+<p>1.关闭方<strong>发送一个FIN</strong> 告知关闭数据传送</p>
+<p>2.收到FIN包后，给对方<strong>发送一个ACK</strong>，确认序号为收到序号+1</p>
+<p>3.发送ACK后<strong>再发送一个FIN</strong>告知关闭数据传送</p>
+<p>4.收到FIN后，<strong>发送一个ACK</strong>，确认序号为收到序号+1</p>
+<p>完成四次握手</p>
+<h5 id="五、渲染页面"><a href="#五、渲染页面" class="headerlink" title="五、渲染页面"></a>五、渲染页面</h5><p>浏览器根据服务端返回的静态资源</p>
+<p>根据<strong>GUI引擎渲染</strong>HTML 和 CSS</p>
+<p><strong>js引擎</strong>加载js脚本</p>
+<p>浏览器根据这个 html 来构建 DOM 树，在 dom 树的构建过程中如果遇到 JS 脚本和外部 JS 连接</p>
+<p>会停止构建 DOM 树来执行和下载 相应的代码，这会造成阻塞</p>
+<p>这就是为什么</p>
+<h6 id="JS-代码应该放在-html-代码的后面"><a href="#JS-代码应该放在-html-代码的后面" class="headerlink" title="JS 代码应该放在 html 代码的后面"></a>JS 代码应该放在 html 代码的后面</h6><p>根据渲染出的DOM树和css合并为<strong>渲染树</strong></p>
+<p>之后进行<strong>布局</strong>计算出每个节点在屏幕中的位置</p>
+<p><strong>遍历render树</strong>，并绘制每个节点</p>
+<h5 id="六、加载-JavaScript-脚本"><a href="#六、加载-JavaScript-脚本" class="headerlink" title="六、加载 JavaScript 脚本"></a>六、加载 JavaScript 脚本</h5><p>HTML\CSS 与 JS 是通过不同的引擎加载，但是却是<strong>互斥</strong>的，即加载 HTML\CSS 时，JS 会停止加载，相反亦然，这是因为 JS 引擎可以操作 DOM，改变样式、内容等。所以当执行了 JS 之后，渲染树要<strong>重新构建</strong></p>
+<p>此时，页面加载出来</p>
+<p>并发生一次</p>
+<h4 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h4><p>此次<strong>回流</strong>是开销最大的一次</p>
+<p>另外</p>
+<p><strong>回流必定发生重绘</strong></p>
+<p><strong>影响到页面布局的变化</strong>都会发生<strong>回流</strong></p>
+<p><strong>不影响到页面布局</strong>的变化则是<strong>重绘</strong></p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h4><p>1.<strong>减少HTTP请求，合并js，css 合理内嵌js css</strong></p>
+<p>2.<strong>合理设置服务器缓存，提高处理速度</strong></p>
+<p>3.域名分片，资源放到不同的域名下，同一个域名最多处理6个TCP链接</p>
+<p>4.加载数据优先级：preload(预先请求当前页面需要的资源) prefetch（将来页面中使用的资源），将数据缓存到HTTP缓存中</p>
+<h4 id="渲染路径优化"><a href="#渲染路径优化" class="headerlink" title="渲染路径优化"></a>渲染路径优化</h4><ol>
+<li>JavaScript强制将计算样式和布局操作提前 （例：load中）</li>
+<li>减少发生重绘与回流</li>
+</ol>
+<h4 id="静态文件优化"><a href="#静态文件优化" class="headerlink" title="静态文件优化"></a>静态文件优化</h4><h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><h6 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h6><table>
+<thead>
+<tr>
+<th>格式</th>
+<th>适合场景</th>
+<th>不适合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>jpg</td>
+<td>色彩丰富的照片、banner图</td>
+<td>图形文字、图标（纹理有锯齿），不支持透明</td>
+</tr>
+<tr>
+<td>png</td>
+<td>纯色、透明、图标、支持半透明</td>
+<td>色彩丰富图片，因为无损储存会导致储存体积大</td>
+</tr>
+<tr>
+<td>webp</td>
+<td>适合半透明图片，可以保证图片质量和较小的体积</td>
+<td></td>
+</tr>
+<tr>
+<td>gif</td>
+<td>动画，可以动的图标</td>
+<td>不支持半透明，不适合存储彩色图片</td>
+</tr>
+<tr>
+<td>svg</td>
+<td>比jpg和png,它的体积更小适合小且色彩单一的图标</td>
+<td>渲染成本过高</td>
+</tr>
+</tbody></table>
+<h6 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h6><p>1.避免空src的图片</p>
+<p>2.减小图片尺寸，节约用户流量</p>
+<p>3.img标签设置alt属性，提升图片加载失败时的用户体验</p>
+<p>4.原生的loading:lazy图片懒加载</p>
+<p>5.不同环境下，加载不同尺寸和像素的图片</p>
+<p>6.较大的图片可以考虑采用渐进式图片 </p>
+<p>7.采用base64URL 减少图片请求</p>
+<p>8.雪碧图合并图标图片 </p>
+<h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><p> 1.减少HTML嵌套关系，减少DOM节点 </p>
+<p> 2.删除多余空格，空行、注释、及无用的属性 </p>
+<h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><p>1.减少伪类选择器，减少样式层数，减少使用通配符</p>
+<p>2.避免使用css表达式  会频繁求值 </p>
+<p>3.使用外链css,可以对css进行缓存</p>
+<p>4.添加媒体字段，只加载有效的css 文件</p>
+<h5 id="js"><a href="#js" class="headerlink" title="js"></a>js</h5><p>1.减少DOM操作，缓存访问过的元素</p>
+<p>2.事件委托，减少事件绑定个数 </p>
+<p>3.使用canvas动画、css动画 代替 js动画</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/14/13-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BC%98%E5%8C%96/[object%20Object]/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%8C%96/" rel="tag">优化</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/04/15/14-coookie-localStorage-SessionStorage/%5Bobject%20Object%5D/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            14.coookie localStorage SessionStorage
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/04/14/12-%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/%5Bobject%20Object%5D/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">12.跨域解决方案</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "3qyLjrAr7YkTJKI0Xl80BcAY-gzGzoHsz",
+    app_key: "kyl2Culg6fFEqXmB2pJJm7bo",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022
+        <i class="ri-heart-fill heart_icon"></i> Wu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/wuxianjinbu.svg" alt="Make progress, Wu"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
