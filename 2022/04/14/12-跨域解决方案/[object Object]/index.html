@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">243</span>
+            <span class="post-count">356</span>
         </span>
     </span>
 
@@ -112,16 +112,32 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p> ajax请求的url中的传输协议、域名、端口号，有任意一个不同时，就会触发同源策略 </p>
+  <h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>违反同源策略：同协议，同域名，同端口</p>
+<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p> ajax请求的url中的传输协议、域名、端口号，有任意一个不同时，就会触发同源策略 </p>
 <h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p><strong>原理</strong></p>
 <p> script的src属性不受浏览器同源策略限制，可以通过该属性进行跨域请求 </p>
 <p> jsonp技术就是让后端返回一个函数调用，把数据作为实参给前端定义好的形参，从而实现数据的接收 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">function</span> <span class="title function_">getData</span>(<span class="params">res</span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://baidu.com?calback=getData&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h3><p>cors跨域是后端响应头的配置，在后端语言中配置的</p>
 <p>副作用最小的，在应用场景中使用最多的跨域方式 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">XMLHttpRequext</span>发送请求时，如果不同源，headers&#123;<span class="title class_">Origin</span>&#125;</span><br><span class="line">后台处理： <span class="title class_">Access</span>-control-allow-<span class="attr">origin</span>:*</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="H5window-postMessage跨域"><a href="#H5window-postMessage跨域" class="headerlink" title="H5	window.postMessage跨域"></a>H5	window.postMessage跨域</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">postMessage</span>(<span class="string">&quot;str&quot;</span>,url)</span><br><span class="line"><span class="comment">//window.postMessage(&quot;str&quot;,&quot;*&quot;)</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h3><p> proxy 代理跨域（让服务器代理跨域） </p>
+<p>本质上cors</p>
 <p>浏览器同源设置一个代理服务器 </p>
 <p>把本该发送给目标服务器的请求发送给代理服务器</p>
 <p>代理服务器转发请求给目标服务器，目标服务器会把响应给代理服务器，代理服务器再把响应给到浏览器 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue.congig.js</span></span><br><span class="line"></span><br><span class="line"><span class="attr">proxy</span>:&#123;</span><br><span class="line">    <span class="attr">target</span>:				<span class="comment">//跨域目标</span></span><br><span class="line">    <span class="attr">changeOrigin</span>:		<span class="comment">//是否允许跨域</span></span><br><span class="line">    <span class="attr">pathRewrite</span>:		<span class="comment">//跨域路径</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       

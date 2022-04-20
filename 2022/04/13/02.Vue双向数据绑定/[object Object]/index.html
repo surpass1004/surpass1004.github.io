@@ -80,7 +80,7 @@
   <time datetime="2022-04-13T06:45:28.000Z" itemprop="datePublished">2022-04-13</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Vue/">Vue</a> / <a class="article-category-link" href="/categories/Vue/%E5%8E%9F%E7%90%86/">原理</a>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">693</span>
+            <span class="post-count">855</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -112,7 +112,14 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
+  <h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><p><strong>M</strong>(model)	模型层，应用程序<strong>处理程序逻辑</strong>，模型对象负责在数据库中<strong>存储数据</strong></p>
+<p><strong>V</strong>(view)	视图层，应用程序<strong>处理数据显示</strong>的部分，视图<strong>依据模型数据</strong></p>
+<p><strong>C</strong>(controller)	控制层，处理<strong>用户交互</strong>,接收请求，调用模型处理请求，确定视图显示返回数据</p>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p> vue框架中MVVM的<strong>M</strong>就是<strong>后端的数据</strong>，<strong>V</strong>就是<strong>节点树</strong>，<strong>VM</strong>就是new出来的那个<strong>Vue({})对象</strong> </p>
+<p><strong>VM</strong>(viewmodel)	连接view与model的桥梁</p>
+<p> 双向数据绑定  实现了View和Model的自动同步 </p>
+<p> 改变数据后该数据对应View层显示会自动改变 </p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>实现数据变化更新视图，视图变化更新数据</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> 数据劫持结合发布者-订阅者模式的方式 </p>
 <p> 通过 Object.defineProperty() 来劫持各个属性的 setter，getter </p>
 <p> 数据变动时发布消息给订阅者，触发相应的监听回调 </p>
