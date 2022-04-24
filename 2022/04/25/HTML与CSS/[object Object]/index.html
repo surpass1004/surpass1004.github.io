@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> Make progress, Wu</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/无限.svg" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Make progress, Wu" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-HTML与CSS"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2022/04/25/HTML%E4%B8%8ECSS/%5Bobject%20Object%5D/" class="article-date">
+  <time datetime="2022-04-24T23:02:39.004Z" itemprop="datePublished">2022-04-25</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一·HTML"><a href="#一·HTML" class="headerlink" title="一·HTML"></a>一·HTML</h1><h2 id="（一）HTML基本结构"><a href="#（一）HTML基本结构" class="headerlink" title="（一）HTML基本结构"></a>（一）HTML基本结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt; 文档说明，告诉浏览器用什么标准渲染页面</span><br><span class="line">&lt;html&gt;          根标签/元素  开始标签</span><br><span class="line">    &lt;head&gt;      头部开始标签</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;    页面标题</span><br><span class="line">        &lt;meta charset=&quot;utf-8&quot;&gt;    字符编码集  解决页面乱码  utf-8国际通用字符编码集</span><br><span class="line">    &lt;/head&gt;     头部结束标签</span><br><span class="line">    &lt;body&gt;      主体开始标签</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;     主体结束标签</span><br><span class="line">&lt;/html&gt;         根标签/元素  结束标签</span><br></pre></td></tr></table></figure>
+
+<h2 id="（二）css基础–样式表种类"><a href="#（二）css基础–样式表种类" class="headerlink" title="（二）css基础–样式表种类"></a>（二）css基础–样式表种类</h2><h4 id="1-内部样式-x2F-行内样式-弊端：违背结构表现相分离的原则"><a href="#1-内部样式-x2F-行内样式-弊端：违背结构表现相分离的原则" class="headerlink" title="1.内部样式&#x2F;行内样式   弊端：违背结构表现相分离的原则"></a>1.内部样式&#x2F;行内样式   弊端：违背结构表现相分离的原则</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;width:200px;height:100px&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-内部样式表-x2F-内嵌样式表-写课堂范例"><a href="#2-内部样式表-x2F-内嵌样式表-写课堂范例" class="headerlink" title="2.内部样式表&#x2F;内嵌样式表  写课堂范例"></a>2.内部样式表&#x2F;内嵌样式表  写课堂范例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .top&#123;</span><br><span class="line">        width:1200px;</span><br><span class="line">        height:200px;</span><br><span class="line">        background:red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-外部样式表-写项目必须用外部样式表"><a href="#3-外部样式表-写项目必须用外部样式表" class="headerlink" title="3.外部样式表   写项目必须用外部样式表"></a>3.外部样式表   写项目必须用外部样式表</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;外部样式表的路径&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="（三）CSS常用样式"><a href="#（三）CSS常用样式" class="headerlink" title="（三）CSS常用样式"></a>（三）CSS常用样式</h2><h4 id="1-margin-外边距"><a href="#1-margin-外边距" class="headerlink" title="1.margin:外边距"></a>1.margin:外边距</h4><p> margin 清除周围的（外边框）元素区域 ，可以单独改变元素的上，下，左，右边距 <img src="https://www.runoob.com/wp-content/uploads/2013/08/VlwVi.png" alt="img"></p>
+<ol>
+<li>margin-top上外边距</li>
+<li>margin-right右外边距</li>
+<li>margin-bottom下外边距</li>
+<li>margin-left左外边距</li>
+</ol>
+<h4 id="2-padding：填充"><a href="#2-padding：填充" class="headerlink" title="2.padding：填充"></a>2.padding：填充</h4><p> padding（填充）内边距被清除时，所释放的区域将会受到元素背景颜色的填充 </p>
+<p>1.padding-top 顶部填充 </p>
+<p>2.padding-righ 右部填充 </p>
+<p>3.padding-bottom 底部填充 </p>
+<p>4padding-left 左部填充 </p>
+<h4 id="3-background：背景"><a href="#3-background：背景" class="headerlink" title="3.background：背景"></a>3.background：背景</h4><p>1.background-color  设置元素的背景颜色 </p>
+<p>2.background-image    把图像设置为背景 </p>
+<p>3.background-repeat     设置背景图像是否及如何重复 </p>
+<p>4.background-attachment    背景图像是否固定或者随着页面的其余部分滚动 </p>
+<p>5.background-position    设置背景图像的起始位置 </p>
+<h4 id="4-link：链接"><a href="#4-link：链接" class="headerlink" title="4.link：链接"></a>4.link：链接</h4><ol>
+<li>a:link - 正常，未访问过的链接 </li>
+<li>a:visited - 用户已访问过的链接 </li>
+<li>a:hover - 当用户鼠标放在链接上时 </li>
+<li>a:active - 链接被点击的那一刻</li>
+</ol>
+<h4 id="5-ul：列表样式"><a href="#5-ul：列表样式" class="headerlink" title="5.ul：列表样式"></a>5.ul：列表样式</h4><p> 1.list-style    简写属性。用于把所有用于列表的属性设置于一个声明中 </p>
+<p>2.list-style-image    将图像设置为列表项标志 </p>
+<p>3.list-style-position    设置列表中列表项标志的位置 </p>
+<p>4.list-style-type   设置列表项标志的类型 </p>
+<h4 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h4><p> 指定一个 CSS 元素的宽度和高度属性时，你只是设置内容区域的宽度和高度。要知道，完整大小的元素，你还必须添加内边距，边框和边距 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">元素总宽度为300px</span><br><span class="line">div &#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    border: 25px solid green;</span><br><span class="line">    padding: 25px;</span><br><span class="line">    margin: 25px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-width-宽"><a href="#6-width-宽" class="headerlink" title="6.width  宽"></a>6.width  宽</h4><h4 id="7-height-高"><a href="#7-height-高" class="headerlink" title="7.height  高"></a>7.height  高</h4><h4 id="8-border-边框"><a href="#8-border-边框" class="headerlink" title="8.border  边框"></a>8.border  边框</h4><h4 id="9-float-浮动"><a href="#9-float-浮动" class="headerlink" title="9.float   浮动"></a>9.float   浮动</h4><h4 id="10-font-size-字体大小"><a href="#10-font-size-字体大小" class="headerlink" title="10.font-size   字体大小"></a>10.font-size   字体大小</h4><h4 id="11-font-height-行高"><a href="#11-font-height-行高" class="headerlink" title="11.font-height   行高"></a>11.font-height   行高</h4><h4 id="12-color-字体颜色"><a href="#12-color-字体颜色" class="headerlink" title="12.color   字体颜色"></a>12.color   字体颜色</h4><h4 id="13-overflow-溢出部分处理"><a href="#13-overflow-溢出部分处理" class="headerlink" title="13.overflow   溢出部分处理"></a>13.overflow   溢出部分处理</h4><p>取值为hidden表示隐藏溢出部分</p>
+<h4 id="14-white-space：nowrap"><a href="#14-white-space：nowrap" class="headerlink" title="14.white-space：nowrap"></a>14.white-space：nowrap</h4><p>不换行</p>
+<h4 id="15-text-overflow：ellipsis"><a href="#15-text-overflow：ellipsis" class="headerlink" title="15.text-overflow：ellipsis"></a>15.text-overflow：ellipsis</h4><p>文本溢出显示为……（ellipsis表示……)</p>
+<h4 id="16-transform-2d或3d转换"><a href="#16-transform-2d或3d转换" class="headerlink" title="16.transform 2d或3d转换"></a>16.transform 2d或3d转换</h4><h5 id="2D转换取值"><a href="#2D转换取值" class="headerlink" title="2D转换取值"></a>2D转换取值</h5><p>同时实现多个效果 :transform:rotate(ndeg) scale(w,h)</p>
+<p>过度效果：transition:all 1s</p>
+<h6 id="（一）位移"><a href="#（一）位移" class="headerlink" title="（一）位移"></a>（一）位移</h6><p>1.translate（x，y）：在水平方向及垂直方向移动</p>
+<p>2.translateX（x）：在水平方向移动</p>
+<p>3.translateY   (y）：在垂直方向移动</p>
+<h6 id="（二）旋转（改变位置）"><a href="#（二）旋转（改变位置）" class="headerlink" title="（二）旋转（改变位置）"></a>（二）旋转（改变位置）</h6><p>rotate（ndeg）n代表数字，deg代表角度，n正顺时针转动</p>
+<h6 id="（三）缩放"><a href="#（三）缩放" class="headerlink" title="（三）缩放"></a>（三）缩放</h6><p>1.scale（w，h）：对宽和高的缩放 （为0隐藏，为负则翻转)</p>
+<p>2.scaleX(w)</p>
+<p>3.scaleY(h)</p>
+<h6 id="四-倾斜或拉伸-改变形状"><a href="#四-倾斜或拉伸-改变形状" class="headerlink" title="(四)倾斜或拉伸(改变形状)"></a>(四)倾斜或拉伸(改变形状)</h6><p>1.skew(xdeg,ydeg) 水平方向和垂直方向的拉伸角度</p>
+<p>2.skewX（x）</p>
+<p>3.skewY（y）</p>
+<h4 id="17-动画的创建及调用"><a href="#17-动画的创建及调用" class="headerlink" title="17.动画的创建及调用"></a>17.动画的创建及调用</h4><h6 id="（1）创建"><a href="#（1）创建" class="headerlink" title="（1）创建"></a>（1）创建</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@keyframes move&#123;</span><br><span class="line">0%&#123;</span><br><span class="line">transform:rotate(45deg);</span><br><span class="line">&#125;</span><br><span class="line">50%&#123;</span><br><span class="line">transform:rotate(90deg);</span><br><span class="line">&#125;</span><br><span class="line">100%&#123;</span><br><span class="line">transform:rotate(135deg);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-调用"><a href="#2-调用" class="headerlink" title="(2)调用"></a>(2)调用</h6><p>animation：名称 花费时间 （选写）时间曲线 等待时间 动画次数 是否轮流反向</p>
+<p>linear：匀速</p>
+<h4 id="18-box-shadow-盒子阴影"><a href="#18-box-shadow-盒子阴影" class="headerlink" title="18.box_shadow 盒子阴影"></a>18.box_shadow 盒子阴影</h4><p>取值有固定顺序：水平阴影 垂直阴影（必写）</p>
+<p>模糊距离 阴影尺寸 阴影颜色 内外阴影 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box_shadow:10px 5px 3px 10px #333 inset</span><br><span class="line">           水平  垂直  模糊  尺寸  颜色  内阴影</span><br></pre></td></tr></table></figure>
+
+<h4 id="19-单行溢出"><a href="#19-单行溢出" class="headerlink" title="19.单行溢出"></a>19.单行溢出</h4><p>使用text-overflow属性，并且要加width属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">overflow:hidden;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">white-space:nowrap;</span><br></pre></td></tr></table></figure>
+
+<h4 id="20-多行溢出"><a href="#20-多行溢出" class="headerlink" title="20.多行溢出"></a>20.多行溢出</h4><p>webkit内核和移动端的浏览器，使用css扩展属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display：-webkit-box；</span><br><span class="line">-webkit-box-orient：vertical；</span><br><span class="line">-webkit-line-clamp：3；</span><br><span class="line">overflow：hidden；</span><br></pre></td></tr></table></figure>
+
+<h4 id="21-不透明度"><a href="#21-不透明度" class="headerlink" title="21.不透明度"></a>21.不透明度</h4><h5 id="（1）opacity"><a href="#（1）opacity" class="headerlink" title="（1）opacity"></a>（1）opacity</h5><p>取值0-1之间。0表示完全透明</p>
+<p>会影响背景色及标签内的内容，是单独的样式名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.one&#123;</span><br><span class="line">opacity:.5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="（2）background-color：rgba（）"><a href="#（2）background-color：rgba（）" class="headerlink" title="（2）background-color：rgba（）"></a>（2）background-color：rgba（）</h5><p>取值0-1之间，0表完全透明</p>
+<p>只影响背景颜色，背景色的取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.one&#123;</span><br><span class="line">background-color：rgba（100,200,100,.5）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应用：蒙版  已阅读或已访问</p>
+<h3 id="22-z-index"><a href="#22-z-index" class="headerlink" title="22.z-index"></a>22.z-index</h3><p>处理多个标签右重叠部分，谁在上面的问题</p>
+<p>取值：默认为0，可取负数</p>
+<p>只有在有定位的情况下才会生效</p>
+<h3 id="23-background-背景"><a href="#23-background-背景" class="headerlink" title="23.background 背景"></a>23.background 背景</h3><p>分样式：</p>
+<p>（1）background-image:url(背景图路径） </p>
+<p>（2）background-position:水平方向，垂直方向；背景定位</p>
+<p>（3）background-repeat:no-repeat&#x2F;repeat-x&#x2F;repeat-y;  背景是否重复&#x2F;平铺</p>
+<p>（4）background-color;颜色</p>
+<p>复合样式：</p>
+<p>background：背景定位  平铺 背景色；（无顺序要求）</p>
+<p>c3新增</p>
+<p>background-size：水平方向 垂直方向；   背景尺寸</p>
+<h3 id="24-display-标签的显示方式"><a href="#24-display-标签的显示方式" class="headerlink" title="24.display   标签的显示方式"></a>24.display   标签的显示方式</h3><p>(1).每个标签都有默认的显示方式</p>
+<p>块级：div   ul  li  h1-h6  p  hr  一般display：block    独占一行，宽高生效</p>
+<p>行内块级：img  input              一般display：inline-block   可以和其他行块或行内标签显示在同一行，宽高生效</p>
+<p>行内：a  span  i  em  strong   一般display：inline   只以内容显示宽度，设置的宽高不生效</p>
+<p>(2).取值为none隐藏标签  原位置消失</p>
+<p>延伸：隐藏标签方法</p>
+<p>1.display:none;原位置消失 下面的标签会往上，影响布局</p>
+<p>2.opacity:0;完全透明，看不见标签，原位置保留</p>
+<p>3.background:rgba（255，255，255，0）只用于没有内容的盒子，看不见标签原位置保留</p>
+<p>4.visibility：hidden；隐藏标签，看不见标签，原位置保留</p>
+<h2 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h2><p>Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性，任何一个容器都可以指定为Flex布局</p>
+<p>注意：</p>
+<p>设为Flex布局以后，子元素的float、clear和vertical-align属性将失效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">行内块元素：</span><br><span class="line">.box&#123;</span><br><span class="line">  display: inline-flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Webkit内核的浏览器，必须加上-webkit前缀。</span><br><span class="line">.box&#123;</span><br><span class="line">  display: -webkit-flex; /* Safari */</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”</p>
+<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。</p>
+<p>主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。</p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
+<p>以下6个属性设置在容器上：</p>
+<p>1.flex-direction  决定主轴方向</p>
+<p>2.flex-wrap  定义换行</p>
+<p>3.flex-flow  是flex-direction与flex-wrap的简写</p>
+<p>4.justify-content  定义了项目在主轴上的对齐方式</p>
+<p>5.align-items   定义项目在交叉轴上如何对齐</p>
+<p>6.align-content  定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</p>
+<h3 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h3><h3 id="1-flex-direction"><a href="#1-flex-direction" class="headerlink" title="1.flex-direction"></a>1.flex-direction</h3><p>决定主轴方向</p>
+<p>1.row（默认值）：主轴为水平方向，起点在左端  →</p>
+<p>2.row-reverse：主轴为水平方向，起点在右端  ←</p>
+<p>3.column：主轴为垂直方向，起点在上沿 ↓</p>
+<p>4.column-reverse：主轴为垂直方向，起点在下沿 ↑</p>
+<h3 id="2-flex-wrap"><a href="#2-flex-wrap" class="headerlink" title="2.flex-wrap"></a>2.flex-wrap</h3><p>默认情况下，项目都排在轴线上，flex-wrap属性定义，如果一条轴线排不下，如何换行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">  flex-wrap: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.nowrap（默认）：不换行</p>
+<p>2.wrap：换行，第一行在上方</p>
+<p>3.wrap-reverse：换行，第一行在下方</p>
+<h3 id="3-flex-flow"><a href="#3-flex-flow" class="headerlink" title="3.flex-flow"></a>3.flex-flow</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-justify-content"><a href="#4-justify-content" class="headerlink" title="4.justify-content"></a>4.justify-content</h3><p>定义了项目在主轴上的对齐方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  justify-content: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.flex-start（默认值）：左对齐</p>
+<p>2.flex-end：右对齐</p>
+<p>3.center： 居中</p>
+<p>4.space-between：两端对齐，项目之间的间隔都相等</p>
+<p>5.space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</p>
+<h3 id="5-align-items"><a href="#5-align-items" class="headerlink" title="5.align-items"></a>5.align-items</h3><p>定义项目在交叉轴上如何对齐</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  align-items: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.flex-start：交叉轴的起点对齐</p>
+<p>2.flex-end：交叉轴的终点对齐</p>
+<p>3.center：交叉轴的中点对齐</p>
+<p>4.baseline: 项目的第一行文字的基线对齐</p>
+<p>5.stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度</p>
+<h3 id="6-align-content"><a href="#6-align-content" class="headerlink" title="6.align-content"></a>6.align-content</h3><p>定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  align-content: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.flex-start：与交叉轴的起点对齐</p>
+<p>2.flex-end：与交叉轴的终点对齐</p>
+<p>3.center：与交叉轴的中点对齐</p>
+<p>4.space-between：与交叉轴两端对齐，轴线之间的间隔平均分布</p>
+<p>5.space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍</p>
+<p>6.stretch（默认值）：轴线占满整个交叉轴</p>
+<h3 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h3><p>1.order    定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
+<p>2.flex-grow   定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</p>
+<p>3.flex-shrink   定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</p>
+<p>4.flex-basis  义了在分配多余空间之前，项目占据的主轴空间（main size）</p>
+<p>5.flex   flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto</p>
+<p>6.align-self   align-self属性允许单个项目有与其他项目不一样的对齐方式</p>
+<h4 id="1-order"><a href="#1-order" class="headerlink" title="1.order"></a>1.order</h4><p>定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  order: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-flex-grow"><a href="#2-flex-grow" class="headerlink" title="2. flex-grow"></a>2. flex-grow</h4><p>定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  flex-grow: &lt;number&gt;; /* default 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-flex-shrink"><a href="#3-flex-shrink" class="headerlink" title="3.flex-shrink"></a>3.flex-shrink</h4><p>定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  flex-shrink: &lt;number&gt;; /* default 1 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-flex-basis"><a href="#4-flex-basis" class="headerlink" title="4.flex-basis"></a>4.flex-basis</h4><p>定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  flex-basis: &lt;length&gt; | auto; /* default auto */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>设为跟width或height属性一样的值（比如350px），则项目将占据固定空间</p>
+<h4 id="5-flex属性"><a href="#5-flex属性" class="headerlink" title="5.flex属性"></a>5.flex属性</h4><p>flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  flex: none | [ &lt;&#x27;flex-grow&#x27;&gt; &lt;&#x27;flex-shrink&#x27;&gt;? || &lt;&#x27;flex-basis&#x27;&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。</p>
+<p> 建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值</p>
+<h4 id="6-align-self"><a href="#6-align-self" class="headerlink" title="6.align-self"></a>6.align-self</h4><p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/25/HTML%E4%B8%8ECSS/[object%20Object]/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/04/25/html+css+cs3/%5Bobject%20Object%5D/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/04/25/JQuery/%5Bobject%20Object%5D/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "3qyLjrAr7YkTJKI0Xl80BcAY-gzGzoHsz",
+    app_key: "kyl2Culg6fFEqXmB2pJJm7bo",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022
+        <i class="ri-heart-fill heart_icon"></i> Wu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/wuxianjinbu.svg" alt="Make progress, Wu"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

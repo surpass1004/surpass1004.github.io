@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> Make progress, Wu</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/images/无限.svg" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Make progress, Wu" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-html+css+cs3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2022/04/25/html+css+cs3/%5Bobject%20Object%5D/" class="article-date">
+  <time datetime="2022-04-24T23:02:39.006Z" itemprop="datePublished">2022-04-25</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">6.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">25 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一·html"><a href="#一·html" class="headerlink" title="一·html"></a>一·html</h1><h5 id="前端页面分为三层："><a href="#前端页面分为三层：" class="headerlink" title="前端页面分为三层：*"></a>前端页面分为三层：*</h5><p>结构层（html），表现层（css），行为层（javascript&#x2F;js）</p>
+<p>规范：结构，表现，行为三者相分离便于维护</p>
+<h2 id="（一）浏览器"><a href="#（一）浏览器" class="headerlink" title="（一）浏览器"></a>（一）浏览器</h2><h3 id="1-主流浏览器（有自己的内核）"><a href="#1-主流浏览器（有自己的内核）" class="headerlink" title="1.主流浏览器（有自己的内核）"></a>1.主流浏览器（有自己的内核）</h3><p><img src="https://www.runoob.com/images/compatible_ie.gif" alt="Internet Explorer"><img src="https://www.runoob.com/images/compatible_firefox.gif" alt="Firefox"><img src="https://www.runoob.com/images/compatible_opera.gif" alt="Opera"><img src="https://www.runoob.com/images/compatible_chrome.gif" alt="Google Chrome"><img src="https://www.runoob.com/images/compatible_safari.gif" alt="Safari"></p>
+<table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>内核</th>
+<th>兼容前缀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>Trident</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Gecko</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>blink</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>webkit–blink</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>safari（苹果）</td>
+<td>webkit</td>
+<td>-webkit-</td>
+</tr>
+</tbody></table>
+<h2 id="二-html"><a href="#二-html" class="headerlink" title="(二)html"></a>(二)html</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义*"></a>1.定义*</h3><p>超文本标记语言*</p>
+<p>html是源码，浏览器是运行源码生成页面的工具&#x2F;运行环境</p>
+<h3 id="2-基本结构-x2F-骨架"><a href="#2-基本结构-x2F-骨架" class="headerlink" title="2.基本结构&#x2F;骨架*"></a>2.基本结构&#x2F;骨架*</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;//文档类型声明（告诉浏览器用什么标准渲染页面）单</span><br><span class="line">&lt;html&gt;//根标签 双</span><br><span class="line">    &lt;head&gt;//头部，存放网页配置标签（title，meta)和文件引入标签（link,script,style)</span><br><span class="line">        &lt;title&gt;&lt;/title&gt;//页面标题</span><br><span class="line">        &lt;meta charset=&quot;utf-8&quot;/&gt;//设置字符编码集，解决页面乱码</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;//主体，存放布局和展示类的标签</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-标签语义化（面试）"><a href="#3-标签语义化（面试）" class="headerlink" title="3.标签语义化（面试）"></a>3.标签语义化（面试）</h3><p>问题：对语义化的理解</p>
+<p>​	语义化包含范围较广，前端主要涉及标签语义化，类名等取名的语义化</p>
+<p>大部分html标签有属于自己的语义，根据其语义，合理使用</p>
+<p>在给类名或id名，类名取名时，尽量取有意义的名字如nav</p>
+<p>​	好处：</p>
+<p>1.对搜索引擎的友好，便于网络爬虫进入页面，快速搜索到页面的重要信息</p>
+<p>2.提升用户体验（如：css加载不出来也能看出重要性，或通过名字看出意义）</p>
+<p>3.利于代码的可读维护，提高开发效率（网页源代码方便查询）</p>
+<h3 id="4-标签的分类"><a href="#4-标签的分类" class="headerlink" title="4.标签的分类*"></a>4.标签的分类*</h3><h4 id="（1-单双标签"><a href="#（1-单双标签" class="headerlink" title="（1)单双标签"></a>（1)单双标签</h4><p>单标签：只有开始标签，又叫空元素即内部不可嵌套其他内容（img  br  input  hr）</p>
+<p>双标签：有开始标签，有结束标签，关闭符不可以省略，内部可嵌套其他标签内容</p>
+<h4 id="（2-块，行块，行内标签"><a href="#（2-块，行块，行内标签" class="headerlink" title="（2)块，行块，行内标签"></a>（2)块，行块，行内标签</h4><p>块：独占一行，宽高生效，内外边距皆可控，宽度默认继承父级100%，内部可嵌套任何标签   ul  table  form  div  nav  header  p  h1-h6</p>
+<p>行块：按内容占大小，宽高生效，可以与行内，行块同一行展示，内部可以嵌套文本或其他行内标签                                             img  input  video</p>
+<p>行内：按内容占大小，宽高不生效  span  a  i  strong</p>
+<h4 id="3-语义化和非语义化"><a href="#3-语义化和非语义化" class="headerlink" title="(3)语义化和非语义化"></a>(3)语义化和非语义化</h4><p>语义化：p  h  img  a  hr  居多</p>
+<p>无意义：div  span</p>
+<h3 id="5-标签层级关系"><a href="#5-标签层级关系" class="headerlink" title="5.标签层级关系*"></a>5.标签层级关系*</h3><p>分为嵌套（父子，祖先，后代）并列（兄弟）</p>
+<p>书写规范：兄弟上下对齐，嵌套里子级层层缩进</p>
+<h2 id="三-常用标签"><a href="#三-常用标签" class="headerlink" title="(三)常用标签"></a>(三)常用标签</h2><h3 id="1-基本标签"><a href="#1-基本标签" class="headerlink" title="1.基本标签"></a>1.基本标签</h3><table>
+<thead>
+<tr>
+<th>标签名</th>
+<th>中文含义</th>
+<th>分类</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h1-h6</td>
+<td>标题标签</td>
+<td>双，块，语义</td>
+<td>1.和title的区别：title是页面标题。h是某个内容块的标题   2.字体大小，重要性依次递减</td>
+</tr>
+<tr>
+<td>p</td>
+<td>段落</td>
+<td>双，块，语义</td>
+<td>内部不可嵌套块级标签</td>
+</tr>
+<tr>
+<td>hr</td>
+<td>主题变化，显示为水平线</td>
+<td>单，块，语义</td>
+<td>无</td>
+</tr>
+<tr>
+<td>br</td>
+<td>换行</td>
+<td>单，块，语义</td>
+<td>强制换行</td>
+</tr>
+<tr>
+<td>div</td>
+<td>&#x2F;</td>
+<td>双，块，无意义</td>
+<td>用于布局</td>
+</tr>
+<tr>
+<td>span</td>
+<td>&#x2F;</td>
+<td>双，行内，无意义</td>
+<td>用于布局</td>
+</tr>
+<tr>
+<td>pre</td>
+<td>预格式化标签</td>
+<td>双，块，语义</td>
+<td>保留空格和换行</td>
+</tr>
+<tr>
+<td>img</td>
+<td>图片</td>
+<td>单，行块，语义</td>
+<td>用src引路径</td>
+</tr>
+<tr>
+<td>a</td>
+<td>超链接</td>
+<td>双，行内，语义</td>
+<td>用herf引路径</td>
+</tr>
+<tr>
+<td>ul</td>
+<td>无序列表</td>
+<td>双，块，语义</td>
+<td>无序是指没有序号，按照编辑器上的顺序显示</td>
+</tr>
+<tr>
+<td>li</td>
+<td>列表项</td>
+<td>双，块，语义</td>
+<td>是ul，ol的子级，内部可嵌套其他任何标签</td>
+</tr>
+<tr>
+<td>ol</td>
+<td>有序列表</td>
+<td>双，块，语义</td>
+<td>有序是指自动生成序号</td>
+</tr>
+<tr>
+<td>dl</td>
+<td>自定义列表</td>
+<td>双，块，语义</td>
+<td>内部嵌套子级dt，dd</td>
+</tr>
+<tr>
+<td>dt</td>
+<td>自定义项目标题</td>
+<td>双，块，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>dd</td>
+<td>自定义项目内容</td>
+<td>双，块，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>table</td>
+<td>表格</td>
+<td>双，块，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>caption</td>
+<td>表格表头</td>
+<td>双，块，语义</td>
+<td>table的子级</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>行</td>
+<td>双，块，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>th</td>
+<td>表头单元格</td>
+<td>双，行块，语义</td>
+<td>默认内容水平居中，文字加粗</td>
+</tr>
+<tr>
+<td>td</td>
+<td>普通单元格</td>
+<td>双，行块，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>form</td>
+<td>表单</td>
+<td>双，块，语义</td>
+<td>收集用户信息，数据传输时必写</td>
+</tr>
+<tr>
+<td>input</td>
+<td>输入框</td>
+<td>双，行块，语义</td>
+<td>注意默认样式</td>
+</tr>
+<tr>
+<td>select</td>
+<td>下拉列表</td>
+<td>双，行块，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>option</td>
+<td>下拉列表列表项</td>
+<td>双，块，语义</td>
+<td>rselect子级</td>
+</tr>
+<tr>
+<td>textarea</td>
+<td>多行文本域</td>
+<td>双，行块，语义</td>
+<td>内部嵌套文本或非块级标签</td>
+</tr>
+<tr>
+<td>lable</td>
+<td>标注</td>
+<td>双，行内，语义</td>
+<td></td>
+</tr>
+<tr>
+<td>fieldset</td>
+<td>表单分组的域</td>
+<td>双，块，语义</td>
+<td>form的子标签默认有边框</td>
+</tr>
+<tr>
+<td>legend</td>
+<td>域的标题</td>
+<td>双，块，语义</td>
+<td>fieldset的子标签</td>
+</tr>
+</tbody></table>
+<h3 id="2-文本格式化标签"><a href="#2-文本格式化标签" class="headerlink" title="2.文本格式化标签"></a>2.文本格式化标签</h3><p><img src="C:\Users\ME\Desktop\笔记\img\QQ图片20201028151412.png"></p>
+<h3 id="3-常用特殊字符"><a href="#3-常用特殊字符" class="headerlink" title="3.常用特殊字符"></a>3.常用特殊字符</h3><p><img src="C:\Users\ME\Desktop\笔记\img\03.png"></p>
+<h2 id="（四）路径"><a href="#（四）路径" class="headerlink" title="（四）路径!!!"></a>（四）路径!!!</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>路径分为相对路径和绝对路径</p>
+<h4 id="1-绝对路径（较少使用）"><a href="#1-绝对路径（较少使用）" class="headerlink" title="1.绝对路径（较少使用）"></a>1.绝对路径（较少使用）</h4><p>以本地磁盘盘符开头如：c：\user:\img.png</p>
+<p>以http开头如：htttp:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.4399.com/">www.4399.com</a></p>
+<p>使用方便，不可更换位置，比如换不同的电脑显示失败</p>
+<h4 id="2-相对路径"><a href="#2-相对路径" class="headerlink" title="2.相对路径"></a>2.相对路径</h4><p>从当前文件开始去找到目标文件的过程，需要去查找相对路径</p>
+<p>优点：文件相对位置不变的情况下，在不同的电脑上，不同的盘符都能正常显示</p>
+<h2 id="（五）img图片标签"><a href="#（五）img图片标签" class="headerlink" title="（五）img图片标签*"></a>（五）img图片标签*</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;路径&quot; alt=&quot;破损提示&quot; title=“鼠标悬浮提示” width=“css” height=“css” border=“css”</span><br></pre></td></tr></table></figure>
+
+<p>如果设宽高属性，一般只设宽，高度自动等比缩放</p>
+<h2 id="（六）a标签"><a href="#（六）a标签" class="headerlink" title="（六）a标签"></a>（六）a标签</h2><h3 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法*"></a>1.基本语法*</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;路径（必写）&quot;  target=“新窗口在哪打开”&gt;</span><br><span class="line">	文字</span><br><span class="line">	嵌套其他行块，行内标签</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">target默认值是_self 表示在本窗口打开  取值为_blank表示在新窗口打开</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-功能"><a href="#2-功能" class="headerlink" title="2.功能"></a>2.功能</h3><p>（1）页面间的跳转或本页面的刷新</p>
+<p>href&#x3D;“”或者是“#”表示无连接地址，会刷新本页面</p>
+<p>href&#x3D;“网址&#x2F;文件路径”会跳转</p>
+<p>（2）定位：定位到本页面的指定位置或者是其他页面的指定位置</p>
+<p>需要给指定位置的标签加id名，在a的href&#x3D;“#id”</p>
+<h2 id="（七）列表"><a href="#（七）列表" class="headerlink" title="（七）列表"></a>（七）列表</h2><h3 id="1-适用场景"><a href="#1-适用场景" class="headerlink" title="1.适用场景"></a>1.适用场景</h3><p>针对样式一致的图片或文字</p>
+<h3 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h3><p>分为ul，ol，dl</p>
+<h2 id="（八）表格"><a href="#（八）表格" class="headerlink" title="（八）表格"></a>（八）表格</h2><h3 id="1-作用，使用场景"><a href="#1-作用，使用场景" class="headerlink" title="1.作用，使用场景"></a>1.作用，使用场景</h3><p>展示数据</p>
+<h3 id="2-基本结构"><a href="#2-基本结构" class="headerlink" title="2.基本结构*"></a>2.基本结构*</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;//表格</span><br><span class="line">	&lt;caption&gt;&lt;/caption&gt;//表格标题/表头</span><br><span class="line">	&lt;tr&gt;//行</span><br><span class="line">		&lt;th&gt;&lt;/th&gt;//表头单元格，水平居中，加粗</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;&lt;/td&gt;//普通单元格</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-常用属性"><a href="#3-常用属性" class="headerlink" title="3.常用属性*"></a>3.常用属性*</h3><p>table可以用border，但一般用css代替</p>
+<p>td和th可以用colspan跨列，rowspan跨行</p>
+<h3 id="4-常用样式"><a href="#4-常用样式" class="headerlink" title="4.常用样式*"></a>4.常用样式*</h3><p>width,height        table,tr.th,td都可以设置生效</p>
+<p>border-collapse：collapase合并边框     放在table中</p>
+<p>padding 内边距        放在th&#x2F;td里</p>
+<h2 id="（九）表单"><a href="#（九）表单" class="headerlink" title="（九）表单"></a>（九）表单</h2><h3 id="1-定义-·"><a href="#1-定义-·" class="headerlink" title="1.定义*·"></a>1.定义*·</h3><p>表单用于收集信息，并传输给后台&#x2F;服务器端进行数据分析，是连接前端和后台的桥梁</p>
+<h3 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法*"></a>2.基本语法*</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;url地址&quot;  method=&quot;传输方式get/post&quot; name=a&quot;后台识别的表单名字&quot;&gt;</span><br><span class="line">	内容/各种标签</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：<br>1.form常用于登录和注册页。</p>
+<p>2.name在做传输的时候必写，action后可以接前端&#x2F;后台地址</p>
+<p>3.post机密发送，get是可见式发送，post更安全</p>
+<h3 id="3-input标签"><a href="#3-input标签" class="headerlink" title="3.input标签"></a>3.input标签</h3><h4 id="（1）input基本语法"><a href="#（1）input基本语法" class="headerlink" title="（1）input基本语法*"></a>（1）input基本语法*</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;类型&quot; value=&quot;初始值/默认值&quot; placeholder=&quot;占位提示&quot; name=”后台识别“&gt;</span><br></pre></td></tr></table></figure>
+
+<p>1.注意：<br>value和placeholder不同时写，placeholder用于提升用户体验，（用户可直接输入，无需手动删除提示）value用于js的验证</p>
+<p>2.用于前后台交互，name必写</p>
+<h4 id="（2）intput的类型（10）"><a href="#（2）intput的类型（10）" class="headerlink" title="（2）intput的类型（10）"></a>（2）intput的类型（10）</h4><h5 id="1-1隐2填3选4点"><a href="#1-1隐2填3选4点" class="headerlink" title="1.1隐2填3选4点*"></a>1.1隐2填3选4点*</h5><p>1隐：hidden</p>
+<p>2填：text文本框  password密码框</p>
+<p>3选：radio单选按钮  checkbox复选框  file文件上传</p>
+<p>4点：button普通按钮   reset重置按钮   submit提交按钮   image图片提交按钮</p>
+<h5 id="2-注意要点"><a href="#2-注意要点" class="headerlink" title="2.注意要点"></a>2.注意要点</h5><h6 id="1-radio"><a href="#1-radio" class="headerlink" title="1.radio"></a>1.radio</h6><p>用于多选一，name必写，并且name要一样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;男</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot;&gt;女</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-checkbox"><a href="#2-checkbox" class="headerlink" title="2.checkbox"></a>2.checkbox</h6><p>用于多个选项中任意选，默认选择可以在input加checked&#x3D;”checked“，同radio</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; name=&quot;sex&quot; checked=”checked“&gt;女</span><br><span class="line">&lt;input type=&quot;checkbox&quot; name=&quot;sex&quot;&gt;男</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-4点button时普通按钮需要写value值，reset，submit，image都是功能性按钮，image需要写src属性引图片路径，可以加宽高设置大小。"><a href="#3-4点button时普通按钮需要写value值，reset，submit，image都是功能性按钮，image需要写src属性引图片路径，可以加宽高设置大小。" class="headerlink" title="3.4点button时普通按钮需要写value值，reset，submit，image都是功能性按钮，image需要写src属性引图片路径，可以加宽高设置大小。"></a>3.4点button时普通按钮需要写value值，reset，submit，image都是功能性按钮，image需要写src属性引图片路径，可以加宽高设置大小。</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; name=&quot;&quot; value=”“&gt;普通按钮，value必写</span><br><span class="line">&lt;input type=&quot;reset&quot; name=&quot;&quot;&gt;//功能，重置（等同于刷新）默认生成”重置“两字，value会覆盖</span><br><span class="line">&lt;input type=&quot;submit&quot; name=&quot;&quot;&gt;//功能，提交默认生成”提交“两字，value会覆盖</span><br><span class="line">&lt;input type=&quot;image&quot; name=&quot;&quot; src=&quot;路径&quot; width&gt;//功能，提交  使用图片更美观</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-input的其他属性"><a href="#4-input的其他属性" class="headerlink" title="4.input的其他属性*"></a>4.input的其他属性*</h6><p>（1）readonly只读  给text框</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; name=&quot;&quot;  readonly&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（2）disabled禁用  两填三选</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;checkbox&quot; name=&quot;&quot;  disabled=”disableed“&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（3）size 可见宽度  两填</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; name=&quot;&quot; size=”20“&gt;</span><br></pre></td></tr></table></figure>
+
+<p>（4）maxlength 两填</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; name=&quot;&quot; maxlength=”20“&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-下拉列表"><a href="#4-下拉列表" class="headerlink" title="4.下拉列表"></a>4.下拉列表</h3><p>用于多个选项进行选择，功能同单选和复选按钮，优点是节省空间，缺点不够美化，实际开发中一般会直接调用组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select multiple=&quot;multiple&quot; size=&quot;2&quot;&gt;</span><br><span class="line">		 &lt;option&gt;武汉&lt;/option&gt;</span><br><span class="line">		 &lt;option&gt;北京&lt;/option&gt;</span><br><span class="line">		 &lt;option&gt;上海&lt;/option&gt;</span><br><span class="line">		 &lt;option selected=&quot;selected&quot;&gt;广州&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>selected&#x3D;”selected”&#x2F;&#x2F;默认选中</p>
+<h3 id="5-textarea"><a href="#5-textarea" class="headerlink" title="5.textarea"></a>5.textarea</h3><p>多行文本域</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">。area&#123;</span><br><span class="line">	resiae:none;//禁止拖拽，将右下角的拖拽标时隐藏</span><br><span class="line">	width：;</span><br><span class="line">	heigth:;</span><br><span class="line">	/它是行块标签，一般设好宽高固定大小，不拖拽                 </span><br><span class="line">&#125;</span><br><span class="line">&lt;textarea  class=&quot;area&quot;&gt;</span><br><span class="line">	内容</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-lable-标注"><a href="#6-lable-标注" class="headerlink" title="6.lable 标注*"></a>6.lable 标注*</h3><p>作用:用于优化用户鼠标的体验</p>
+<p>用法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.直接将input作为子级直接嵌套在lable里，点击文字输入姓名即可获取光标</span><br><span class="line">&lt;lable&gt;</span><br><span class="line">	输入姓名：</span><br><span class="line">	&lt;input type=&quot;text&quot;&gt;</span><br><span class="line">&lt;/lable&gt;</span><br><span class="line">2.只是将文本放在lable标签中，input是他的兄弟标签，加id名，点击文字就可获取光标</span><br><span class="line">&lt;lable for=”a“&gt;</span><br><span class="line">	输入姓名：</span><br><span class="line">&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; id=”a“&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="二、CSS"><a href="#二、CSS" class="headerlink" title="二、CSS"></a>二、CSS</h1><h2 id="一-样式表引入方式"><a href="#一-样式表引入方式" class="headerlink" title="(一)样式表引入方式"></a>(一)样式表引入方式</h2><p><img src="C:\Users\ME\Desktop\笔记\img\样式表总结.png"></p>
+<h2 id="（二）基础选择器"><a href="#（二）基础选择器" class="headerlink" title="（二）基础选择器"></a>（二）基础选择器</h2><h3 id="1-标签选择器"><a href="#1-标签选择器" class="headerlink" title="1.标签选择器*"></a>1.标签选择器*</h3><p>通常和类搭配使用如：</p>
+<p>.top a  表示找到类名为top的标签里的后代a</p>
+<h3 id="2-类名选择器"><a href="#2-类名选择器" class="headerlink" title="2.类名选择器*"></a>2.类名选择器*</h3><p>类名前打点，不能以数字开头，尽量有意义，一个标签可以引多个类名，一个类名可以多次使用（类名复用性）</p>
+<h3 id="3-id选择器"><a href="#3-id选择器" class="headerlink" title="3.id选择器"></a>3.id选择器</h3><p>css里不用，在js中使用，具有唯一性</p>
+<h3 id="4-通配选择器"><a href="#4-通配选择器" class="headerlink" title="4.通配选择器"></a>4.通配选择器</h3><p>适用所有标签，大项目中影响性能，少用</p>
+<h2 id="（三）字体样式"><a href="#（三）字体样式" class="headerlink" title="（三）字体样式*"></a>（三）字体样式*</h2><p><img src="C:\Users\ME\Desktop\笔记\img\QQ图片20201029155641.png"></p>
+<p>font-size 字体大小&#x2F;字号  font-weight 字的粗细  font：风粗大类，大类必写</p>
+<h2 id="（四）文本样式"><a href="#（四）文本样式" class="headerlink" title="（四）文本样式*"></a>（四）文本样式*</h2><p><img src="C:\Users\ME\Desktop\笔记\img\文本样式总结.png"></p>
+<p>text-align 取值 left right center</p>
+<p>letter-spacing 字之间的距离</p>
+<p>word-spacing 非块级之间的间距，设在他们的父级上</p>
+<h2 id="（五）CSS特性"><a href="#（五）CSS特性" class="headerlink" title="（五）CSS特性"></a>（五）CSS特性</h2><h3 id="1-层叠性"><a href="#1-层叠性" class="headerlink" title="1.层叠性"></a>1.层叠性</h3><p>层：可以通过不同选择器给同一标签设置多个样式</p>
+<p>叠：有多层样式时，不同层里有相同的样式名，后一个替换前一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">css:</span><br><span class="line">div&#123;color:red; font-size:1；&#125;</span><br><span class="line">.one&#123;text-align:center; background:red; color:blue&#125;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;one&quot;&gt;</span><br><span class="line">	文字</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">最终使用样式：font-size:1；     text-align:center;   background:red;   color:blue</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-继承"><a href="#2-继承" class="headerlink" title="2.继承"></a>2.继承</h3><p>子级&#x2F;后代继承父级&#x2F;祖先的关于font，对齐方式，字的颜色等样式</p>
+<p>如果子级没有用父级，自己有用子级</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.wrap&#123;text-align:right;&#125;</span><br><span class="line">.wrap p&#123;text-align:center;&#125;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">	&lt;h1&gt;1&lt;/h1&gt;继承父级</span><br><span class="line">	</span><br><span class="line">	&lt;p&gt;2&lt;/p&gt;不继承父级</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-选择器权重"><a href="#3-选择器权重" class="headerlink" title="3.选择器权重*"></a>3.选择器权重*</h3><p>标签1分，类10分，id100分，行类1000分，！important最高（跟在一条样式声明后面）</p>
+<h2 id="六-display标签的显示方式"><a href="#六-display标签的显示方式" class="headerlink" title="(六)display标签的显示方式"></a>(六)display标签的显示方式</h2><h3 id="1-取值"><a href="#1-取值" class="headerlink" title="1.取值*"></a>1.取值*</h3><h4 id="1-display：block；"><a href="#1-display：block；" class="headerlink" title="1.display：block；"></a>1.display：block；</h4><p>把行内，行块标签转化为块级标签</p>
+<p>将标签显示在页面上</p>
+<h4 id="2-display：inline-block；"><a href="#2-display：inline-block；" class="headerlink" title="2.display：inline-block；"></a>2.display：inline-block；</h4><p>把行内，行块标签转化为行块级标签</p>
+<h4 id="3-display：inline；"><a href="#3-display：inline；" class="headerlink" title="3.display：inline；"></a>3.display：inline；</h4><p>把块，行块标签转化为行内标签</p>
+<h4 id="4-display：none；"><a href="#4-display：none；" class="headerlink" title="4.display：none；"></a>4.display：none；</h4><p>将标签在页面上隐藏</p>
+<h3 id="2-总结"><a href="#2-总结" class="headerlink" title="2.总结**"></a>2.总结**</h3><p>将标签在页面上隐藏的方法</p>
+<table>
+<thead>
+<tr>
+<th>样式</th>
+<th>效果</th>
+<th>特点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>display：none；</td>
+<td>隐藏标签</td>
+<td>标签原位置消失</td>
+<td>底部广告，侧边栏，二级菜单，一般配合js做特效</td>
+</tr>
+<tr>
+<td>visibility：hidden；</td>
+<td>标签不可见</td>
+<td>原位置保留</td>
+<td>使用少，一般用于抽奖时已抽取的方块，不可见</td>
+</tr>
+<tr>
+<td>opacity：0；</td>
+<td>标签完全透明</td>
+<td>原位置保留</td>
+<td>配合c3过渡，实现淡入淡出的效果</td>
+</tr>
+<tr>
+<td>overflow：hidden</td>
+<td>溢出部分隐藏</td>
+<td>标签的原位置消失</td>
+<td>父级无定高，子级无定位时用它扩展盒子高度，起到清除浮动的作用。确保子级内容不超出父级</td>
+</tr>
+</tbody></table>
+<p>overflow：hidden；将溢出部分隐藏，并非标签本身隐藏</p>
+<h2 id="（七）行高"><a href="#（七）行高" class="headerlink" title="（七）行高*"></a>（七）行高*</h2><p>控制行间距</p>
+<p>一行时将行高和高设为一样的达到上下居中效果，</p>
+<p>多行时，将行高设为行数，实现每行间距效果相等</p>
+<p>也可根据需要设置行高值，调整行间距</p>
+<h2 id="（八）背景总结"><a href="#（八）背景总结" class="headerlink" title="（八）背景总结*"></a>（八）背景总结*</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background-color</td>
+<td>背景颜色</td>
+<td>预定义颜色值&#x2F;十六进制&#x2F;RGB代码&#x2F;rgba（）常用4种</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>背景图片</td>
+<td>url（图片路径）引在宽高能生效的标签内</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>是否平铺</td>
+<td>repeat&#x2F;no-repeat&#x2F;repeat-x&#x2F;repeat-y</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>背景位置</td>
+<td>length&#x2F;position  分别是x和y的坐标。先x后y的写法</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>背景固定还是滚动</td>
+<td>scroll&#x2F;fixed</td>
+</tr>
+<tr>
+<td>background-size</td>
+<td>背景图片大小</td>
+<td>像素值&#x2F;百分比&#x2F;contain&#x2F;cover  用于一个图铺满整个标签</td>
+</tr>
+<tr>
+<td>background：多个值</td>
+<td>更简单</td>
+<td>背景颜色  背景图片  背景平铺。。。没有顺序</td>
+</tr>
+<tr>
+<td>背景透明</td>
+<td>让盒子透明</td>
+<td>background：rgba（0，0，0，0.3）后面必需4个值</td>
+</tr>
+</tbody></table>
+<h2 id="（九）布局"><a href="#（九）布局" class="headerlink" title="（九）布局"></a>（九）布局</h2><h3 id="1-本质"><a href="#1-本质" class="headerlink" title="1.本质"></a>1.本质</h3><p>把标签&#x2F;盒子放到合适的位置，再把相应内容放到合适的盒子</p>
+<h3 id="2-盒模型"><a href="#2-盒模型" class="headerlink" title="2.盒模型*"></a>2.盒模型*</h3><p>解决合适的位置，包含五个常用样式</p>
+<p>width宽,   height高,    border边框,   padding内边距,     margin外边距,</p>
+<h3 id="3-width宽"><a href="#3-width宽" class="headerlink" title="3.width宽"></a>3.width宽</h3><p>块级标签：默认继承父级的宽，高度默认由内容撑开，可以重新设置宽高且生效</p>
+<p>行块标签：默认由内容撑开宽高，可以重新设置宽高且生效</p>
+<p>行内标签：默认由内容撑开宽高，可以重新设置宽高但不生效</p>
+<h3 id="4-标准文档流"><a href="#4-标准文档流" class="headerlink" title="4.标准文档流"></a>4.标准文档流</h3><p>指浏览器上展示的顺序和编辑器一致</p>
+<p>块级标签：从上往下</p>
+<p>行内&#x2F;行块：从左往右</p>
+<h2 id="（十）边框border"><a href="#（十）边框border" class="headerlink" title="（十）边框border*"></a>（十）边框border*</h2><h3 id="1-常用简写模式"><a href="#1-常用简写模式" class="headerlink" title="1.常用简写模式"></a>1.常用简写模式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">borde：宽度 风格 颜色//常用简写模式，无顺序要求</span><br><span class="line">例如：border:1px solid red;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-分样式"><a href="#2-分样式" class="headerlink" title="2.分样式"></a>2.分样式</h3><p>1.border-style 边框风格，必写</p>
+<p>常用取值：solid实线  dotted点线  dashed虚线  double双线  none没有（默认）</p>
+<p>2.border-width: 边框宽度  一般会写  不写默认为1px；</p>
+<p>3.border-color：边框颜色，一般会写，不写默认为#000；transparent透明的</p>
+<p>总结：分样式后可取1-4个值，取值为一个，四边一致。多个值按上右下左依次取值，没有和对边一样</p>
+<h3 id="3-各边单设的简写样式"><a href="#3-各边单设的简写样式" class="headerlink" title="3.各边单设的简写样式"></a>3.各边单设的简写样式</h3><p>border-top&#x2F;right&#x2F;bottom&#x2F;left取值是风格，宽度，颜色</p>
+<h2 id="（十一）内边距padding"><a href="#（十一）内边距padding" class="headerlink" title="（十一）内边距padding"></a>（十一）内边距padding</h2><h3 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1.定义*"></a>1.定义*</h3><p>内容到边框的距离</p>
+<h3 id="2-取值"><a href="#2-取值" class="headerlink" title="2.取值*"></a>2.取值*</h3><p>简写：padding  可取1-4个值，取值为一个，四边一致。多个值按上右下左依次取值，没有和对边一样</p>
+<p>分样式：padding-top&#x2F;right&#x2F;bottom&#x2F;left</p>
+<h3 id="3-盒子的尺寸"><a href="#3-盒子的尺寸" class="headerlink" title="3.盒子的尺寸"></a>3.盒子的尺寸</h3><p>添加padding之后会撑大盒子，加样式box-sizing：borde-box</p>
+<p>盒子的类型有两种，他们的尺寸为：</p>
+<p>①标准盒模型：</p>
+<p>盒子的实际宽度&#x3D;width+左右的padding+左右边框height</p>
+<p>盒子的实际高度&#x3D;height+上下的padding+上下边框</p>
+<p>②边框盒模型&#x2F;IE盒模型</p>
+<p>盒子的实际宽度&#x3D;width（内容的宽度+左右的padding+左右边框）</p>
+<p>盒子的实际高度&#x3D;height（内容的高度+左右的padding+上下边框）</p>
+<h2 id="（十二）margin外边距"><a href="#（十二）margin外边距" class="headerlink" title="（十二）margin外边距"></a>（十二）margin外边距</h2><h3 id="1-引入"><a href="#1-引入" class="headerlink" title="1.引入"></a>1.引入</h3><p>盒子在页面中占据的位置（宽高）&#x3D;盒子尺寸+外边距margin</p>
+<h3 id="2-定义"><a href="#2-定义" class="headerlink" title="2.定义*"></a>2.定义*</h3><p>盒子和盒子之间的距离</p>
+<h3 id="3-取值"><a href="#3-取值" class="headerlink" title="3.取值*"></a>3.取值*</h3><p>简写：margin 可取1-4个值，取值为一个，四边一致。多个值按上右下左依次取值，没有和对边一样</p>
+<p>分样式：margin-top&#x2F;right&#x2F;bottom&#x2F;left</p>
+<h3 id="4-使盒子水平居中"><a href="#4-使盒子水平居中" class="headerlink" title="4.使盒子水平居中*"></a>4.使盒子水平居中*</h3><p>1.使标签块级方式展示</p>
+<p>2.要设置宽度</p>
+<p>3.左右的margin必须是auto</p>
+<h3 id="5-img和背景图的使用场景"><a href="#5-img和背景图的使用场景" class="headerlink" title="5.img和背景图的使用场景"></a>5.img和背景图的使用场景</h3><p>1.img占位置 跳调整位置使用margin  padding 渲染快  页面一打开就看见的图建议使用img引入</p>
+<p>2.背景图  不占位置   ，调整位置使用background-position  文字可显示在背景图上</p>
+<h3 id="6-margin合并问题"><a href="#6-margin合并问题" class="headerlink" title="6.margin合并问题*"></a>6.margin合并问题*</h3><p>1.条件：垂直方向，中间无遮挡（相邻兄弟关系，紧贴的父子关系</p>
+<p>2.效果，空白为较大值</p>
+<p>3.解决方案：相邻的兄弟关系的情况，只要给margin设给一个标签</p>
+<p>紧贴的父子关系：</p>
+<p>​	1.给父级加边框</p>
+<p>​	2.给父级加padding</p>
+<p>​	3.在父级内加overflow：hidden</p>
+<h2 id="（十三）浮动"><a href="#（十三）浮动" class="headerlink" title="（十三）浮动*"></a>（十三）浮动*</h2><h4 id="1-语法"><a href="#1-语法" class="headerlink" title="1.语法"></a>1.语法</h4><p>样式名：float:    取值：none（默认）  lrft（左浮动）   right（右浮动）</p>
+<h4 id="2-特点"><a href="#2-特点" class="headerlink" title="2.特点"></a>2.特点</h4><h5 id="1-脱离标准文档流，块-x2F-行块-x2F-行内都可加float，加了浮动的标签会变成一个行块标签"><a href="#1-脱离标准文档流，块-x2F-行块-x2F-行内都可加float，加了浮动的标签会变成一个行块标签" class="headerlink" title="1.脱离标准文档流，块&#x2F;行块&#x2F;行内都可加float，加了浮动的标签会变成一个行块标签"></a>1.脱离标准文档流，块&#x2F;行块&#x2F;行内都可加float，加了浮动的标签会变成一个行块标签</h5><h5 id="2-用法：外层用标准文档流，内层浮动盒子，一般内层浮动的盒子不会超出父级，兄弟级之间最好保持一致，实现同一行展示"><a href="#2-用法：外层用标准文档流，内层浮动盒子，一般内层浮动的盒子不会超出父级，兄弟级之间最好保持一致，实现同一行展示" class="headerlink" title="2.用法：外层用标准文档流，内层浮动盒子，一般内层浮动的盒子不会超出父级，兄弟级之间最好保持一致，实现同一行展示"></a>2.用法：外层用标准文档流，内层浮动盒子，一般内层浮动的盒子不会超出父级，兄弟级之间最好保持一致，实现同一行展示</h5><h3 id="3-清除浮动"><a href="#3-清除浮动" class="headerlink" title="3.清除浮动"></a>3.清除浮动</h3><p>方法一：给父级加固定的高    优点：简单易行    缺点：内容数量不定时会溢出   使用场景：内容数量确定</p>
+<p>方法二：加空的<div  class="clear"></div>div&gt;,加样式，clear{clear：both}</p>
+<p>样式名clear   表示清除  取值 left  清除左浮动   取值 right   清除右浮动   both：清除两边浮动    none不清除（默认）常用取值both </p>
+<p>空div加在浮动结束的位置</p>
+<p>优点：实用性好  缺点：找到结束浮动的位置 ，页面代码冗余（空div多，可以在父级加空伪类处理）    </p>
+<p>适用场景：所有需要清除浮动的地方</p>
+<p>方法三：父级无定高，父级中加overflow：hidden</p>
+<p>优点：简单易行  缺点：子元素有定位时会失效</p>
+<p>适用场景：无定位时可用</p>
+<h2 id="（十四）overflow"><a href="#（十四）overflow" class="headerlink" title="（十四）overflow*"></a>（十四）overflow*</h2><h3 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h3><p>处理溢出父级的内容</p>
+<h3 id="2-取值-1"><a href="#2-取值-1" class="headerlink" title="2.取值"></a>2.取值</h3><p>visible可见（默认值）</p>
+<p>hidden隐藏  常用，可用于扩展盒子高度</p>
+<p>auto  自动生成滚动条，一般只有纵向滚动条查看溢出内容  常用</p>
+<p>scroll  生成纵向和横向滚动条  不常用</p>
+<h3 id="3-针对文本溢出，以。。。展示"><a href="#3-针对文本溢出，以。。。展示" class="headerlink" title="3.针对文本溢出，以。。。展示"></a>3.针对文本溢出，以。。。展示</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.text&#123;</span><br><span class="line">	white-space:nowrap;//文字不换行</span><br><span class="line">	overflow：hidden；//溢出部分隐藏</span><br><span class="line">	text-overflow:ellipsis;//溢出文本显示为…</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class=&quot;text&quot;&gt;</span><br><span class="line">	文字，文字场景不固定如经常更换的新闻标题等，短的直接显示，长的超出div宽度的变为。。。</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="（十五）定位"><a href="#（十五）定位" class="headerlink" title="（十五）定位*"></a>（十五）定位*</h2><h3 id="1-作用-1"><a href="#1-作用-1" class="headerlink" title="1.作用"></a>1.作用</h3><p>调整标签位置</p>
+<h3 id="2-取值-2"><a href="#2-取值-2" class="headerlink" title="2.取值"></a>2.取值</h3><p>样式名：position</p>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>参照</th>
+<th>原位置</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>relative相对定位</td>
+<td>自身原本位置</td>
+<td>保留，未脱离标准文档流</td>
+<td>调整标签本身如：图片文字对齐</td>
+</tr>
+<tr>
+<td>absolute绝对定位</td>
+<td>①离他最近有定位的祖先元素②没找到参照浏览器</td>
+<td>消失，脱离标准文档流</td>
+<td>二级菜单，轮播图等</td>
+</tr>
+<tr>
+<td>fixed固定定位</td>
+<td>浏览器</td>
+<td>消失，脱离标准文档流</td>
+<td>顶部搜索导航，侧边栏，广告栏</td>
+</tr>
+</tbody></table>
+<p>共同点  可以分别设置偏移的方向（top&#x2F;right&#x2F;bottom&#x2F;left）和偏移量px（正负都可）绝对定位和固定定位的标签会自动转化为行块</p>
+<h3 id="3-定位后的重叠问题"><a href="#3-定位后的重叠问题" class="headerlink" title="3.定位后的重叠问题"></a>3.定位后的重叠问题</h3><p>使用样式z-index：整数（正负都可）</p>
+<p>数字越大，越在上层，只有在有定位的情况下生效</p>
+<h2 id="十六-移入时鼠标样式"><a href="#十六-移入时鼠标样式" class="headerlink" title="(十六)移入时鼠标样式*"></a>(十六)移入时鼠标样式*</h2><p>1.样式名：cursor</p>
+<p>2.取值：pointer移入后变手（超链接标志）</p>
+<h2 id="（十七）轮廓线"><a href="#（十七）轮廓线" class="headerlink" title="（十七）轮廓线*"></a>（十七）轮廓线*</h2><p>1.样式名</p>
+<p>outline</p>
+<p>2.取值</p>
+<p>在input获取光标时展示，一般不用，设置为outline：none；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">outline：outline-color  outline-width  outline-style;</span><br><span class="line">取值用法同border</span><br></pre></td></tr></table></figure>
+
+<h2 id="十八-行内-x2F-行块标签的垂直对齐"><a href="#十八-行内-x2F-行块标签的垂直对齐" class="headerlink" title="(十八)行内&#x2F;行块标签的垂直对齐*"></a>(十八)行内&#x2F;行块标签的垂直对齐*</h2><h3 id="1-样式名"><a href="#1-样式名" class="headerlink" title="1.样式名"></a>1.样式名</h3><p>vertical-align</p>
+<h3 id="2-取值-3"><a href="#2-取值-3" class="headerlink" title="2.取值"></a>2.取值</h3><p>常用：middle中线对齐</p>
+<p>其他取值：baseline基线对齐（默认）top （顶线对齐）bottom(底线对齐)</p>
+<h2 id="（十九）精灵图"><a href="#（十九）精灵图" class="headerlink" title="（十九）精灵图"></a>（十九）精灵图</h2><h3 id="1-定义-2"><a href="#1-定义-2" class="headerlink" title="1.定义"></a>1.定义</h3><p>将项目中常用的小的背景图整合到一张大图上。做成一张精灵图（雪碧图）</p>
+<h3 id="2-作用"><a href="#2-作用" class="headerlink" title="2.作用"></a>2.作用</h3><p>1.减少项目中图片素材所占空间大小 ，加快项目加载速度。</p>
+<p>2.减少浏览器向服务器发送图片请求次数，提升加载速度，优化用户体验</p>
+<h3 id="3-应用的css样式"><a href="#3-应用的css样式" class="headerlink" title="3.应用的css样式"></a>3.应用的css样式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.list i&#123;*</span><br><span class="line">			display: block;//①标签要是宽高能生效的块级/行块标签</span><br><span class="line">			width: 22px;//②要给标签加宽高</span><br><span class="line">			height: 25px;</span><br><span class="line">			background: url(taobao.png)  0px 0px;//③引入精灵图注意定位</span><br><span class="line">			margin: 13px auto;//④调整标签位置</span><br><span class="line">		&#125;</span><br><span class="line">&lt;ul class=&quot;list&quot;&gt;</span><br><span class="line">	&lt;li&gt;</span><br><span class="line">	&lt;i&gt;&lt;/i&gt;</span><br><span class="line">		充话费</span><br><span class="line">	&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-CSS3"><a href="#三-CSS3" class="headerlink" title="三.CSS3"></a>三.CSS3</h1><h2 id="（一）定义及作用"><a href="#（一）定义及作用" class="headerlink" title="（一）定义及作用"></a>（一）定义及作用</h2><p>css最新的标准，用于美化界面</p>
+<h2 id="（二）边框圆角"><a href="#（二）边框圆角" class="headerlink" title="（二）边框圆角*"></a>（二）边框圆角*</h2><h3 id="1-样式名-1"><a href="#1-样式名-1" class="headerlink" title="1.样式名"></a>1.样式名</h3><p>borde-radius</p>
+<h3 id="2-取值-4"><a href="#2-取值-4" class="headerlink" title="2.取值"></a>2.取值</h3><p>可以取px单位具体值，也可以取%。取一个值，四个角都一样，取多个值按上右下左的顺序取值，没有和对角一样</p>
+<h2 id="（三）盒子阴影"><a href="#（三）盒子阴影" class="headerlink" title="（三）盒子阴影*"></a>（三）盒子阴影*</h2><h3 id="1-样式名-2"><a href="#1-样式名-2" class="headerlink" title="1.样式名"></a>1.样式名</h3><p>box-shadow</p>
+<h3 id="2-取值-5"><a href="#2-取值-5" class="headerlink" title="2.取值"></a>2.取值</h3><p>按顺序写，水平和垂直阴影必写，选写根据需要写</p>
+<p>box-shadow:水平阴影  垂直阴影  模糊距离  阴影尺寸  颜色  内外</p>
+<h2 id="（四）文本阴影"><a href="#（四）文本阴影" class="headerlink" title="（四）文本阴影*"></a>（四）文本阴影*</h2><h3 id="1-样式名-3"><a href="#1-样式名-3" class="headerlink" title="1.样式名"></a>1.样式名</h3><p>text-shadow</p>
+<h3 id="2-取值-6"><a href="#2-取值-6" class="headerlink" title="2.取值"></a>2.取值</h3><p>按顺序写，水平和垂直阴影必写，选写根据需要写</p>
+<p>text-shadow:水平阴影  垂直阴影  模糊距离    颜色  </p>
+<h3 id="五-不透明度"><a href="#五-不透明度" class="headerlink" title="(五)不透明度*"></a>(五)不透明度*</h3><h3 id="1-设置的方式"><a href="#1-设置的方式" class="headerlink" title="1.设置的方式"></a>1.设置的方式</h3><p>1.opacity：.4;</p>
+<p>2.background-color:raba(255,255,255，4)</p>
+<h3 id="2-相同点"><a href="#2-相同点" class="headerlink" title="2.相同点"></a>2.相同点</h3><p>取值范围：0-1，0完全不可见&#x2F;完全透明，1完全可见&#x2F;完全不透明，都用于做蒙版效果</p>
+<h3 id="3-不同点"><a href="#3-不同点" class="headerlink" title="3.不同点"></a>3.不同点</h3><p>opacity是个单独的样式，rgba（）只是背景色的一种取值方式</p>
+<p>opacity影响背景和里面的内容，raba（）只影响背景</p>
+<h2 id="（六）transform-2D或3D转换"><a href="#（六）transform-2D或3D转换" class="headerlink" title="（六）transform  2D或3D转换"></a>（六）transform  2D或3D转换</h2><h3 id="1-样式名-4"><a href="#1-样式名-4" class="headerlink" title="1.样式名"></a>1.样式名</h3><p>transform </p>
+<h3 id="2-取值-7"><a href="#2-取值-7" class="headerlink" title="2.取值"></a>2.取值</h3><h4 id="1-移动"><a href="#1-移动" class="headerlink" title="1.移动"></a>1.移动</h4><p>translate（x，y）沿x，y轴移动</p>
+<p>translateX（x）沿x轴移动</p>
+<p>translateY（y）沿y轴移动</p>
+<p>（）中s，y可以传px单位的值，%，灵活单位如em，vw</p>
+<p>特点：可移出父级，扔在标准文档流中原位置保留</p>
+<h4 id="2-旋转"><a href="#2-旋转" class="headerlink" title="2.旋转"></a>2.旋转</h4><p>1.rotate（ndeg）沿着x轴和y轴同时旋转n度</p>
+<p>2.rotateX（ndeg）沿着x轴旋转n度</p>
+<p>3.rotateY（ndeg）沿着y轴旋转n度</p>
+<p>n是数字，可正可负，deg是单位</p>
+<h4 id="3-缩放"><a href="#3-缩放" class="headerlink" title="3.缩放"></a>3.缩放</h4><p>scale（x，y）对宽度缩放x倍，对高度缩放y倍</p>
+<p>scaleX（x）对宽度缩放x倍</p>
+<p>scaleY（y）对高度缩放y倍</p>
+<p>缩小：0&lt;倍数&lt;1 缩小    -1&lt;倍数&lt;0  翻转缩小</p>
+<p>放大：倍数&gt;1放大   倍数&lt;-1翻转放大</p>
+<p>临界值:1原本大小   0没有&#x2F;隐藏   -1原本大小翻转</p>
+<h4 id="4-倾斜-x2F-拉伸"><a href="#4-倾斜-x2F-拉伸" class="headerlink" title="4.倾斜&#x2F;拉伸"></a>4.倾斜&#x2F;拉伸</h4><p>skew（ndeg）沿着x轴和y轴同时倾斜&#x2F;拉伸n度</p>
+<p>skewX（ndeg）沿着x轴倾斜&#x2F;拉伸x倍</p>
+<p>skewY（ndeg）沿着y轴倾斜&#x2F;拉伸y倍</p>
+<p>n是数字，可正可负，正数表示拉左上和右下角在水平或垂直方向拉伸</p>
+<p>负数表示拉右上和左下角在水平或垂直方向拉伸    deg是单位</p>
+<h2 id="（七）transform-origin基点"><a href="#（七）transform-origin基点" class="headerlink" title="（七）transform-origin基点"></a>（七）transform-origin基点</h2><h3 id="1-样式名-5"><a href="#1-样式名-5" class="headerlink" title="1.样式名"></a>1.样式名</h3><p>transform-origin</p>
+<h3 id="2-取值-8"><a href="#2-取值-8" class="headerlink" title="2.取值"></a>2.取值</h3><p>①px单位的长度值 </p>
+<p>②%      </p>
+<p>③关键词   水平方向：left   right    center    垂直方向：top   center    bottom</p>
+<p>z轴只能用①</p>
+<h3 id="3-作用"><a href="#3-作用" class="headerlink" title="3.作用"></a>3.作用</h3><p>在2d和3d转换效果中，确定不动的点在哪里，默认值都是中心点（矩形对角线的交点）</p>
+<h2 id="（八）3d效果必须在父级添加的样式"><a href="#（八）3d效果必须在父级添加的样式" class="headerlink" title="（八）3d效果必须在父级添加的样式"></a>（八）3d效果必须在父级添加的样式</h2><h3 id="1-transform-style：preserve-d："><a href="#1-transform-style：preserve-d：" class="headerlink" title="1.transform-style：preserve-d："></a>1.transform-style：preserve-d：</h3><p>转换效果按照3d效果展示——搭建3d舞台</p>
+<h3 id="2-perspective：1000px；"><a href="#2-perspective：1000px；" class="headerlink" title="2.perspective：1000px；"></a>2.perspective：1000px；</h3><p>元素离视图的距离、透视——视角</p>
+<h2 id="（九）渐变"><a href="#（九）渐变" class="headerlink" title="（九）渐变"></a>（九）渐变</h2><p>定义：背景在两种或多种颜色之间平滑过渡</p>
+<p>由浏览器生成，可以写background：渐变或background-image：渐变，本质是图片</p>
+<p>分类：线性渐变，径向渐变</p>
+<h3 id="1-线性渐变"><a href="#1-线性渐变" class="headerlink" title="1.线性渐变"></a>1.线性渐变</h3><p>background：linear-gradient（颜色1，颜色2，。。。）默认从上至下</p>
+<p>background：linear-gradient（to left方向,颜色1，颜色2，。。。）指定最后一个颜色的方向</p>
+<p>background：repeating-linear-gradient（颜色1 %，颜色2 %，。。。）重复的线性渐变%后一个比前一个大</p>
+<h3 id="2-径向渐变"><a href="#2-径向渐变" class="headerlink" title="2.径向渐变"></a>2.径向渐变</h3><p>background：radial-gradient（颜radial色1，颜色2，。。。）默认均匀分布</p>
+<p>background：radial-gradient（颜radial色1 %，颜色2 %，。。。）不均匀分布</p>
+<p>background：radial-gradient（circle，颜radial色1，颜色2，。。。）默认椭圆，改为圆</p>
+<p>background：repeating-radial-gradient（颜色1 %，颜色2 %，。。。）重复的径向渐变%后一个比前一个大</p>
+<h2 id="（十）过渡transition"><a href="#（十）过渡transition" class="headerlink" title="（十）过渡transition"></a>（十）过渡transition</h2><h3 id="1-定义-3"><a href="#1-定义-3" class="headerlink" title="1.定义"></a>1.定义</h3><p>同一个样式名，样式值从一种逐渐变成另一种</p>
+<h3 id="2-简写、复合样式"><a href="#2-简写、复合样式" class="headerlink" title="2.简写、复合样式"></a>2.简写、复合样式</h3><p>transition：样式名  花费时间   时间曲线    等待时间</p>
+<p>无顺序，浏览器会以看到的第一个时间为花费时间  样式名  花费时间必写。</p>
+<h3 id="3-单独样式"><a href="#3-单独样式" class="headerlink" title="3.单独样式"></a>3.单独样式</h3><h4 id="1-transition-property"><a href="#1-transition-property" class="headerlink" title="1.transition-property"></a>1.transition-property</h4><p>默认值none，表示无过渡，all表示所有样式名都可过渡</p>
+<p>某个样式名  width等，表示只有这个样式有过度效果</p>
+<h4 id="2-transition-duration花费时间-正数"><a href="#2-transition-duration花费时间-正数" class="headerlink" title="2.transition-duration花费时间   正数"></a>2.transition-duration花费时间   正数</h4><p>默认值是0，表示无过渡</p>
+<p>取值可以是s或者是ms    1s&#x3D;1000ms</p>
+<h4 id="3-transition-delay-等待时间"><a href="#3-transition-delay-等待时间" class="headerlink" title="3.transition-delay 等待时间"></a>3.transition-delay 等待时间</h4><p>默认值是0，表示无等待</p>
+<p>取值可以是s或者是ms    1s&#x3D;1000ms</p>
+<p>为正表示等待多久开始过渡   为负表示提前多久开始过渡</p>
+<h4 id="4-transition-timing-function-时间曲线"><a href="#4-transition-timing-function-时间曲线" class="headerlink" title="4.transition-timing-function 时间曲线"></a>4.transition-timing-function 时间曲线</h4><p>默认ease  先慢后快</p>
+<p>linear匀速     ease-in 慢速开始     ease-out慢速结束   ease-in-out  慢速开始和结束</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/25/html+css+cs3/[object%20Object]/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/04/25/HTML%E4%B8%8ECSS/%5Bobject%20Object%5D/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "3qyLjrAr7YkTJKI0Xl80BcAY-gzGzoHsz",
+    app_key: "kyl2Culg6fFEqXmB2pJJm7bo",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022
+        <i class="ri-heart-fill heart_icon"></i> Wu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/wuxianjinbu.svg" alt="Make progress, Wu"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
