@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>37.ajax |  Make progress, Wu</title>
+      <title>38.uniapp基础 |  Make progress, Wu</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/无限.svg" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-37-ajax"
+  id="post-38-uniapp基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  37.ajax
+  38.uniapp基础
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/20/37-ajax/%5Bobject%20Object%5D/" class="article-date">
-  <time datetime="2022-04-20T15:03:19.000Z" itemprop="datePublished">2022-04-20</time>
+      <a href="/2022/04/21/38-uniapp%E5%9F%BA%E7%A1%80/%5Bobject%20Object%5D/" class="article-date">
+  <time datetime="2022-04-21T10:38:54.000Z" itemprop="datePublished">2022-04-21</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ajax/">ajax</a>
+    <a class="article-category-link" href="/categories/uniapp/">uniapp</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">331</span>
+            <span class="post-count">811</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -112,30 +112,193 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h3 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h3><p>js编写ajax请求</p>
-<p>特点：异步加载，局部刷新</p>
-<h4 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h4><p>1.onreadystatechange</p>
-<p>存有处理服务器响应的函数</p>
-<p>2.readyState</p>
-<p>存有服务器响应的状态信息</p>
-<p>readyState（0，1，2，3，4）改变onreadystatechange函数就执行</p>
-<p>3.responseText</p>
-<p>取服务器返回的数据</p>
-<p>4.responseXML</p>
-<p>返回数据的兼容DOM的XML对象，可解析为DOM对象</p>
-<p>5.responseBody </p>
-<p>返回主题</p>
-<p>6.responseStream</p>
-<p>返回数据流</p>
-<p>7.status</p>
-<p>返回的http状态码（100,200,….)</p>
-<p>8.statusText</p>
-<p>返回的文本信息（ok，not found）等</p>
-<h4 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h4><p>1.open()</p>
-<p>三个参数请求方法	服务器url	是否异步处理</p>
-<p>2.send()</p>
-<p>将请求发往服务器</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">		<span class="comment">// 创建XML对象</span></span><br><span class="line">		<span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">		xmlhttp.<span class="title function_">open</span>(<span class="string">&quot;get&quot;</span>,<span class="string">&quot;1.txt&quot;</span>,<span class="literal">true</span>)<span class="comment">//设置请求</span></span><br><span class="line"></span><br><span class="line">		xmlhttp.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">			<span class="variable language_">console</span>.<span class="title function_">log</span>(xmlhttp.<span class="property">readyState</span>)<span class="comment">//打印请求状态</span></span><br><span class="line">				<span class="keyword">if</span>(xmlhttp.<span class="property">readyState</span> == <span class="number">4</span>)&#123;<span class="comment">//请求状态码等于4时，</span></span><br><span class="line">					<span class="keyword">if</span>(xmlhttp.<span class="property">status</span> == <span class="number">200</span>)&#123;<span class="comment">//ajax200表示成功</span></span><br><span class="line">						<span class="title function_">alert</span>(xmlhttp.<span class="property">responseText</span>);<span class="comment">//弹出文档的内容</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		xmlhttp.<span class="title function_">send</span>()<span class="comment">//发送请求</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"><span class="attr">readyState</span>:请求状态码</span><br><span class="line"><span class="number">0</span>	未初始化</span><br><span class="line"><span class="number">1</span>	正在加载</span><br><span class="line"><span class="number">2</span>	已加载</span><br><span class="line"><span class="number">3</span>	交互中</span><br><span class="line"><span class="number">4</span>	完成</span><br><span class="line"></span><br><span class="line">status</span><br><span class="line"><span class="number">1</span>**	请求收到</span><br><span class="line"><span class="number">2</span>**	操作成功收到，分析，接受</span><br><span class="line"><span class="number">3</span>**	完成此请求必需进一步处理</span><br><span class="line"><span class="number">4</span>**	请求包含一个错误语法或不能完成</span><br><span class="line"><span class="number">5</span>**	服务器端有错误</span><br></pre></td></tr></table></figure>
+  <h3 id="1-内置组件"><a href="#1-内置组件" class="headerlink" title="1.内置组件"></a>1.内置组件</h3><h4 id="lt-text-gt"><a href="#lt-text-gt" class="headerlink" title="&lt;text&gt;"></a><code>&lt;text&gt;</code></h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th><strong>类型</strong></th>
+<th>默认值</th>
+<th>平台差异</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>selectable</td>
+<td>是否可选</td>
+<td>boolean</td>
+<td>false</td>
+<td>App H5 快手小程序</td>
+</tr>
+<tr>
+<td>user-select</td>
+<td>是否可选</td>
+<td>boolean</td>
+<td>false</td>
+<td>微信小程序</td>
+</tr>
+<tr>
+<td>space</td>
+<td>显示连续空格</td>
+<td>string</td>
+<td></td>
+<td>App H5 微信小程序</td>
+</tr>
+<tr>
+<td>decode</td>
+<td>是否解码</td>
+<td>boolean</td>
+<td>false</td>
+<td>App H5 微信小程序</td>
+</tr>
+</tbody></table>
+<p><strong>space值</strong></p>
+<p><strong>ensp</strong>			中文字符空格一半大小</p>
+<p><strong>emsp</strong>		   中文字符空格大小</p>
+<p><strong>nbsp</strong>			根据字体大小</p>
+<p><strong>decode</strong></p>
+<p>可以解析</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;lt; &amp;gt; &amp;amp;(&amp;) &amp;apos;(单引号) &amp;ensp; &amp;emsp; &amp;nbsp;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="lt-view-gt"><a href="#lt-view-gt" class="headerlink" title="&lt;view&gt;"></a><code>&lt;view&gt;</code></h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th>默认值</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hover-class</td>
+<td>按下触发的样式类</td>
+<td>none</td>
+<td>string</td>
+</tr>
+<tr>
+<td>hover-start-time</td>
+<td>延时触发hover-class</td>
+<td>50</td>
+<td>number</td>
+</tr>
+<tr>
+<td>hover-stay-time</td>
+<td>触发后延时hover-class</td>
+<td>400</td>
+<td>number</td>
+</tr>
+<tr>
+<td>hover-stop-propagation</td>
+<td>阻止冒泡</td>
+<td>false</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+<h4 id="lt-navigator-gt"><a href="#lt-navigator-gt" class="headerlink" title="&lt;navigator&gt;"></a><code>&lt;navigator&gt;</code></h4><p><strong>到普通页面</strong></p>
+<p>可传递参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=&quot;../detail/detail?id=10&amp;age=18&quot;&gt;去detail&lt;/navigator&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接收</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onLoad(options)&#123;</span><br><span class="line">	console.log(options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>卸载当前页面并跳转**</p>
+<p><strong>redirect</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=&quot;../detail/detail&quot; open-type=&quot;redirect&quot;&gt;去detail&lt;/navigator&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>到tabBar页面</strong></p>
+<p><strong>switchTab</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=&quot;../index/index&quot; open-type=&quot;switchTab&quot;&gt;index&lt;/navigator&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="2-字体图标"><a href="#2-字体图标" class="headerlink" title="2.字体图标"></a>2.字体图标</h3><h4 id="font-class"><a href="#font-class" class="headerlink" title="font class"></a>font class</h4><p>1.下载 font class到本地</p>
+<p>2.解压后，将.ttf	.woff	.woff2	iconfont.css	copy到static目录</p>
+<p>3.@import url()</p>
+<p>4.修改iconfont.css将</p>
+<p>url引入地址前加~@</p>
+<p>例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@font-face&#123;</span><br><span class="line">	font-family:&quot;iconfont&quot;;</span><br><span class="line">	src:url(&#x27;~@static/iconfont.woff........&#x27;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.页面使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;iconfont icon-test&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h4><p>1.下载Unicode到本地</p>
+<p>2.解压后将iconfont.css	copy到static目录</p>
+<p>3.将Unicode在线链接复制替换iconfont.css中的**@font-face**</p>
+<p>4.引入@import url()</p>
+<p>5.使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;iconfont&gt;	&amp;#xe61d;	&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h4><p>1.下载symbol到本地</p>
+<p>2.解压后更改文件命为iconfont(或其他)</p>
+<p>3.在文件夹下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g iconfont-tools</span><br></pre></td></tr></table></figure>
+
+<p>4.执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iconfont-tools</span><br></pre></td></tr></table></figure>
+
+<p> 生成的目标文件 iconfont-weapp </p>
+<p>5.将 iconfont-weapp-icon.css （默认生成的文件名字）放入uniapp项目的static </p>
+<p>6.引入@import url()</p>
+<p>7.使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view class=&quot;t-icon t-icon-yunixia&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="3.生命周期"></a>3.生命周期</h3><h4 id="应用生命周期"><a href="#应用生命周期" class="headerlink" title="应用生命周期"></a>应用生命周期</h4><p><strong>onLaunch</strong>	初始化完成(全局只触发一次)</p>
+<p><strong>onShow</strong></p>
+<p><strong>onHide</strong></p>
+<p><strong>onError</strong></p>
+<h4 id="页面生命周期"><a href="#页面生命周期" class="headerlink" title="页面生命周期"></a>页面生命周期</h4><p><strong>onLoad</strong></p>
+<p><strong>onShow</strong></p>
+<p><strong>onReady</strong></p>
+<p><strong>onHide</strong></p>
+<h5 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h5><p> <strong>onPullDownRefresh</strong> </p>
+<p>1.pages.json 配置	“enablePullDownRefresh”:true</p>
+<ol start="2">
+<li></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//1.直接下拉刷新</span><br><span class="line">onPullDownRefresh()&#123;</span><br><span class="line">//执行代码</span><br><span class="line">	.....</span><br><span class="line">//执行完后停止刷新</span><br><span class="line">	uni.stopPullDownRefresh()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.methods进行刷新</span><br><span class="line">methods:&#123;</span><br><span class="line">	pulldown()&#123;</span><br><span class="line">		uni.startPullDownRefresh()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="上拉加载"><a href="#上拉加载" class="headerlink" title="上拉加载"></a>上拉加载</h5><p> <strong>onReachBottom</strong> </p>
+<p>1.pages.json 配置	</p>
+<p> 上拉触底距页面底部距离，单位只支持px </p>
+<p>“ <strong>onReachBottomDistance</strong> “:number</p>
+<h4 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h4><p>与vue相同</p>
+<h3 id="4-组件"><a href="#4-组件" class="headerlink" title="4.组件"></a>4.组件</h3><p>导入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import test from &#x27;../../componennts/test.vue&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="传值"><a href="#传值" class="headerlink" title="传值"></a>传值</h4><h4 id="父-x3D-x3D-gt-子"><a href="#父-x3D-x3D-gt-子" class="headerlink" title="父&#x3D;&#x3D;&gt;子"></a>父&#x3D;&#x3D;&gt;子</h4><p><strong>props</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">父</span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>)&#123;<span class="keyword">return</span> &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;&#125;</span><br><span class="line">&lt;son :a=<span class="string">&quot;a&quot;</span>/&gt;</span><br><span class="line">子</span><br><span class="line"><span class="attr">props</span>:[<span class="string">&quot;a&quot;</span>]</span><br><span class="line">&lt;view&gt;&#123;&#123;a&#125;&#125;&lt;/view&gt;</span><br><span class="line"><span class="comment">//把值父组件的值定义为子组件的prop属性</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="子-x3D-x3D-gt-父"><a href="#子-x3D-x3D-gt-父" class="headerlink" title="子&#x3D;&#x3D;&gt;父"></a>子&#x3D;&#x3D;&gt;父</h4><p><strong>$emit</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">子</span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>)&#123;<span class="keyword">return</span> &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;&#125;</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">	<span class="title function_">btn</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">this</span>.$emit(<span class="string">&quot;方法名&quot;</span>,value)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">父</span><br><span class="line">&lt;son @方法名=<span class="string">&quot;方法名&quot;</span>/&gt;</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">	方法名(sonData)&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件$emit	父组件绑定事件</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="兄-x3D-x3D-gt-弟-页面通信"><a href="#兄-x3D-x3D-gt-弟-页面通信" class="headerlink" title="兄&#x3D;&#x3D;&gt;弟(页面通信)"></a>兄&#x3D;&#x3D;&gt;弟(页面通信)</h4><p><strong>$emit 	$on</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">兄</span><br><span class="line">&lt;button	@click=<span class="string">&quot;sendData&quot;</span>&gt;&lt;/button&gt;</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="title function_">sendData</span>(<span class="params"></span>)&#123;</span><br><span class="line">        uni.$emit(<span class="string">&quot;upData&quot;</span>,<span class="number">10</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">弟</span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>)&#123;<span class="keyword">return</span> <span class="attr">num</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="title function_">created</span>(<span class="params"></span>)&#123;</span><br><span class="line">    uni.$on(<span class="string">&quot;upData&quot;</span>,<span class="function"><span class="params">num</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">num</span> += num</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
  
       <!-- reward -->
@@ -189,12 +352,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/20/37-ajax/[object%20Object]/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/04/21/38-uniapp%E5%9F%BA%E7%A1%80/[object%20Object]/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uniapp/" rel="tag">uniapp</a></li></ul>
 
     </footer>
   </div>
@@ -202,19 +365,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/21/38-uniapp%E5%9F%BA%E7%A1%80/%5Bobject%20Object%5D/" class="article-nav-link">
+      <a href="/2022/04/22/39-uniapp-API/%5Bobject%20Object%5D/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            38.uniapp基础
+            39.uniapp---API
           
         </div>
       </a>
     
     
-      <a href="/2022/04/19/36-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95/%5Bobject%20Object%5D/" class="article-nav-link">
+      <a href="/2022/04/20/37-ajax/%5Bobject%20Object%5D/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">36.数组与字符串方法</div>
+        <div class="article-nav-title">37.ajax</div>
       </a>
     
   </nav>
